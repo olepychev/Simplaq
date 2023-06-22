@@ -1,0 +1,107 @@
+{
+
+  "search": "Search",
+  "floorplan": "Floorplan",
+  "shop": "Shop",
+  "dine": "Dine",
+  "services": "Services",
+  "rewards": "Rewards",
+
+  "download_mobile_app": "Download mobile app",
+
+  "login": "Login",
+  "create_account": "Create Account",
+
+  "upcoming_events": "Upcoming events",
+  "news": "News",
+  "sales": "Sales",
+  "popular_mall_brands": "Popular Mall Brands",
+  "entertain": "Entertain",
+
+  "download": "Download",
+  "download_on_the": "Download on the",
+  "app_store": "App Store",
+  "google_play": "Google Play",
+  "our_app_and_get_benefits": "Our App and get benefits",
+  "cta_text": "Find your favorite places and boutiques quickly and easily",
+  "map_navigation": "Map navigation",
+  "map_navigation_text": "Find your favorite places and boutiques quickly and easily",
+  "earn_points": "Earn points for every purchase",
+  "earn_points_text": "Turn your points into rewards of your choice!",
+  "quick_pay": "Quick Pay for Parking",
+  "quick_pay_text": "Now there is no need to look for available places, just book it with the app in one click",
+
+  "see_all": "See all",
+  "for_visitors": "For Visitors",
+  "mail_map": "Mail Map",
+  "amenities": "Amenities",
+  "loyalty": "Loyalty",
+  "discover": "Discover",
+  "events": "Events",
+  "about_us": "About Us",
+  "about_mall": "About mall",
+  "careers": "Careers",
+  "media_center": "Media Center",
+
+  "useful_links": "Useful links",
+  "faq": "FAQ",
+  "contact_support": "Contact Support",
+  "subscribe_text": "Get exclusive offers and weekly updates",
+  "follow_us": "Follow US",
+  "hot": "HOT",
+  "subscribe": "Subscribe",
+  "customer": "Customer",
+  "support": "support",
+  "and_help_24/7": "and help 24 / 7",
+
+  "simpla": "Simpla",
+  "all_rights_reserved": "All rights reserved. © 2022",
+  "privacy_terms": "Privacy & terms",
+  "terms_service": "Terms of Service",
+  "terms_conditions": "Terms & Conditions",
+
+  "you_may_also_like": "You May Also Like",
+  "redeem_for": "Redeem for",
+  "gift_card_sturbucks": "Gift Card Sturbucks",
+  "in_stock": "in stock",
+  "max": "Max",
+  "items_per_person": "items per person",
+  "off_discount_card": "off discount card",
+  "pcs": "pcs",
+
+  "free": "Free",
+
+  "email": "Email",
+  "password": "Password",
+  
+
+  "hello_again": "Hello Again",
+  "login_welcome_text": "Welcome back. you've been missed",
+
+  "enter_your_email":"Enter your email",
+  "enter_your_password": "Enter your password",
+  "sign_in": "Sign In",
+  "or_use_social_media": "Or use social media",
+  "sign_in_with_google": "Sign in with Google",
+  "sign_in_with_facebook": "Sign in with Facebook",
+  "forgot_password": "Forgot Password?",
+
+  "all": "All",
+  "approved": "Approved",
+  "rejected": "Rejected",
+  "pending_approval": "Pending approval",
+  "upload_my_receipt": "Upload my receipt",
+  "date": "Date",
+  "points": "Points",
+  "show_result": "Show result",
+  "my_rewards": "My Rewards",
+  "follow":"Follow",
+
+  "scan_your_receipt_and": "Scan your receipt and",
+  "get_points_for_rewards": "get points for reward",
+  "lite_hero_text": "You can do this with our app or add them directly from here.",
+  "download_app": "Download App",
+
+  "loyalty_points": "Loyalty points",
+  "pt": "pt"
+}

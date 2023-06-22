@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/fonts/Raleway-Medium.ttf');
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+input {
+    font-family: 'Raleway', sans-serif;
+}
