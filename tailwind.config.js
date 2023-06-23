@@ -28,6 +28,7 @@ module.exports = {
         'gray-light-500': '#F5F5F5',
         'grayDark': '#646572',
         'grayDark2': '#94959F',
+        "grayDark3": "#646572",
         'redLight': '#FDF4F5',
         'red': '#F64D4D',
         'yellow': '#FFC738',

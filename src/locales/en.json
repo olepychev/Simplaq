@@ -11,6 +11,7 @@
 
   "login": "Login",
   "create_account": "Create Account",
+  "create_an_account": "Create an account",
 
   "upcoming_events": "Upcoming events",
   "news": "News",
@@ -71,20 +72,40 @@
 
   "free": "Free",
 
+  "register_now": "Register now",
+
+  "name": "Name",
+  "surname": "Surname",
   "email": "Email",
+  "phone_number": "Phone number",
   "password": "Password",
-  
+  "already_a_member?": "Already a member",
+  "dont_have_registration_yet?": "Don't have registration yet?",
+
+  "please_verify_your_email": "Please Verify Your Email",
+  "verify_email_text": "Check your email and Tap the button in the email we’ve sent to",
+  "lets_start": "Let's start",
+  "resend_email": "Resend email",
+
+  "need_help?": "Need help?",
+  "enter_your_mobile_phone_number": "Enter your mobile phone number",
 
   "hello_again": "Hello Again",
   "login_welcome_text": "Welcome back. you've been missed",
+  "signup_title": "Sign up to get great experience with Galerie Harfa",
+  "signup_welcome_text": "Let's go through a few simple steps",
 
   "enter_your_email":"Enter your email",
   "enter_your_password": "Enter your password",
   "sign_in": "Sign In",
   "or_use_social_media": "Or use social media",
   "sign_in_with_google": "Sign in with Google",
+  "continue_with_google": "Continue with Google",
   "sign_in_with_facebook": "Sign in with Facebook",
+  "continue_with_facebook": "Continue with Facebook",
+  "registration_with_email": "Registration with E-mail",
   "forgot_password": "Forgot Password?",
+
 
   "all": "All",
   "approved": "Approved",
