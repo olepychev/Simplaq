@@ -35,7 +35,7 @@
           <div class="flex items-center justify-center bg-white min-h-screen">
             <div class="h-full w-full flex flex-col py-[40px] px-[48px]">
               <div class="w-full">
-                <router-link v-if="step===1" to="/" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
+                <router-link v-if="step===1" :to="{name: $Routes.LOGIN}"  class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4"
@@ -48,7 +48,7 @@
                   </svg>
                 </router-link>
 
-                <div v-if="step===2" @click="step = 1" to="/" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
+                <div v-if="step===2" @click="step = 1" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4"
@@ -61,7 +61,7 @@
                   </svg>
                 </div>
 
-                <div v-if="step===3" @click="step = 2" to="/" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
+                <div v-if="step===3" @click="step = 2" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4"
@@ -74,7 +74,7 @@
                   </svg>
                 </div>
 
-                <div v-if="step===4" @click="step = 3" to="/" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
+                <div v-if="step===4" @click="step = 3" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4"
