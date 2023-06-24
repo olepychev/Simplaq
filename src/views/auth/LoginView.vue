@@ -136,7 +136,7 @@
 
                 <p class="text-center text-grayDark text-xs font-normal leading-[20px] tracking-[0.2px]">{{$t('dont_have_registration_yet?')}}
                   <routerLink to="/register" class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end"
-                    >{{$t('Register_now')}}</routerLink>
+                    >{{$t('register_now')}}</routerLink>
                 </p>
               </form>
             </div>

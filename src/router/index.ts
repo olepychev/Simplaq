@@ -9,33 +9,35 @@ import LiteView from '@/views/lite/LiteView.vue';
 import LiteSingleRewardView from '@/views/lite/LiteSingleRewardView.vue';
 import { useUserStore } from '@/stores/user';
 
+import Routes from './routes';
+
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: Routes.HOME,
     component: HomeView,
   },
   {
     path: "/login",
-    name: "Login",
+    name: Routes.LOGIN,
     meta: {isGuest: true},
     component: LoginView,
   },
   {
     path: "/register",
-    name: "Register",
+    name: Routes.REGISTER,
     meta: {isGuest: true},
     component: RegisterView,
   },
   {
     path: "/lite",
-    name: "Lite",
+    name: Routes.LITE,
     meta: {requiresAuth: true},
     component: LiteView,
   },
   {
     path: '/my-reward',
-    name: 'My-reward',
+    name: Routes.MY_REWARD,
     meta: {requiresAuth: true},
     component: LiteSingleRewardView,
   }
@@ -49,10 +51,10 @@ router.beforeEach((to, from, next) => {
   const user = useUserStore()
 
   if (to.meta.requiresAuth && !user.token){
-    next({name: "Login"})
+    next({name: Routes.LOGIN})
   } 
   else if(to.meta.isGuest && user.token){
-    next({name: "Lite"})
+    next({name: Routes.LITE})
   }else {
     next();
   }

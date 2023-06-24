@@ -1,4 +1,5 @@
 <template>
+
   <header class="w-full relative">
     <div class="max-w-[1600px] mx-auto px-[25px]">
       <div class="header_top py-[16px] border-b-[1px] border-gray flex items-center justify-between">
@@ -48,11 +49,12 @@
 
           </button>
 
-          <router-link to="/login"
+          <router-link :to="{name: $Routes.LOGIN}"
             class="px-[26px]  py-[13px] min-w-[120px] flex items-center justify-center rounded-[16px] transparent border-[1px] border-graylight text-sm font-semibold transition-all"
-            >{{ $t("login") }}</router-link
+            >{{ $t("login") }}
+            </router-link
           >
-          <router-link to="/register"
+          <router-link :to="{name: $Routes.REGISTER}"
             class="px-[26px] py-[13px] min-w-[120px] hidden md:flex items-center justify-center rounded-[16px] transparent border-[1px] border-transparent text-sm font-semibold bg-orange text-white transition-all"
             >{{ $t("create_account") }}</router-link
           >
@@ -123,3 +125,14 @@
     </div>
   </header>
 </template>
+
+<script>
+// import Routes from '@/router/routes'
+// export default {
+//   computed: {
+//     Routes() {
+//       return Routes;
+//     }
+//   }
+// }
+</script>

@@ -98,7 +98,7 @@
 
 
 <script lang="ts">
-import CongratulationPopupComponent from '@/components/popups/congratulationPopupComponent.vue'
+import CongratulationPopupComponent from '@/components/popups/congratulationPopupComponent.vue';
 export default {
   components: {
     CongratulationPopupComponent,

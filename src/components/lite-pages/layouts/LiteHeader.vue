@@ -10,12 +10,12 @@
 
         <div v-if="!authorized" class="header_top-right flex items-center gap-[8px]">
           <router-link
-            to="/login"
+          :to="{name: $Routes.LOGIN}"
             class="px-[26px] py-[13px] min-w-[120px] flex items-center justify-center rounded-[16px] transparent border-[1px] border-graylight text-sm font-semibold transition-all"
             >{{$t('login')}}</router-link
           >
           <router-link
-            to="/register"
+          :to="{name: $Routes.CREATE_ACCOUNT}"
             class="px-[26px] py-[13px] min-w-[120px] hidden md:flex items-center justify-center rounded-[16px] transparent border-[1px] border-transparent text-sm font-semibold bg-orange text-white transition-all"
             >{{$t('create_account')}}</router-link
           >

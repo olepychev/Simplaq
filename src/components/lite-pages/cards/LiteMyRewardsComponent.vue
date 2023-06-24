@@ -4,7 +4,7 @@
         <h5 class="mb-[24px] text-black xl:text-xl 2xl:text-2xl font-bold leading-[38px] tracking-[-0.4px]">{{$t("my_rewards")}}</h5>
   
         <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[16px] gap-y-[24px]">
-          <router-link to="/my-reward" class="relative w-full flex flex-col shadow-sm">
+          <router-link :to="{name: $Routes.MY_REWARD}" class="relative w-full flex flex-col shadow-sm">
             <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
               <img class="w-full h-full object-cover" src="@/assets/imgs/item3.png" alt="" />
               <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
@@ -29,7 +29,7 @@
               </div>
             </div>
           </router-link>
-          <router-link to="/my-reward" class="relative w-full flex flex-col shadow-sm">
+          <router-link :to="{name: $Routes.MY_REWARD}" class="relative w-full flex flex-col shadow-sm">
             <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
               <img class="w-full h-full object-cover" src="@/assets/imgs/item3.png" alt="" />
               <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
@@ -54,7 +54,7 @@
               </div>
             </div>
           </router-link>
-          <router-link to="/my-reward" class="relative w-full flex flex-col shadow-sm">
+          <router-link :to="{name: $Routes.MY_REWARD}" class="relative w-full flex flex-col shadow-sm">
             <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
               <img class="w-full h-full object-cover" src="@/assets/imgs/item3.png" alt="" />
               <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
