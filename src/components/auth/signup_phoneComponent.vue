@@ -1,31 +1,5 @@
 <template>
-  <vue-multiselect v-model="selectedCountries" :options="countries" :multiple="true" :searchable="true"
-    placeholder="Type to search" :option-height="60">
-    <template #option="{ option }">
-      <div class="country-option">
-        <img :src="option.image" class="country-flag" :alt="option.country" />
-        <div class="country-details">
-          <p class="country-name">{{ option.country }}</p>
-          <p class="country-code">{{ option.code }}</p>
-        </div>
-      </div>
-    </template>
-
-    <template #selected-option="{ option }">
-      <div class="selected-country">
-        <img :src="option.image" class="country-flag" :alt="option.country" />
-        <div class="country-details">
-          <!-- <p class="country-name">{{ option.country }}</p> -->
-          <!-- <p class="country-code">{{ option.code }}</p> -->
-        </div>
-      </div>
-    </template>
-    <template #noResult>
-      Oops! No elements found. Consider changing the search query.
-    </template>
-  </vue-multiselect>
-  {{ selectedCountries }}
-  <!-- <div class="flex flex-col items-center gap-[24px] justify-center h-full">
+  <div class="flex flex-col items-center gap-[24px] justify-center h-full">
     <div class="w-full flex flex-col gap-[24px] items-center justify-center">
       <div class="flex flex-col items-center gap-[4px] max-w-[360px]">
         <h6 class="text-black font-bold text-center text-xl">{{ $t('create_an_account') }}</h6>
@@ -34,18 +8,46 @@
     </div>
 
     <form class="flex flex-col gap-[8px] w-full max-w-[360px]" action="#" method="POST">
-      <div class="items-center gap-[0px] grid grid-cols-[20px,auto,20px] px-[20px] bg-gray rounded-[16px]">
+      <div class="items-center gap-[0px] grid grid-cols-[20px,auto,20px] px-[20px] gap-[12px] bg-gray rounded-[16px]">
         <div>
           <Icon icon="ph:phone-light" class="text-lg text-black" />
         </div>
-        <div class="flex items-center">
+        <div class="relative flex items-center gap-[12px]" id="phoneSelect">
+          <vue-multiselect
+            v-model="selectedCountries"
+            :options="countries"
+            :searchable="searchable"
+            placeholder="Type to search"
+            :option-height="60"
+            track-by="code"
+            :custom-label="customLabel"
+          >
+            <template #option="{ option }">
+              <div class="country-option flex items-center gap-[12px] py-[8px] px-[6px] rounded-[16px]">
+                <img :src="option.image" class="country-flag w-[24px] h-[24px] rounded-full" :alt="option.country" />
+                <div class="country-details flex w-full items-center justify-between">
+                  <p class="country-name text-sm text-black font-medium leading-[20px] tracking-[-0.2px]">{{ option.country }}</p>
+                  <p class="country-code text-grayBlack text-sm font-medium leading-[20px] tracking-[-0.2px]">{{ option.code }}</p>
+                </div>
+              </div>
+            </template>
 
+            <template #noResult>
+              <div class="w-full flex flex-col items-center justify-center">
+                <img src="@/assets/imgs/noresult.svg" class="max-w-[136px] mt-[40px] mb-[24px]" alt="">
+                <h6 class="text-lg text-black font-bold leading-[26px] tracking-[-0.4px]">{{ $t('search') }}</h6>
+                <p class="text-center mt-[12px] text-grayDark text-sm leading-[24px] tracking-[0.1px]">
+                 {{$t('unfortunately_nothing_was_found_Try_changing_your_request')}}
+                </p>
+              </div>
+            </template>
+          </vue-multiselect>
           <div class="flex flex-col gap-[2px]">
             <input
               type="text"
               id="name"
               :placeholder="$t('phone_number')"
-              class="text-black py-[4px] py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
+              class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
             />
           </div>
         </div>
@@ -67,11 +69,11 @@
         $t('login')
       }}</router-link>
     </p>
-  </div> -->
+  </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from 'vue'
 import VueMultiselect from 'vue-multiselect'
 
 export default {
@@ -81,31 +83,108 @@ export default {
   },
   data() {
     return {
-      selectedCountries: null,
-      selected: 0,
-      countries:[
+      countries: [
         {
-          country: "Spain",
-          code: "+591",
-          image: "https://flagsworld.org/img/cflags/spain-flag.png",
+          country: 'Ukraine',
+          code: '+380',
+          image: '../src/assets/imgs/ua.svg'
         },
         {
-          country: "France",
-          code: "+291",
-          image: "https://flagsworld.org/img/cflags/France-flag.png",
+          country: 'United Kingdom',
+          code: '+44',
+          image: '../src/assets/imgs/uk.svg'
         },
-      ]
+        {
+          country: 'Indonesia',
+          code: '+62',
+          image: '../src/assets/imgs/in.svg'
+        },
+      ],
+      selectedCountries: null
     }
+  },
+  mounted() {
+    this.changeSearchInputPlace()
+    this.selectedCountries = this.countries[0]
+  },
+  methods: {
+    changeSearchInputPlace() {
+      let searchInput = document.querySelector('#phoneSelect .multiselect__input')
+      let searchInputParent = document.querySelector('#phoneSelect .multiselect__content-wrapper')
+      searchInputParent.prepend(searchInput)
+    },
+
+    customLabel ({ country, code }) {
+      return `${country} – ${code}`
+    }
+
   },
   watch: {
     selectedCountries(newSelectedCountries) {
       // Do something when the value of selectedCountries changes
       let selected = `<div class="flex items-center gap-[8px]">
-          <img src="${newSelectedCountries[0].image}"/>
-        </div>`
-      document.querySelector('.multiselect__tags-wrap').innerHTML = selected
-    },
-  },
-};
+          <img class="w-[20px] h-[20px] rounded-full" src="${newSelectedCountries.image}"/>
+          <p class="text-base leading-[20px] tracking-[-0.2px] text-black">${newSelectedCountries.code}</p>
+      </div>`
+      let selectedEl = document.createElement('div')
+      selectedEl.classList.add('phone-selected')
+      selectedEl.innerHTML = selected
 
+      if (document.querySelector('.multiselect__tags .phone-selected')) {
+        document.querySelector('.multiselect__tags').removeChild(document.querySelector('.multiselect__tags .phone-selected'))
+      }
+      document.querySelector('.multiselect__tags').appendChild(selectedEl)
+    }
+  }
+}
 </script>
+
+<style>
+:root {
+  --white: white;
+  --gray: #f9fafb;
+  --shadow: 0px 24px 70px -16px rgba(188, 194, 197, 0.12);
+}
+#phoneSelect .multiselect__single {
+  display: none;
+}
+
+#phoneSelect .multiselect__content-wrapper {
+  position: absolute;
+  left: -52px;
+  top: 100%;
+  min-width: 360px;
+  background: var(--white);
+  border: 1px solid var(--gray);
+  padding: 16px 16px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: auto;
+}
+
+#phoneSelect .multiselect__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+#phoneSelect .multiselect__input {
+  width: 100%;
+  padding: 10px;
+  background: var(--gray);
+  outline: none;
+  border-radius: 16px;
+  font-size: 12px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+}
+
+.multiselect__option--highlight .country-option {
+  background: var(--gray);
+}
+
+.multiselect__option--selected .country-option .country-code {
+  font-weight: bold;
+}
+</style>
