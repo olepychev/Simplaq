@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'nekst': ['nekst', 'system-ui'],
+      },
       screens: {
         'xs': '500px',
         'sm': '600px',

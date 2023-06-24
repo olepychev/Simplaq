@@ -17,10 +17,13 @@
 
           <div class="w-full flex flex-col">
             <div class="relative w-full ">
-                <img class="w-full rounded-[16px] max-h-[318px] object-cover object-top" src="@/assets/imgs/cover.jpg" alt="">
+                <img v-if="!giftPicked" class="w-full rounded-[16px] max-h-[318px] object-cover object-top" src="@/assets/imgs/cover.jpg" alt="">
+                <div v-else class="w-full rounded-[16px] h-[318px] border-[1px] border-graylight flex items-center justify-center">
+                  <img src="@/assets/imgs/code.svg" alt="">
+                </div>
             </div>
 
-            <div class="w-full flex flex-col items-start sm:flex-row sm:items-center justify-between gap-[20px] mt-[32px] mb-[16px]">
+            <div :class="giftPicked ? 'border-b-[1px] border-graylight pb-[16px]' : ''" class="w-full flex flex-col items-start sm:flex-row sm:items-center justify-between gap-[20px] mt-[32px] mb-[16px]">
                 <div class="flex flex-col gap-[20px] w-full max-w-[350px]">
                     <div class="w-full flex items-center justify-between">
                         <p class="text-sm font-medium text-black leading-[20px] tracking-[-0.2px]">32/50 {{$t('in_stock')}}</p>
@@ -30,9 +33,29 @@
                         <div class="absolute top-0 left-0 w-[65%] h-full bg-orange"></div>
                     </div>
                 </div>
-                <div class="cursor-pointer px-[55px] bg-orange min-w-max py-[18px] rounded-[20px]">
+                <div @click="redeemPoints()" v-if="!giftPicked" class="cursor-pointer px-[55px] bg-orange min-w-max py-[18px] rounded-[20px]">
                     <p class="text-white font-semibold text-sm leading-[20px] tracking-[-0.2px]">{{ $t('redeem_for') }} 150 {{ $t('points') }}</p>
                 </div>
+                <div @click="pickUpReward()" v-else class="cursor-pointer px-[55px] bg-orange min-w-max py-[18px] rounded-[20px]">
+                    <p class="text-white font-semibold text-sm leading-[20px] tracking-[-0.2px]">{{ $t('pick_up_the_reward') }}</p>
+                </div>
+            </div>
+
+            <div v-if="giftPicked" class="mb-[16px] w-full bg-gray flex items-center justify-center p-[12px]">
+              <div class="flex items-center">
+                <div class="flex flex-col items-center">
+                  <p class="text-3xl font-bold text-orange font-regular leading-[130%] tracking-[-0.4px] font-nekst">00:</p>
+                  <p class="text-xs text-grayDark leading-[20px] tracking-[-0.2px] font-nekst" >Hrs</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <p class="text-3xl font-bold text-orange font-regular leading-[130%] tracking-[-0.4px] font-nekst">00:</p>
+                  <p class="text-xs text-grayDark leading-[20px] tracking-[-0.2px] font-nekst" >Hrs</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <p class="text-3xl font-bold text-orange font-regular leading-[130%] tracking-[-0.4px] font-nekst">24</p>
+                  <p class="text-xs text-grayDark leading-[20px] tracking-[-0.2px] font-nekst" >Hrs</p>
+                </div>
+              </div>
             </div>
 
             <div class="w-full py-[16px] border-b-[1px] border-t-[1px] border-gray-light-500 flex items-center justify-between">
@@ -69,6 +92,30 @@
       </div>
     </div>
   </div>
+
+  <CongratulationPopupComponent v-if="pickReward"/>
 </template>
 
 
+<script lang="ts">
+import CongratulationPopupComponent from '@/components/popups/congratulationPopupComponent.vue'
+export default {
+  components: {
+    CongratulationPopupComponent,
+  },
+  data() {
+    return {
+      giftPicked: false,
+      pickReward: false,
+    }
+  },
+  methods: {
+    redeemPoints() {
+      this.giftPicked = true
+    },
+    pickUpReward() {
+      this.pickReward = true
+    }
+  }
+}
+</script>
