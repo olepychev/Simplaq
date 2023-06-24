@@ -4,7 +4,8 @@ import { createI18n } from 'vue-i18n';
 import english from './locales/en.json';
 import slovak from './locales/sk.json';
 /* Iconify Icon */
-import { Icon } from '@iconify/vue';
+// import { Icon } from '@iconify/vue';
+import Icon from './components/icon/IconComponent.vue';
 
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
