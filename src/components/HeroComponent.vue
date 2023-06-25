@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-slider w-full mb-[48px] lg:mt-[56px]">
+  <div class="hero-slider w-full mb-[48px] lg:mt-[56px]" id="hero-slider-wrapper">
     <div class="relative max-w-[1600px] mx-auto lg:px-[25px]">
       <div class="relative w-full h-[290px] sm:h-[329px] md:h-[421px] xl:h-[542px] 2xl:h-[623px] lg:h-[500px] overflow-hidden lg:rounded-[32px]">
         <div class="divider h-max absolute w-full flex bottom-0 z-50">
@@ -18,7 +18,7 @@
           <swiper-slide class="relative h-full">
                 <div class="overlay absolute top-0 left-0 w-full h-full bg-linearPink z-10"></div>
               <img class="h-full w-full object-cover object-top" src="@/assets/imgs/Hero Banner.png" alt="hero-banner" />
-              <div class="flex-col items-center flex lg:block hero-content z-50 absolute top-[50%] left-[50%] translate-x-[-50%] lg:translate-x-[0] lg:left-[102px] translate-y-[-50%]  w-[90%] sm:max-w-[364px] lg:max-w-[400px] xl:max-w-[500px]">
+              <div class="hero-slider-text-content flex-col items-center flex lg:block hero-content z-50 absolute top-[50%] left-[50%] translate-x-[-50%] lg:translate-x-[0] lg:left-[102px] translate-y-[-50%]  w-[90%] sm:max-w-[364px] lg:max-w-[400px] xl:max-w-[500px]">
                 <h3 class="text-lg sm:text-2xl md:text-2.5xl xl:text-3xl lg:text-start text-center text-white font-bold sm:leading-[32px] md:leading-[48px]">Galerie Harfa Mall mobile app</h3>
                 <p class="font-medium lg:text-start text-center text-white lg:text-sm xl:text-base lg:leading-[20px] xl:leading-[22px] mt-[12px] mb-[24px] lg:mt-[12px] xl:mt-[20px] sm:mt-[8px] sm:mb-[24px] xl:mb-[40px]">
                   Your favorite Mall now on your phone. Scan receipts and collect points. Find your favorite places and boutiques quickly
@@ -50,7 +50,7 @@
             <swiper-slide class="relative h-full">
                 <div class="overlay absolute top-0 left-0 w-full h-full bg-linearPink z-10"></div>
               <img class="h-full w-full object-cover object-top" src="@/assets/imgs/Hero Banner.png" alt="hero-banner" />
-              <div class="flex-col items-center flex lg:block hero-content z-50 absolute top-[50%] left-[50%] translate-x-[-50%] lg:translate-x-[0] lg:left-[102px] translate-y-[-50%]  w-[90%] sm:max-w-[364px] lg:max-w-[400px] xl:max-w-[500px]">
+              <div class="hero-slider-text-content flex-col items-center flex lg:block hero-content z-50 absolute top-[50%] left-[50%] translate-x-[-50%] lg:translate-x-[0] lg:left-[102px] translate-y-[-50%]  w-[90%] sm:max-w-[364px] lg:max-w-[400px] xl:max-w-[500px]">
                 <h3 class="text-lg sm:text-2xl md:text-2.5xl xl:text-3xl lg:text-start text-center text-white font-bold sm:leading-[32px] md:leading-[48px]">Galerie Harfa Mall mobile app</h3>
                 <p class="font-medium lg:text-start text-center text-white lg:text-sm xl:text-base lg:leading-[20px] xl:leading-[22px] mt-[12px] mb-[24px] lg:mt-[12px] xl:mt-[20px] sm:mt-[8px] sm:mb-[24px] xl:mb-[40px]">
                   Your favorite Mall now on your phone. Scan receipts and collect points. Find your favorite places and boutiques quickly
@@ -105,4 +105,32 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+#hero-slider-wrapper .swiper-slide img {
+  transform: scale(1.2);
+  transition: all 0.4s ease;
+}
+
+#hero-slider-wrapper .swiper-slide-active {
+  z-index: 9;
+}
+
+#hero-slider-wrapper .swiper-slide-active img {
+  transform: scale(1);
+  transition: all 0.4s ease;
+}
+
+ #hero-slider-wrapper .swiper-slide .hero-slider-text-content {
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+  #hero-slider-wrapper .swiper-slide-active .hero-slider-text-content {
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: all 0.4s ease;
+  }
+</style>
 

@@ -8,114 +8,214 @@
     </div>
 
     <form class="flex flex-col gap-[8px] w-full max-w-[360px]" action="#" method="POST">
-      <div class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] px-[20px] bg-gray rounded-[16px]">
+      <div
+        :class="!isNameTouched ? 'border-transparent' : isNameTouched && validateName ? 'border-green' : 'border-orange'"
+        class="items-center gap-[12px] grid border-[1px] grid-cols-[20px,auto,20px] px-[20px] bg-gray rounded-[16px]"
+      >
         <div>
           <Icon icon="solar:shield-user-outline" class="text-lg text-black" />
         </div>
         <div class="flex flex-col gap-[2px]">
           <input
+            @input="nameTouched"
             type="text"
             id="name"
             :placeholder="$t('name')"
+            v-model="userData.name"
             class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
           />
         </div>
         <div>
-          <Icon icon="bi:check" class="text-lg text-green" />
+          <Icon v-if="validateName" icon="bi:check" class="text-lg text-green" />
         </div>
       </div>
 
-      <div class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] px-[20px] bg-gray rounded-[16px]">
+      <div
+        :class="!isSurnameTouched ? 'border-transparent' : isSurnameTouched && validateSurname ? 'border-green' : 'border-orange'"
+        class="items-center gap-[12px] grid border-[1px] grid-cols-[20px,auto,20px] px-[20px] bg-gray rounded-[16px]"
+      >
         <div>
           <Icon icon="solar:shield-user-outline" class="text-lg text-black" />
         </div>
         <div class="flex flex-col gap-[2px]">
           <input
+            @input="surnameTouched"
             type="text"
             id="surname"
             :placeholder="$t('surname')"
+            v-model="userData.surname"
             class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
           />
         </div>
         <div>
-          <Icon icon="bi:check" class="text-lg text-green" />
+          <Icon v-if="validateSurname" icon="bi:check" class="text-lg text-green" />
         </div>
       </div>
 
-      <div class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] px-[20px] bg-gray rounded-[16px]">
+      <div
+        :class="!isEmailTouched ? 'border-transparent' : isEmailTouched && validateEmail ? 'border-green' : 'border-orange'"
+        class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] border-[1px] px-[20px] bg-gray rounded-[16px]"
+      >
         <div>
-            <Icon icon="tabler:mail" class="text-lg text-black " />
+          <Icon icon="tabler:mail" class="text-lg text-black" />
         </div>
         <div class="flex flex-col gap-[2px]">
           <input
+            @input="emailTouched"
             type="text"
-            id="surname"
+            id="email"
             :placeholder="$t('email')"
+            v-model="userData.email"
             class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
           />
         </div>
         <div>
-          <Icon icon="bi:check" class="text-lg text-green" />
+          <Icon v-if="validateEmail" icon="bi:check" class="text-lg text-green" />
         </div>
       </div>
 
-    
-
-      <div class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] px-[20px] bg-gray rounded-[16px]">
+      <div
+        :class="!isPasswordTouched ? 'border-transparent' : isPasswordTouched && !nonvalidatePassword ? 'border-green' : 'border-orange'"
+        class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] border-[1px] px-[20px] bg-gray rounded-[16px]"
+      >
         <div>
           <Icon icon="solar:lock-keyhole-minimalistic-linear" class="text-lg text-black" />
         </div>
         <div class="flex flex-col gap-[2px]">
           <input
-            type="password"
+            :type="passwordShow ? 'text' : 'password'"
             id="password"
             :placeholder="$t('password')"
+            @input="handlePasswordInput"
+            v-model="userData.password"
             class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
           />
         </div>
-        <div>
-          <Icon icon="bx:hide" class="text-lg text-black" />
+        <div @click="hideShowPassword" class="cursor-pointer">
+          <Icon v-if="passwordShow" icon="mdi:eye-outline" class="text-lg text-black" />
+          <Icon v-else icon="bx:hide" class="text-lg text-black" />
         </div>
       </div>
       <div class="flex flex-col gap-[8px]">
         <div class="flex items-center gap-[12px]">
-            <div class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center">
-                <Icon icon="jam:close" class="text-xs text-black" />
-            </div>
-            <p class="text-xs text-grayDark3">At least 8 characters</p>
+          <div
+            :class="!nonvalidatePassword ? 'bg-green' : ''"
+            class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center"
+          >
+            <Icon v-if="nonvalidatePassword" icon="jam:close" class="text-xs text-black" />
+            <Icon v-else icon="gg:check" class="text-xs text-white" />
+          </div>
+          <p class="text-xs text-grayDark3">At least 8 characters</p>
         </div>
         <div class="flex items-center gap-[12px]">
-            <div class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center">
-                <Icon icon="jam:close" class="text-xs text-black" />
-            </div>
-            <p class="text-xs text-grayDark3">Both uppercase and lowercase letters (optional)</p>
+          <div
+            :class="hasUppercase && hasLowercase ? 'bg-green' : ''"
+            class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center"
+          >
+            <Icon v-if="hasUppercase && hasLowercase" icon="gg:check" class="text-xs text-white" />
+            <Icon v-else icon="jam:close" class="text-xs text-black" />
+          </div>
+          <p class="text-xs text-grayDark3">Both uppercase and lowercase letters (optional)</p>
         </div>
         <div class="flex items-center gap-[12px]">
-            <div class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center">
-                <Icon icon="jam:close" class="text-xs text-black" />
-            </div>
-            <p class="text-xs text-grayDark3">At least one number or symbol (optional)</p>
+          <div :class="hasNumberOrSymbol ? 'bg-green' : ''" class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center">
+            <Icon v-if="!hasNumberOrSymbol" icon="jam:close" class="text-xs text-black" />
+            <Icon v-else icon="gg:check" class="text-xs text-white" />
+          </div>
+          <p class="text-xs text-grayDark3">At least one number or symbol (optional)</p>
         </div>
       </div>
-
       <div class="flex flex-col gap-[12px]">
-        <button type="submit" class="bg-gray py-[16px] rounded-[16px] text-grayDark3 text-sm font-semibold leaing-[20px] tracking-[-0.2px]">
+        <button :type="readyForSubmit ? 'submit' : 'button'" class="bg-gray py-[16px] rounded-[16px] text-grayDark3 text-sm font-semibold leaing-[20px] tracking-[-0.2px]">
           {{ $t('sign_in') }}
         </button>
       </div>
 
       <p class="text-center text-grayDark text-xs mt-[60px] font-normal leading-[20px] tracking-[0.2px]">
         {{ $t('already_a_member?') }}
-        <router-link :to="{name: $Routes.LOGIN}" class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end">{{
-          $t('login')
-        }}</router-link>
+        <router-link
+          :to="{ name: $Routes.LOGIN }"
+          class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end"
+          >{{ $t('login') }}</router-link
+        >
       </p>
+      {{ readyForSubmit }}
     </form>
   </div>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'signup-01step'
+  name: 'signup-01step',
+  data() {
+    return {
+      userData: {
+        name: '',
+        surname: '',
+        email: '',
+        password: ''
+      },
+      isNameTouched: false,
+      isSurnameTouched: false,
+      isEmailTouched: false,
+      isPasswordTouched: false,
+
+      hasUppercase: false,
+      hasLowercase: false,
+      hasNumberOrSymbol: false,
+
+      passwordShow:false,
+    }
+  },
+  computed: {
+    validateName(): boolean {
+      const trimmedName = this.userData.name.trim() // trim() removes leading and trailing whitespace characters from a string.
+      return trimmedName.length > 0
+    },
+    validateSurname(): boolean {
+      const trimmedSurname = this.userData.surname.trim() // trim() removes leading and trailing whitespace characters from a string.
+      return trimmedSurname.length > 0
+    },
+    validateEmail(): boolean {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      return emailPattern.test(this.userData.email)
+    },
+    nonvalidatePassword(): boolean {
+      const lengthRequirement = this.userData.password.length >= 8
+      const hasUppercase = /[A-Z]/.test(this.userData.password)
+      const hasLowercase = /[a-z]/.test(this.userData.password)
+      const hasNumberOrSymbol = /[0-9!@#$%^&*()]/.test(this.userData.password)
+
+      this.hasUppercase = hasUppercase
+      this.hasLowercase = hasLowercase
+      this.hasNumberOrSymbol = hasNumberOrSymbol
+
+      return !lengthRequirement || !(hasUppercase || hasLowercase || hasNumberOrSymbol)
+    },
+    readyForSubmit() {
+      return this.validateName && this.validateSurname && this.validateEmail && !this.nonvalidatePassword
+    }
+  },
+  methods: {
+    nameTouched() {
+      this.isNameTouched = true
+    },
+    surnameTouched() {
+      this.isSurnameTouched = true
+    },
+    emailTouched() {
+      this.isEmailTouched = true
+    },
+    handlePasswordInput() {
+      this.isPasswordTouched = true
+
+      this.hasUppercase = /[A-Z]/.test(this.userData.password)
+      this.hasLowercase = /[a-z]/.test(this.userData.password)
+      this.hasNumberOrSymbol = /[0-9!@#$%^&*()]/.test(this.userData.password)
+    },
+    hideShowPassword() {
+      this.passwordShow = !this.passwordShow
+    }
+  }
 }
 </script>

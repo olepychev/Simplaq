@@ -145,7 +145,7 @@
               <div class="flex items-center gap-[12px] px-[20px]">
                 <Icon icon="mdi-light:email" class="text-xl text-white" />
 
-                <input type="text" class="w-full h-full bg-transparent outline-none" placeholder="Email" />
+                <input type="text" class="w-full h-full bg-transparent outline-none text-graylight" placeholder="Email" />
               </div>
               <button
                 type="submit"
@@ -197,3 +197,7 @@
     </div>
   </footer>
 </template>
+
+
+<script lang="ts">
+</script>

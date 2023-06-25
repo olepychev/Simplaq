@@ -26,9 +26,9 @@
 
     ]">
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-          <img class="w-full h-full object-cover" src="@/assets/imgs/item1.png" alt="" />
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
             <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
               <div class="flex flex-col items-center">
@@ -58,12 +58,12 @@
             <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
           </div>
         </div>
-      </div>
+      </a>
     </swiper-slide>
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-          <img class="w-full h-full object-cover" src="@/assets/imgs/item1.png" alt="" />
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
             <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
               <div class="flex flex-col items-center">
@@ -93,12 +93,12 @@
             <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
           </div>
         </div>
-      </div>
+      </a>
     </swiper-slide>
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-          <img class="w-full h-full object-cover" src="@/assets/imgs/item1.png" alt="" />
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
             <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
               <div class="flex flex-col items-center">
@@ -128,12 +128,12 @@
             <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
           </div>
         </div>
-      </div>
+      </a>
     </swiper-slide>
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-          <img class="w-full h-full object-cover" src="@/assets/imgs/item1.png" alt="" />
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
             <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
               <div class="flex flex-col items-center">
@@ -163,12 +163,12 @@
             <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
           </div>
         </div>
-      </div>
+      </a>
     </swiper-slide>
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-          <img class="w-full h-full object-cover" src="@/assets/imgs/item1.png" alt="" />
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
             <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
               <div class="flex flex-col items-center">
@@ -198,12 +198,12 @@
             <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
           </div>
         </div>
-      </div>
+      </a>
     </swiper-slide>
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-          <img class="w-full h-full object-cover" src="@/assets/imgs/item1.png" alt="" />
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
             <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
               <div class="flex flex-col items-center">
@@ -233,12 +233,12 @@
             <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
           </div>
         </div>
-      </div>
+      </a>
     </swiper-slide>
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-          <img class="w-full h-full object-cover" src="@/assets/imgs/item1.png" alt="" />
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
             <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
               <div class="flex flex-col items-center">
@@ -268,12 +268,12 @@
             <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
           </div>
         </div>
-      </div>
+      </a>
     </swiper-slide>
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-          <img class="w-full h-full object-cover" src="@/assets/imgs/item1.png" alt="" />
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
             <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
               <div class="flex flex-col items-center">
@@ -303,12 +303,12 @@
             <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
           </div>
         </div>
-      </div>
+      </a>
     </swiper-slide>
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-          <img class="w-full h-full object-cover" src="@/assets/imgs/item1.png" alt="" />
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
             <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
               <div class="flex flex-col items-center">
@@ -338,8 +338,44 @@
             <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
           </div>
         </div>
-      </div>
+      </a>
     </swiper-slide>
+    <swiper-slide>
+      <a href="#" class="relative w-full flex flex-col shadow-sm group">
+        <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
+          <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
+          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
+            <div class="date w-[39px] h-[42px] bg-white flex items-center justify-center rounded-[8px]">
+              <div class="flex flex-col items-center">
+                <p class="text-sm font-bold text-black leading-[20px]">30</p>
+                <p class="text-s font-medium text-grayDark">June</p>
+              </div>
+            </div>
+            <Icon icon="solar:heart-outline" class="text-xl text-white" />
+
+          </div>
+        </div>
+        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
+          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
+            <div class="flex items-center gap-[12px]">
+              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
+                <img class="w-full max-w-[36px]" src="@/assets/imgs/zara.svg" alt="" />
+              </div>
+              <p class="text-sm font-bold leading-[20px] text-black">ZARA</p>
+            </div>
+            <div class="flex items-center gap-[8px]">
+              <p class="text-sm font-medium text-black leading-[20px] tracking-[-0.2px]">{{ $t('free') }}</p>
+              <div class="divider-dot w-[4px] h-[4px] rounded-full bg-orange"></div>
+              <p class="text-sm font-medium text-black leading-[20px] tracking-[-0.2px]">10:00 PM</p>
+            </div>
+          </div>
+          <div class="w-full mt-[4px]">
+            <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
+          </div>
+        </div>
+      </a>
+    </swiper-slide>
+
     
   </SliderComponentVue>
 
@@ -1504,7 +1540,7 @@
     <swiper-slide>
       <div class="relative w-full flex flex-col shadow-sm">
         <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
         >
           <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
 
@@ -1539,7 +1575,7 @@
     <swiper-slide>
       <div class="relative w-full flex flex-col shadow-sm">
         <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
         >
           <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
 
@@ -1574,182 +1610,7 @@
     <swiper-slide>
       <div class="relative w-full flex flex-col shadow-sm">
         <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
-        >
-          <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
-
-          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
-              <div class="flex flex-col items-center"></div>
-            </div>
-            <Icon icon="solar:heart-outline" class="text-xl text-black" />
-
-          </div>
-        </div>
-        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
-            <div class="flex items-center gap-[12px]">
-              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
-                <img class="w-full max-w-[36px]" src="@/assets/imgs/mc.svg" alt="" />
-              </div>
-              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">MC Donald's</p>
-            </div>
-          </div>
-          <div class="w-full mt-[4px]">
-            <div class="flex flex-col gap-[8px]">
-              <p class="font-bold text-back text-sm leading-[20px]">Big mac menu</p>
-              <div class="flex flex-col">
-                <p class="text-black font-bold text-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </swiper-slide>
-     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
-        <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
-        >
-          <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
-
-          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
-              <div class="flex flex-col items-center"></div>
-            </div>
-            <Icon icon="solar:heart-outline" class="text-xl text-black" />
-
-          </div>
-        </div>
-        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
-            <div class="flex items-center gap-[12px]">
-              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
-                <img class="w-full max-w-[36px]" src="@/assets/imgs/mc.svg" alt="" />
-              </div>
-              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">MC Donald's</p>
-            </div>
-          </div>
-          <div class="w-full mt-[4px]">
-            <div class="flex flex-col gap-[8px]">
-              <p class="font-bold text-back text-sm leading-[20px]">Big mac menu</p>
-              <div class="flex flex-col">
-                <p class="text-black font-bold text-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </swiper-slide>
-     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
-        <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
-        >
-          <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
-
-          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
-              <div class="flex flex-col items-center"></div>
-            </div>
-            <Icon icon="solar:heart-outline" class="text-xl text-black" />
-
-          </div>
-        </div>
-        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
-            <div class="flex items-center gap-[12px]">
-              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
-                <img class="w-full max-w-[36px]" src="@/assets/imgs/mc.svg" alt="" />
-              </div>
-              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">MC Donald's</p>
-            </div>
-          </div>
-          <div class="w-full mt-[4px]">
-            <div class="flex flex-col gap-[8px]">
-              <p class="font-bold text-back text-sm leading-[20px]">Big mac menu</p>
-              <div class="flex flex-col">
-                <p class="text-black font-bold text-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </swiper-slide>
-     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
-        <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
-        >
-          <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
-
-          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
-              <div class="flex flex-col items-center"></div>
-            </div>
-            <Icon icon="solar:heart-outline" class="text-xl text-black" />
-
-          </div>
-        </div>
-        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
-            <div class="flex items-center gap-[12px]">
-              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
-                <img class="w-full max-w-[36px]" src="@/assets/imgs/mc.svg" alt="" />
-              </div>
-              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">MC Donald's</p>
-            </div>
-          </div>
-          <div class="w-full mt-[4px]">
-            <div class="flex flex-col gap-[8px]">
-              <p class="font-bold text-back text-sm leading-[20px]">Big mac menu</p>
-              <div class="flex flex-col">
-                <p class="text-black font-bold text-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </swiper-slide>
-     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
-        <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
-        >
-          <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
-
-          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
-              <div class="flex flex-col items-center"></div>
-            </div>
-            <Icon icon="solar:heart-outline" class="text-xl text-black" />
-
-          </div>
-        </div>
-        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
-            <div class="flex items-center gap-[12px]">
-              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
-                <img class="w-full max-w-[36px]" src="@/assets/imgs/mc.svg" alt="" />
-              </div>
-              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">MC Donald's</p>
-            </div>
-          </div>
-          <div class="w-full mt-[4px]">
-            <div class="flex flex-col gap-[8px]">
-              <p class="font-bold text-back text-sm leading-[20px]">Big mac menu</p>
-              <div class="flex flex-col">
-                <p class="text-black font-bold text-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </swiper-slide>
-     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
-        <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
         >
           <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
 
@@ -1784,7 +1645,7 @@
     <swiper-slide>
       <div class="relative w-full flex flex-col shadow-sm">
         <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
         >
           <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
 
@@ -1819,7 +1680,7 @@
     <swiper-slide>
       <div class="relative w-full flex flex-col shadow-sm">
         <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
         >
           <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
 
@@ -1854,7 +1715,7 @@
     <swiper-slide>
       <div class="relative w-full flex flex-col shadow-sm">
         <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
         >
           <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
 
@@ -1889,7 +1750,7 @@
     <swiper-slide>
       <div class="relative w-full flex flex-col shadow-sm">
         <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
         >
           <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
 
@@ -1924,7 +1785,77 @@
     <swiper-slide>
       <div class="relative w-full flex flex-col shadow-sm">
         <div
-          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] h-[247px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+        >
+          <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
+
+          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
+            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
+              <div class="flex flex-col items-center"></div>
+            </div>
+            <Icon icon="solar:heart-outline" class="text-xl text-black" />
+
+          </div>
+        </div>
+        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
+          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
+            <div class="flex items-center gap-[12px]">
+              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
+                <img class="w-full max-w-[36px]" src="@/assets/imgs/mc.svg" alt="" />
+              </div>
+              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">MC Donald's</p>
+            </div>
+          </div>
+          <div class="w-full mt-[4px]">
+            <div class="flex flex-col gap-[8px]">
+              <p class="font-bold text-back text-sm leading-[20px]">Big mac menu</p>
+              <div class="flex flex-col">
+                <p class="text-black font-bold text-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="relative w-full flex flex-col shadow-sm">
+        <div
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+        >
+          <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
+
+          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
+            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
+              <div class="flex flex-col items-center"></div>
+            </div>
+            <Icon icon="solar:heart-outline" class="text-xl text-black" />
+
+          </div>
+        </div>
+        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
+          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
+            <div class="flex items-center gap-[12px]">
+              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
+                <img class="w-full max-w-[36px]" src="@/assets/imgs/mc.svg" alt="" />
+              </div>
+              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">MC Donald's</p>
+            </div>
+          </div>
+          <div class="w-full mt-[4px]">
+            <div class="flex flex-col gap-[8px]">
+              <p class="font-bold text-back text-sm leading-[20px]">Big mac menu</p>
+              <div class="flex flex-col">
+                <p class="text-black font-bold text-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="relative w-full flex flex-col shadow-sm">
+        <div
+          class="relative h-[160px] w-full sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
         >
           <img class="max-w-[76px] sm:max-w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover" src="@/assets/imgs/hamburger.png" alt="" />
 

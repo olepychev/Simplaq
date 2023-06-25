@@ -6,7 +6,7 @@
             <div class="flex items-center justify-between pb-[16px]">
               <div></div>
   
-              <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center cursor-pointer">
+              <div @click="closeCongratulation" class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center cursor-pointer">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     fill-rule="evenodd"
@@ -38,3 +38,12 @@
     </div>
   </template>
   
+<script lang="ts">
+export default {
+  methods: {
+    closeCongratulation() {
+      this.$emit('closeCongratulation', '');
+    }
+  }
+}
+</script>

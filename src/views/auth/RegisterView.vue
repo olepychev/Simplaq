@@ -117,7 +117,7 @@
     name: 'Login',
     data() {
         return {
-            step: 4,
+            step: 2,
         }
     },
     components: {
