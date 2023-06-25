@@ -86,12 +86,42 @@
                     />
                   </svg>
                 </div>
+
+                
+                <div v-if="step===5" @click="step = 4" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4"
+                      stroke="#17181B"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                
+                <div v-if="step===6" @click="step = 5" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4"
+                      stroke="#17181B"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
               </div>
   
               <SignUp01StepComponent @signupWithEmail="signUpWithEmail" v-if="step === 1"/>
               <SignUpWithoutDataComponent v-if="step === 2"/>
               <VerifyEmailComponent v-if="step===3"/>
               <SignupPhoneComponent v-if="step===4" />
+              <VerificationcodeComponent v-if="step===5" />
+              <SuccessfulsendingComponent v-if="step===6" />
             </div>
           </div>
         </div>
@@ -112,12 +142,14 @@
   import SignUpWithoutDataComponent from '@/components/auth/signup_withoutDataComponent.vue'
   import VerifyEmailComponent from '@/components/auth/verifyEmailComponent.vue'
   import SignupPhoneComponent from '@/components/auth/signup_phoneComponent.vue'
+  import VerificationcodeComponent from '@/components/auth/verificationcodeComponent.vue'
+  import SuccessfulsendingComponent from '@/components/auth/successful_sendingComponent.vue'
 
   export default {
     name: 'Login',
     data() {
         return {
-            step: 2,
+            step: 6,
         }
     },
     components: {
@@ -127,6 +159,8 @@
       SignUpWithoutDataComponent,
       VerifyEmailComponent,
       SignupPhoneComponent,
+      VerificationcodeComponent,
+      SuccessfulsendingComponent,
   
       Swiper,
       SwiperSlide

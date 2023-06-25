@@ -57,6 +57,11 @@
   "support": "support",
   "and_help_24/7": "and help 24 / 7",
 
+  "verify": "Verify",
+
+  "verification_code": "Verification code",
+  "verify_phone_text": "Enter the verification code from SMS sent to",
+
   "simpla": "Simpla",
   "all_rights_reserved": "All rights reserved. © 2022",
   "privacy_terms": "Privacy & terms",
@@ -73,6 +78,8 @@
   "off_discount_card": "off discount card",
   "pcs": "pcs",
   "congratulations": "Congratulations",
+  "you_have_your_first": "You have got your first",
+  "for_signing_up_earn_more_points_by_visiting_our_app": " for signing up. Earn more points by visiting our app.",
   "store_will_give_you_reward_now": "Store will give you reward now",
 
   "free": "Free",
@@ -129,5 +136,6 @@
   "download_app": "Download App",
 
   "loyalty_points": "Loyalty points",
-  "pt": "pt"
+  "pt": "pt",
+  "got_it":"Got it"
 }

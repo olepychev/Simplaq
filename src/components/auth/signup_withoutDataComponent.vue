@@ -139,7 +139,6 @@
           >{{ $t('login') }}</router-link
         >
       </p>
-      {{ readyForSubmit }}
     </form>
   </div>
 </template>
@@ -190,7 +189,7 @@ export default {
       this.hasLowercase = hasLowercase
       this.hasNumberOrSymbol = hasNumberOrSymbol
 
-      return !lengthRequirement || !(hasUppercase || hasLowercase || hasNumberOrSymbol)
+      return !lengthRequirement 
     },
     readyForSubmit() {
       return this.validateName && this.validateSurname && this.validateEmail && !this.nonvalidatePassword
