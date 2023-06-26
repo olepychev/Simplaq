@@ -148,6 +148,8 @@
 </template>
 
 <script lang="ts">
+import { emit } from 'process'
+
 export default {
   name: 'signup-01step',
   data() {
@@ -220,13 +222,14 @@ export default {
       this.passwordShow = !this.passwordShow
     },
     handleSubmit(e) {
+      e.preventDefault()
       this.isNameTouched = true
       this.isSurnameTouched = true
       this.isEmailTouched = true
       this.isPasswordTouched = true
 
       if(this.validateName && this.validateSurname && this.validateEmail && !this.nonvalidatePassword) {
-        console.log('form submited')
+        this.$emit('emailVerification')
       }else {
         e.preventDefault()
       }

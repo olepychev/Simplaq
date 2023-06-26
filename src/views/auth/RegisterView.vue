@@ -117,7 +117,7 @@
               </div>
   
               <SignUp01StepComponent @signupWithEmail="signUpWithEmail" v-if="step === 1"/>
-              <SignUpWithoutDataComponent v-if="step === 2"/>
+              <SignUpWithoutDataComponent v-if="step === 2" @emailVerification="emailVerification" />
               <VerifyEmailComponent v-if="step===3"/>
               <SignupPhoneComponent v-if="step===4" />
               <VerificationcodeComponent v-if="step===5" />
@@ -168,7 +168,10 @@
     methods: {
         signUpWithEmail() {
             this.step = 2
-        }
+        },
+        emailVerification() {
+          this.step = 3
+        },
     },
     setup() {
       const onSwiper = swiper => {
