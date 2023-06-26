@@ -230,8 +230,6 @@ export default {
 
       if(this.validateName && this.validateSurname && this.validateEmail && !this.nonvalidatePassword) {
         this.$emit('emailVerification')
-      }else {
-        e.preventDefault()
       }
     }
 
