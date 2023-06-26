@@ -126,7 +126,7 @@
         </div>
       </div>
       <div class="flex flex-col gap-[12px]">
-        <button :type="readyForSubmit ? 'submit' : 'button'" class="bg-gray py-[16px] rounded-[16px] text-grayDark3 text-sm font-semibold leaing-[20px] tracking-[-0.2px]">
+        <button type="submit" class="bg-gray py-[16px] rounded-[16px] text-grayDark3 text-sm font-semibold leaing-[20px] tracking-[-0.2px]">
           {{ $t('sign_in') }}
         </button>
       </div>
