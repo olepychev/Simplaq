@@ -126,7 +126,11 @@
         </div>
       </div>
       <div class="flex flex-col gap-[12px]">
-        <button type="submit" class="bg-gray py-[16px] rounded-[16px] text-grayDark3 text-sm font-semibold leaing-[20px] tracking-[-0.2px]">
+        <button
+          @click="handleSubmit"
+          type="submit"
+          class="bg-gray py-[16px] rounded-[16px] text-grayDark3 text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
+        >
           {{ $t('sign_in') }}
         </button>
       </div>
@@ -189,7 +193,7 @@ export default {
       this.hasLowercase = hasLowercase
       this.hasNumberOrSymbol = hasNumberOrSymbol
 
-      return !lengthRequirement 
+      return !lengthRequirement
     },
     readyForSubmit() {
       return this.validateName && this.validateSurname && this.validateEmail && !this.nonvalidatePassword
@@ -214,7 +218,20 @@ export default {
     },
     hideShowPassword() {
       this.passwordShow = !this.passwordShow
+    },
+    handleSubmit(e) {
+      this.isNameTouched = true
+      this.isSurnameTouched = true
+      this.isEmailTouched = true
+      this.isPasswordTouched = true
+
+      if(this.validateName && this.validateSurname && this.validateEmail && !this.nonvalidatePassword) {
+        console.log('form submited')
+      }else {
+        e.preventDefault()
+      }
     }
+
   }
 }
 </script>

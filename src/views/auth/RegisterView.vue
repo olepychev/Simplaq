@@ -149,7 +149,7 @@
     name: 'Login',
     data() {
         return {
-            step: 6,
+            step: 2,
         }
     },
     components: {
