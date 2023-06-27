@@ -98,6 +98,12 @@
   "verify_email_text": "Check your email and Tap the button in the email we’ve sent to",
   "lets_start": "Let's start",
   "resend_email": "Resend email",
+  "set_new_password": "Set new password",
+  "try_to_create_a_new_password_that_you_will_remember": "Try to create a new password that you will remember.",
+  "confirm_new_password": "Confirm new password",
+  "could_not_find_your_account": "Could not find your account",
+  "password_has_been_changed": "Password has been changed",
+  "now_you_can_enjoy_all_the_benefits_of_our_app_again": "Now you can enjoy all the benefits of our app again.",
 
   "need_help?": "Need help?",
   "enter_your_mobile_phone_number": "Enter your mobile phone number",

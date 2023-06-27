@@ -4,8 +4,9 @@ import { createI18n } from 'vue-i18n';
 import english from './locales/en.json';
 import slovak from './locales/sk.json';
 /* Iconify Icon */
-// import { Icon } from '@iconify/vue';
 import Icon from './components/icon/IconComponent.vue';
+
+
 
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
@@ -32,7 +33,7 @@ app.config.globalProperties.$Routes = Routes;
 app.use(i18n);
 app.use(router);
 app.use(pinia);
-
 app.component('Icon', Icon);
+
 
 app.mount('#app');

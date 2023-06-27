@@ -19,8 +19,9 @@
           </svg>
         </router-link>
 
-        <div v-if="step===2"
-          @click="step = 1"
+        <div
+        @click="step=1"
+          v-if="step === 2"
           class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center"
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,8 +37,9 @@
         </div>
       </div>
 
-      <ForgotpasswordComponent v-if="step === 1" />
-      <SuccessfulsendingComponent v-if="step === 2" />
+      <SetnewpasswordComponent v-if="step === 1" />
+      <Succesful_changepasswordComponent v-if="step === 2" />
+
     </div>
   </AuthSliderComponent>
 </template>
@@ -50,15 +52,15 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 import AuthSliderComponent from '@/components/slider/AuthSliderComponent.vue'
-import ForgotpasswordComponent from '@/components/auth/password/forgotpasswordComponent.vue'
-import SuccessfulsendingComponent from '@/components/auth/password/succesful_sendingComponent.vue'
+import SetnewpasswordComponent from '@/components/auth/password/setnewpasswordComponent.vue'
+import Succesful_changepasswordComponent from '@/components/auth/password/succesful_changepasswordComponent.vue'
 
 export default {
-  name: 'Forgot-password',
+  name: 'Setnew-password',
   components: {
     AuthSliderComponent,
-    ForgotpasswordComponent,
-    SuccessfulsendingComponent,
+    SetnewpasswordComponent,
+    Succesful_changepasswordComponent,
 
     Swiper,
     SwiperSlide
