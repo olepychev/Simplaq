@@ -126,12 +126,8 @@
 </template>
 
 <script lang="ts">
-// import AlertComponent from "@/components/alert/alertComponent.vue";
 export default {
   name: 'setnew-password',
-  components: {
-    // AlertComponent,
-  },
   data() {
     return {
       isAlert: false,

@@ -1,8 +1,21 @@
 <template>
+  <notifications #body="props" position="bottom center" :duration="30000" :max="2">
+    <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
+      <div class="flex items-center gap-[12px]">
+        <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+        <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">
+          {{ props.item.title }}
+        </p>
+      </div>
+
+      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+    </div>
+  </notifications>
+
   <AuthSliderComponent>
     <div class="h-full w-full flex flex-col py-[40px] px-[48px]">
       <div class="w-full">
-        <router-link to="/" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
+        <router-link :to="{ name: $Routes.HOME }" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4"
@@ -30,39 +43,49 @@
         </div>
 
         <form class="flex flex-col gap-[8px] w-full max-w-[360px]" action="#" method="POST">
-          <div class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] bg-gray rounded-[16px]">
+          <div
+            :class="!isEmailTouched ? 'border-transparent' : isEmailTouched && validateEmail ? 'border-green' : 'border-orange'"
+            class="items-center gap-[12px] border-[1px] grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] bg-gray rounded-[16px]"
+          >
             <div>
               <Icon icon="tabler:mail" class="text-lg text-black" />
             </div>
             <div class="flex flex-col gap-[2px]">
               <label for="email" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('email') }}</label>
               <input
+                @input="emailTouched"
                 type="text"
                 id="email"
                 :placeholder="$t('enter_your_email')"
+                v-model="userData.email"
                 class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
               />
             </div>
             <div>
-              <Icon icon="bi:check" class="text-lg text-green" />
+              <Icon v-if="validateEmail" icon="bi:check" class="text-lg text-green" />
             </div>
           </div>
 
-          <div class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] bg-gray rounded-[16px]">
+          <div
+            :class="!isPasswordTouched ? 'border-transparent' : !validatePassword ? 'border-orange' : 'border-transparent'"
+            class="border-[1px] items-center gap-[12px] grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] bg-gray rounded-[16px]"
+          >
             <div>
               <Icon icon="solar:lock-keyhole-minimalistic-linear" class="text-lg text-black" />
             </div>
             <div class="flex flex-col gap-[2px]">
               <label for="password" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('password') }}</label>
               <input
-                type="password"
+                :type="passwordShow ? 'text' : 'password'"
                 id="password"
                 :placeholder="$t('enter_your_password')"
+                v-model="userData.password"
                 class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
               />
             </div>
-            <div>
-              <Icon icon="bx:hide" class="text-lg text-black" />
+            <div @click="hideShowPassword" class="cursor-pointer">
+              <Icon v-if="passwordShow" icon="mdi:eye-outline" class="text-lg text-black" />
+              <Icon v-else icon="bx:hide" class="text-lg text-black" />
             </div>
           </div>
 
@@ -74,6 +97,7 @@
             >
             <button
               type="submit"
+              @click.prevent="handleSubmit"
               class="bg-orange py-[16px] rounded-[16px] text-white text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
             >
               {{ $t('sign_in') }}
@@ -130,6 +154,80 @@ export default {
 
     Swiper,
     SwiperSlide
+  },
+  data() {
+    return {
+      userData: {
+        email: '',
+        password: ''
+      },
+
+      isEmailTouched: false,
+      isPasswordTouched: false,
+
+      passwordShow: false
+    }
+  },
+  computed: {
+    validateEmail(): boolean {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      return emailPattern.test(this.userData.email)
+    },
+    validatePassword(): boolean {
+      const length = this.userData.password.length > 0
+
+      return length
+    }
+  },
+  methods: {
+    emailTouched() {
+      this.isEmailTouched = true
+    },
+    handlePasswordInput() {
+      this.isPasswordTouched = true
+    },
+    hideShowPassword() {
+      this.passwordShow = !this.passwordShow
+    },
+    handleSubmit(e) {
+      e.preventDefault()
+      this.isEmailTouched = true
+      this.isPasswordTouched = true
+
+      if (this.userData.email.length === 0 || this.userData.password.length === 0) {
+        this.$notify({
+          title: this.$t('please_fill_both_field'),
+          component: {
+            template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+          }
+        })
+      }else if(!this.validateEmail) {
+        this.$notify({
+          title: this.$t('please_enter_valid_email'),
+          component: {
+            template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+          }
+        })
+      }else {
+        // send http request to validate on back
+        console.log("Submit")
+      }
+
+
+
+    }
   },
   setup() {
     const onSwiper = swiper => {
