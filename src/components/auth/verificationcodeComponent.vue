@@ -41,27 +41,40 @@
           </button>
         </div>
 
-        <p class="text-center text-grayDark text-xs font-normal mt-[60px] leading-[20px] tracking-[0.2px]">
+        <div class="flex gap-[5px] justify-center items-center text-center text-grayDark text-xs font-normal mt-[60px] leading-[20px] tracking-[0.2px]">
           {{ $t('need_help?') }}
-          <router-link
-            to="/suppoort"
-            class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end"
-            >{{ $t('contact_support') }}</router-link
+          <div
+            @click="openSupportModal"
+            class="text-pink font-semibold text-xs leading-[20px] tracking-[-0.2px] text-end cursor-pointer"
+            >{{ $t('contact_support') }}</div
           >
-        </p>
+        </div>
       </div>
     </form>
   </div>
+
+  <Contact_supportComponent @closeModal="closeSupportModal" v-if="contactSupportShow"/>
 </template>
 
 <script>
+import Contact_supportComponent from '@/components/modals/contact_support/contact_supportComponent.vue'
 export default {
   data() {
     return {
-      otpValues: ['', '', '', '', '', '']
+      otpValues: ['', '', '', '', '', ''],
+      contactSupportShow: false,
     }
   },
+  components: {
+    Contact_supportComponent,
+  },
   methods: {
+    openSupportModal() {
+      this.contactSupportShow = true
+    },
+    closeSupportModal() {
+      this.contactSupportShow = false
+    },
     handleInput(index) {
       const inputValue = this.otpValues[index]
 

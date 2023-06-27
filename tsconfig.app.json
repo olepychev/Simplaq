@@ -9,5 +9,9 @@
       "@/*": ["./src/*"]
     },
     "types": ["node", "vue-router"]
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/locales/**/*.json"
+  ]
 }

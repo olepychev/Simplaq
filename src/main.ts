@@ -4,6 +4,7 @@ import { createI18n } from 'vue-i18n';
 import english from './locales/en.json';
 import slovak from './locales/sk.json';
 /* Iconify Icon */
+// 
 import Icon from './components/icon/IconComponent.vue';
 
 import Notifications from '@kyvg/vue3-notification'
@@ -30,9 +31,9 @@ const i18n = createI18n({
 
 const pinia = createPinia();
 const app = createApp(App);
-// Define Routes.HOME as a global constant
-app.config.globalProperties.$Routes = Routes;
 
+
+app.config.globalProperties.$Routes = Routes;
 app.use(i18n);
 app.use(router);
 app.use(pinia);

@@ -115,7 +115,7 @@ export default {
   name: 'Login',
   data() {
     return {
-      step: 1
+      step: 5,
     }
   },
   components: {

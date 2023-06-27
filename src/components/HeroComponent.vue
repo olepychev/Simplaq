@@ -88,7 +88,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {Pagination} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';

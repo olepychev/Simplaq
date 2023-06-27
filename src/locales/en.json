@@ -81,12 +81,14 @@
   "you_have_your_first": "You have got your first",
   "for_signing_up_earn_more_points_by_visiting_our_app": " for signing up. Earn more points by visiting our app.",
   "store_will_give_you_reward_now": "Store will give you reward now",
+  "please_describe_the_issue_below": "Please describe the issue below",
 
   "free": "Free",
 
   "register_now": "Register now",
 
   "name": "Name",
+  "full_name": "Full name",
   "surname": "Surname",
   "email": "Email",
   "phone_number": "Phone number",

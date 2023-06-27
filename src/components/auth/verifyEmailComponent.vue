@@ -24,19 +24,26 @@
           </button>
         </div>
   
-        <p class="text-center text-grayDark text-xs font-normal mt-[60px] leading-[20px] tracking-[0.2px]">
+        <div class="flex gap-[5px] justify-center items-center text-center text-grayDark text-xs font-normal mt-[60px] leading-[20px] tracking-[0.2px]">
           {{ $t('need_help?') }}
-          <router-link to="/suppoort" class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end">{{
-            $t('contact_support')
-          }}</router-link>
-        </p>
+          <div
+            @click="openSupportModal"
+            class="text-pink font-semibold text-xs leading-[20px] tracking-[-0.2px] text-end cursor-pointer"
+            >{{ $t('contact_support') }}</div
+          >
+        </div>
       </div>
     </div>
   </template>
   
   <script lang="ts">
   export default {
-    name: 'verifyEmail'
+    name: 'verifyEmail',
+    methods: {
+      openSupportModal() {
+        
+      }
+    }
   }
   </script>
   

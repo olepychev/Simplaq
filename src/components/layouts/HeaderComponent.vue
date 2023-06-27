@@ -126,13 +126,8 @@
   </header>
 </template>
 
-<script>
-// import Routes from '@/router/routes'
-// export default {
-//   computed: {
-//     Routes() {
-//       return Routes;
-//     }
-//   }
-// }
+<script lang="ts">
+export default {
+  
+}
 </script>

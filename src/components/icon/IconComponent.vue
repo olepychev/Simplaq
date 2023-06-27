@@ -2,7 +2,7 @@
   <Icon :icon="icon" />
 </template>
 
-<script>
+<script lang="ts">
 import { Icon } from '@iconify/vue'
 export default {
   props: {

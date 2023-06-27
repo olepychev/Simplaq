@@ -8,7 +8,8 @@
         </p>
       </div>
 
-      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+      <Icon @click="props.close()" icon="majesticons:close"
+        class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
     </div>
   </notifications>
 
@@ -30,20 +31,13 @@
     <form class="flex flex-col gap-[8px] w-full max-w-[360px]" action="#" method="POST">
       <div
         :class="!isEmailTouched ? 'border-transparent' : isEmailTouched && validateEmail ? 'border-green' : 'border-orange'"
-        class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] border-[1px] px-[20px] bg-gray rounded-[16px]"
-      >
+        class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] border-[1px] px-[20px] bg-gray rounded-[16px]">
         <div>
           <Icon icon="tabler:mail" class="text-lg text-black" />
         </div>
         <div class="flex flex-col gap-[2px]">
-          <input
-            @input="emailTouched"
-            type="text"
-            id="email"
-            :placeholder="$t('email')"
-            v-model="userData.email"
-            class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
-          />
+          <input @input="emailTouched" type="text" id="email" :placeholder="$t('email')" v-model="userData.email"
+            class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]" />
         </div>
         <div>
           <Icon v-if="validateEmail" icon="bi:check" class="text-lg text-green" />
@@ -51,23 +45,19 @@
       </div>
 
       <div class="flex flex-col gap-[12px]">
-        <button
-          @click="handleSubmit"
-          type="submit"
-          class="bg-orange py-[16px] rounded-[16px] text-white text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
-        >
+        <button @click="handleSubmit" type="submit"
+          class="bg-orange py-[16px] rounded-[16px] text-white text-sm font-semibold leaing-[20px] tracking-[-0.2px]">
           {{ $t('send_mail') }}
         </button>
       </div>
 
-      <p class="text-center text-grayDark text-xs font-normal mt-[60px] leading-[20px] tracking-[0.2px]">
+      <div
+        class="flex gap-[5px] justify-center items-center text-center text-grayDark text-xs font-normal mt-[60px] leading-[20px] tracking-[0.2px]">
         {{ $t('need_help?') }}
-        <router-link
-          to="/suppoort"
-          class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end"
-          >{{ $t('contact_support') }}</router-link
-        >
-      </p>
+        <div @click="openSupportModal"
+          class="text-pink font-semibold text-xs leading-[20px] tracking-[-0.2px] text-end cursor-pointer">{{
+            $t('contact_support') }}</div>
+      </div>
     </form>
   </div>
 </template>
@@ -89,8 +79,8 @@ export default {
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
       return emailPattern.test(this.userData.email)
     },
-    readyForSubmit() {
-      return this.validateName && this.validateSurname && this.validateEmail && !this.nonvalidatePassword
+    readyForSubmit(): boolean {
+      return this.validateEmail
     }
   },
   methods: {
@@ -98,7 +88,11 @@ export default {
       this.isEmailTouched = true
     },
 
-    handleSubmit(e) {
+    openSupportModal() {
+
+    },
+
+    handleSubmit(e: Event) {
       e.preventDefault()
       this.isEmailTouched = true
 
