@@ -148,8 +148,6 @@
 </template>
 
 <script lang="ts">
-import { emit } from 'process'
-
 export default {
   name: 'signup-01step',
   data() {
@@ -172,6 +170,7 @@ export default {
       passwordShow:false,
     }
   },
+
   computed: {
     validateName(): boolean {
       const trimmedName = this.userData.name.trim() // trim() removes leading and trailing whitespace characters from a string.

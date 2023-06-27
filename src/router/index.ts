@@ -4,6 +4,8 @@ import HomeView from '@/views/HomeView.vue';
 /* Auth */
 import LoginView from '@/views/auth/LoginView.vue';
 import RegisterView from '@/views/auth/RegisterView.vue';
+/* Auth - Password */
+import ForgotPassword from '@/views/auth/password/ForgotPassword.vue'
 /* Lite */
 import LiteView from '@/views/lite/LiteView.vue';
 import LiteSingleRewardView from '@/views/lite/LiteSingleRewardView.vue';
@@ -28,6 +30,12 @@ const routes = [
     name: Routes.REGISTER,
     meta: {isGuest: true},
     component: RegisterView,
+  },
+  {
+    path: "/forgot-password",
+    name: Routes.FORGOT_PASSWORD,
+    meta: {isGuest: true},
+    component: ForgotPassword,
   },
   {
     path: "/lite",

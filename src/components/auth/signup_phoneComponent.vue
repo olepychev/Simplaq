@@ -63,12 +63,14 @@
       </div>
     </form>
 
-    <p class="text-center text-grayDark text-xs mt-[60px] font-normal leading-[20px] tracking-[0.2px]">
-      {{ $t('already_a_member?') }}
-      <router-link to="/login" class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end">{{
-        $t('login')
-      }}</router-link>
-    </p>
+    <p class="text-center text-grayDark text-xs font-normal mt-[60px] leading-[20px] tracking-[0.2px]">
+          {{ $t('already_a_member?') }}
+          <router-link
+            :to="{ name: $Routes.LOGIN }"
+            class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end"
+            >{{ $t('login') }}</router-link
+          >
+        </p>
   </div>
 </template>
 

@@ -116,8 +116,11 @@
   "sign_in_with_facebook": "Sign in with Facebook",
   "continue_with_facebook": "Continue with Facebook",
   "registration_with_email": "Registration with E-mail",
-  "forgot_password": "Forgot Password?",
-
+  "forgot_password": "Forgot Password",
+  "enter_email_adress_that_you_used_when_registering": "Enter email adress that you used when registering",
+  "send_mail": "Send mail",
+  "check_your_email": "Check your email",
+  "tap_the_button_in_the_email_we’ve_sent_to": "Tap the button in the email we’ve sent to ",
 
   "all": "All",
   "approved": "Approved",
