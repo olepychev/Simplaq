@@ -1,4 +1,17 @@
 <template>
+  <notifications #body="props" position="bottom center" :duration="5000" :max="2">
+    <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
+      <div class="flex items-center gap-[12px]">
+        <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+        <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">
+          {{ props.item.title }}
+        </p>
+      </div>
+
+      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+    </div>
+  </notifications>
+
   <div class="flex flex-col items-center gap-[24px] justify-center h-full">
     <div class="w-full flex flex-col gap-[24px] items-center justify-center">
       <div class="flex flex-col items-center gap-[4px] max-w-[360px]">
@@ -167,7 +180,7 @@ export default {
       hasLowercase: false,
       hasNumberOrSymbol: false,
 
-      passwordShow:false,
+      passwordShow: false
     }
   },
 
@@ -227,11 +240,60 @@ export default {
       this.isEmailTouched = true
       this.isPasswordTouched = true
 
-      if(this.validateName && this.validateSurname && this.validateEmail && !this.nonvalidatePassword) {
-        this.$emit('emailVerification')
+      if (
+        this.userData.name.length === 0 ||
+        this.userData.surname.length === 0 ||
+        this.userData.email.length === 0 ||
+        this.userData.password.length === 0
+      ) {
+        this.$notify({
+          title: this.$t('please_fill_all_field'),
+          component: {
+            template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+          }
+        })
+      } else {
+        if (!this.validateEmail) {
+          this.$notify({
+            title: this.$t('please_enter_valid_email'),
+            component: {
+              template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+            }
+          })
+        }
+
+        if (this.nonvalidatePassword) {
+          this.$notify({
+            title: this.$t('password_must_contain_at_least_8_characters'),
+            component: {
+              template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+            }
+          })
+        }
+      }
+
+      if (this.readyForSubmit) {
+        console.log('submit')
       }
     }
-
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <notifications #body="props" position="bottom center" :duration="30000" :max="2">
+  <notifications #body="props" position="bottom center" :duration="5000" :max="2">
     <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
       <div class="flex items-center gap-[12px]">
         <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
@@ -196,7 +196,7 @@ export default {
 
       if (this.userData.email.length === 0 || this.userData.password.length === 0) {
         this.$notify({
-          title: this.$t('please_fill_both_field'),
+          title: this.$t('please_fill_all_field'),
           component: {
             template: `
     <div class="flex items-center gap-[12px]">
@@ -207,7 +207,7 @@ export default {
   `
           }
         })
-      }else if(!this.validateEmail) {
+      } else if (!this.validateEmail) {
         this.$notify({
           title: this.$t('please_enter_valid_email'),
           component: {
@@ -220,13 +220,10 @@ export default {
   `
           }
         })
-      }else {
+      } else {
         // send http request to validate on back
-        console.log("Submit")
+        console.log('Submit')
       }
-
-
-
     }
   },
   setup() {

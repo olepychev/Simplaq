@@ -1,4 +1,17 @@
 <template>
+  <notifications #body="props" position="bottom center" :duration="5000" :max="2">
+    <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
+      <div class="flex items-center gap-[12px]">
+        <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+        <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">
+          {{ props.item.title }}
+        </p>
+      </div>
+
+      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+    </div>
+  </notifications>
+
   <div class="flex flex-col items-center gap-[24px] justify-center h-full">
     <div class="w-full flex flex-col gap-[24px] items-center justify-center">
       <div class="flex flex-col">
@@ -89,7 +102,20 @@ export default {
       e.preventDefault()
       this.isEmailTouched = true
 
-      if (this.validateEmail) {
+      if (!this.validateEmail) {
+        this.$notify({
+          title: this.$t('please_enter_valid_email'),
+          component: {
+            template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+          }
+        })
+      } else {
         console.log('submit')
       }
     }

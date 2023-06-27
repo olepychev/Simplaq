@@ -94,7 +94,7 @@
   "already_a_member?": "Already a member",
   "dont_have_registration_yet?": "Don't have registration yet?",
   "invalid_password_confirmation": "Invalid password confirmation",
-  "please_fill_both_field": "Please fill both field",
+  "please_fill_all_field": "Please fill all field",
   "password_must_contain_at_least_8_characters": "Password must contain at east 8 characters",
   "please_enter_valid_email": "Please enter valid email",
 

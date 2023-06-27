@@ -1,5 +1,5 @@
 <template>
-  <notifications #body="props" position="bottom center" :duration="30000" :max="2">
+  <notifications #body="props" position="bottom center" :duration="5000" :max="2">
     <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
       <div class="flex items-center gap-[12px]">
         <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
@@ -122,7 +122,6 @@
       </p>
     </form>
   </div>
-  <!-- <AlertComponent v-if="isAlert" :message="alertMessage"/> -->
 </template>
 
 <script lang="ts">
