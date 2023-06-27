@@ -1,5 +1,5 @@
 <template>
-  <notifications #body="props" position="bottom center" :duration="50000" :max="2">
+  <notifications #body="props" position="bottom center" :duration="30000" :max="2">
     <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
       <div class="flex items-center gap-[12px]">
         <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
@@ -252,11 +252,19 @@ export default {
 <style>
 .vue-notification-group {
   bottom: 10px !important;
+  max-width: 360px;
+  width: 100% !important;
 }
 
-/* .vue-notification-group span .vue-notification-wrapper {
-  overflow: auto;
-} */
+.vue-notification-group span {
+ display: flex;
+ flex-direction:column;
+ gap:5px;
+}
+
+.vue-notification-wrapper {
+  overflow: initial !important;
+}
 
 /* .vue-notification-group span .vue-notification-wrapper {
   display: flex;
