@@ -32,8 +32,10 @@ module.exports = {
         'grayDark': '#646572',
         'grayDark2': '#94959F',
         "grayDark3": "#646572",
+        "grayDark4": "#9CA3AF",
         "red": 'red',
         'redLight': '#FDF4F5',
+        'redLight2': "#F64D4D",
         'red': '#F64D4D',
         'yellow': '#FFC738',
         'yellowLight': '#FDF3ED',
@@ -45,6 +47,9 @@ module.exports = {
       },
       boxShadow: {
         'sm': '0px 24px 70px -16px rgba(188, 194, 197, 0.12)',
+      },
+      dropShadow: {
+        'sm': ' 0px 16px 120px 0px rgba(17, 24, 39, 0.08)',
       },
       fontSize: {
         's': '10px',

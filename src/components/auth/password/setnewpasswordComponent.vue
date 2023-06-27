@@ -1,4 +1,16 @@
 <template>
+  <notifications #body="props" position="bottom center" :duration="50000" :max="2">
+    <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
+      <div class="flex items-center gap-[12px]">
+        <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+        <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">
+          {{ props.item.title }}
+        </p>
+      </div>
+
+      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+    </div>
+  </notifications>
 
   <div class="flex flex-col items-center gap-[24px] justify-center h-full">
     <div class="w-full flex flex-col gap-[24px] items-center justify-center">
@@ -110,14 +122,21 @@
       </p>
     </form>
   </div>
+  <!-- <AlertComponent v-if="isAlert" :message="alertMessage"/> -->
 </template>
 
 <script lang="ts">
-
+// import AlertComponent from "@/components/alert/alertComponent.vue";
 export default {
-  name: 'signup-01step',
+  name: 'setnew-password',
+  components: {
+    // AlertComponent,
+  },
   data() {
     return {
+      isAlert: false,
+      alertMessage: '',
+
       userData: {
         password: '',
         password_confirmation: ''
@@ -130,9 +149,8 @@ export default {
       hasNumberOrSymbol: false,
 
       passwordShow: false,
-      password_confirmationShow: false,
-
-  };
+      password_confirmationShow: false
+    }
   },
 
   computed: {
@@ -180,9 +198,69 @@ export default {
       if (!this.nonvalidatePassword && this.passwordMatched) {
         console.log('submit')
       } else {
-        this.userData.password_confirmation = ''
+        if (this.userData.password.length === 0 || this.userData.password_confirmation.length === 0) {
+          this.userData.password_confirmation = ''
+
+          this.$notify({
+            title: this.$t('please_fill_both_field'),
+            component: {
+              template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+            }
+          })
+        } else if(this.nonvalidatePassword){
+          this.userData.password_confirmation = ''
+          this.$notify({
+            title: this.$t('password_must_contain_at_least_8_characters'),
+            component: {
+              template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+            }
+          })
+        } else {
+          this.userData.password_confirmation = ''
+
+          this.$notify({
+            title: this.$t('invalid_password_confirmation'),
+            component: {
+              template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+            }
+          })
+        }
       }
     }
   }
 }
 </script>
+
+<style>
+.vue-notification-group {
+  bottom: 10px !important;
+}
+
+/* .vue-notification-group span .vue-notification-wrapper {
+  overflow: auto;
+} */
+
+/* .vue-notification-group span .vue-notification-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+} */
+</style>

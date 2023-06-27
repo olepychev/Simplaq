@@ -6,6 +6,9 @@ import slovak from './locales/sk.json';
 /* Iconify Icon */
 import Icon from './components/icon/IconComponent.vue';
 
+import Notifications from '@kyvg/vue3-notification'
+
+
 
 
 import { createApp } from 'vue';
@@ -34,6 +37,8 @@ app.use(i18n);
 app.use(router);
 app.use(pinia);
 app.component('Icon', Icon);
+app.use(Notifications)
+
 
 
 app.mount('#app');

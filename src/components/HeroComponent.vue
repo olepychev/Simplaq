@@ -122,7 +122,8 @@ export default {
   transition: all 0.4s ease;
 }
 
- #hero-slider-wrapper .swiper-slide .hero-slider-text-content {
+@media screen and (min-width:1024px) {
+  #hero-slider-wrapper .swiper-slide .hero-slider-text-content {
   transform: translateY(-20px);
   opacity: 0;
   transition: all 0.4s ease;
@@ -132,5 +133,7 @@ export default {
     opacity: 1;
     transition: all 0.4s ease;
   }
+  
+}
 </style>
 

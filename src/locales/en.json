@@ -93,6 +93,9 @@
   "password": "Password",
   "already_a_member?": "Already a member",
   "dont_have_registration_yet?": "Don't have registration yet?",
+  "invalid_password_confirmation": "Invalid password confirmation",
+  "please_fill_both_field": "Please fill both field",
+  "password_must_contain_at_least_8_characters": "Password must contain at east 8 characters",
 
   "please_verify_your_email": "Please Verify Your Email",
   "verify_email_text": "Check your email and Tap the button in the email we’ve sent to",
