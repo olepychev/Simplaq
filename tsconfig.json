@@ -14,11 +14,10 @@
     "./src/**/*.d.ts",
     "./src/**/*.tsx",
     "./src/**/*.vue",
-    "node_modules/swiper/vue"
+    "node_modules/swiper/vue",
   ],
   "compilerOptions": {
-    //...
-    "baseUrl": "./", // Add this line
+    "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     }

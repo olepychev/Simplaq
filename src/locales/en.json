@@ -58,6 +58,8 @@
   "and_help_24/7": "and help 24 / 7",
 
   "verify": "Verify",
+  "message": "Message",
+  "message_sent": "Message sent",
 
   "verification_code": "Verification code",
   "verify_phone_text": "Enter the verification code from SMS sent to",
@@ -133,6 +135,7 @@
   "send_mail": "Send mail",
   "check_your_email": "Check your email",
   "tap_the_button_in_the_email_we’ve_sent_to": "Tap the button in the email we’ve sent to ",
+  "thank_you_for_contacting_support_we_will_get_back_to_you_as_soon_as_possible": "Thank you for contacting support. We will get back to you as soon as possible.",
 
   "all": "All",
   "approved": "Approved",
@@ -144,6 +147,9 @@
   "show_result": "Show result",
   "my_rewards": "My Rewards",
   "follow":"Follow",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "done": "Done",
 
   "scan_your_receipt_and": "Scan your receipt and",
   "get_points_for_rewards": "get points for reward",

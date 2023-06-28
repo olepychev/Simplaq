@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <form class="flex flex-col gap-[8px] w-full max-w-[360px]" action="#" method="POST">
+    <form class="flex flex-col gap-[8px] w-full max-w-[360px]">
       <div
         :class="!isNameTouched ? 'border-transparent' : isNameTouched && validateName ? 'border-green' : 'border-orange'"
         class="items-center gap-[12px] grid border-[1px] grid-cols-[20px,auto,20px] px-[20px] bg-gray rounded-[16px]"

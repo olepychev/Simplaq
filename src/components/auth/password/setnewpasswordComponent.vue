@@ -122,9 +122,14 @@
         </div>
     </form>
   </div>
+
+  <Contact_supportComponent @closeModal="closeSupportModal" v-if="contactSupportShow" />
+
 </template>
 
 <script lang="ts">
+import Contact_supportComponent from '@/components/modals/contact_support/contact_supportComponent.vue'
+
 export default {
   name: 'setnew-password',
   data() {
@@ -144,8 +149,14 @@ export default {
       hasNumberOrSymbol: false,
 
       passwordShow: false,
-      password_confirmationShow: false
+      password_confirmationShow: false,
+
+      contactSupportShow: false
+
     }
+  },
+  components: {
+    Contact_supportComponent
   },
 
   computed: {
@@ -169,6 +180,13 @@ export default {
     }
   },
   methods: {
+    openSupportModal() {
+      this.contactSupportShow = true
+    },
+    closeSupportModal() {
+      this.contactSupportShow = false
+    },
+
     handlePasswordInput() {
       this.isPasswordTouched = true
 

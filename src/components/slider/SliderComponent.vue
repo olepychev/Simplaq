@@ -92,7 +92,7 @@ export default {
   props: {
     controllers: {},
     sectionTitle: {
-      required: true
+      required: false
     },
     slidesPerView: {
       required: true

@@ -60,18 +60,29 @@
       </div>
     </form>
   </div>
+
+  <Contact_supportComponent @closeModal="closeSupportModal" v-if="contactSupportShow" />
+
 </template>
 
 <script lang="ts">
+import Contact_supportComponent from '@/components/modals/contact_support/contact_supportComponent.vue'
+
 export default {
-  name: 'signup-01step',
+  name: 'forgot-password',
   data() {
     return {
       userData: {
         email: ''
       },
-      isEmailTouched: false
+      isEmailTouched: false,
+
+      contactSupportShow: false
+
     }
+  },
+  components: {
+    Contact_supportComponent
   },
 
   computed: {
@@ -89,7 +100,10 @@ export default {
     },
 
     openSupportModal() {
-
+      this.contactSupportShow = true
+    },
+    closeSupportModal() {
+      this.contactSupportShow = false
     },
 
     handleSubmit(e: Event) {
