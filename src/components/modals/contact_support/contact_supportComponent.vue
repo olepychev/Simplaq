@@ -13,9 +13,9 @@
   </notifications>
 
   <div class="w-full h-screen fixed top-0 left-0 bg-overlay z-50">
-    <div class="w-full h-full flex justify-center overflow-auto sm:py-[30px]">
-      <div class="w-full max-w-[664px] min-h-[542px] flex items-center h-full sm:h-max px-[40px] py-[40px] my-auto bg-white sm:rounded-[24px]">
-        <div v-if="!formSended" class="w-full sm:h-full">
+    <div class="w-full h-full flex justify-center overflow-auto sm:py-[30px] bg-white sm:bg-transparent">
+      <div class="w-full max-w-[664px] min-h-[542px] flex  items-center h-full sm:h-max px-[40px] py-[40px] my-auto bg-white sm:rounded-[24px]">
+        <div v-if="!formSended" class="w-full h-full">
           <div class="flex items-center justify-between pb-[16px]">
             <div class="flex flex-col gap-[4px]">
               <h6 class="text-lg font-bold leading-[26px] tracking-[-0.4px] text-black">{{ $t('contact_support') }}</h6>
@@ -53,6 +53,8 @@
                     id="email"
                     :placeholder="$t('email')"
                     v-model="userData.email"
+                    @keydown.enter.prevent="handleSubmit"
+
                     class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
                   />
                 </div>
@@ -74,6 +76,7 @@
                     type="text"
                     id="full_name"
                     :placeholder="$t('full_name')"
+                    @keydown.enter.prevent="handleSubmit"
                     v-model="userData.name"
                     class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
                   />

@@ -4,7 +4,7 @@
       <div
         class="dz-default dz-message max-w-max flex items-center gap-[12px] px-[13px] py-[12px] rounded-[16px] border-[1px] border-graylight cursor-pointer"
       >
-        <Icon icon="ion:image-outline" class="icon text-black text-lg" />
+        <Icon icon="basil:video-outline" class="icon text-black text-lg" />
         <p class="text-sm text-grayDark font-medium leading-[20px] tracking-[-0.2px]">{{ files.length }} / {{ maxFiles }}</p>
       </div>
 

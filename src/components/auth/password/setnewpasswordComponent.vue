@@ -215,7 +215,7 @@ export default {
           this.userData.password_confirmation = ''
 
           this.$notify({
-            title: this.$t('please_fill_both_field'),
+            title: this.$t('please_fill_all_field'),
             component: {
               template: `
     <div class="flex items-center gap-[12px]">
