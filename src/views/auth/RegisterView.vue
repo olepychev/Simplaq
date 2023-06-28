@@ -1,6 +1,6 @@
 <template>
   <AuthSliderComponent>
-    <div class="h-full w-full flex flex-col py-[40px] px-[48px]">
+    <div class="h-full w-full flex flex-col py-[40px] px-[15px] sm:px-[48px]">
       <div class="w-full">
         <router-link
           v-if="step === 1"

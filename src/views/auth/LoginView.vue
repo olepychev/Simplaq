@@ -13,7 +13,7 @@
   </notifications>
 
   <AuthSliderComponent>
-    <div class="h-full w-full flex flex-col py-[40px] px-[48px]">
+    <div class="h-full w-full flex flex-col py-[40px] px-[15px] sm:px-[48px]">
       <div class="w-full">
         <router-link :to="{ name: $Routes.HOME }" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

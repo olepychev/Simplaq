@@ -1,5 +1,5 @@
 <template>
-  <notifications #body="props" position="bottom center" :duration="5000" :max="4">
+  <notifications #body="props" position="bottom left" :duration="5000" :max="4">
     <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
       <div class="flex items-center gap-[12px]">
         <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
@@ -142,7 +142,8 @@
         <button
           @click="handleSubmit"
           type="submit"
-          class="bg-gray py-[16px] rounded-[16px] text-grayDark3 text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
+          :class="readyForSubmit ? 'bg-orange text-white cursor-pointer' : 'bg-gray text-grayDark3'"
+          class="py-[16px] rounded-[16px] text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
         >
           {{ $t('sign_in') }}
         </button>
