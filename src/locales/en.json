@@ -99,7 +99,9 @@
   "dont_have_registration_yet?": "Don't have registration yet?",
   "invalid_password_confirmation": "Invalid password confirmation",
   "please_fill_all_field": "Please fill all field",
-  "password_must_contain_at_least_8_characters": "Password must contain at east 8 characters",
+  "password_must_contain_at_least_8_characters": "Password must contain at least 8 characters",
+  "password_must_contain_both_uppercase_&_lowercase_letters": "Password must contain both uppercase & lowercase letters",
+  "password_must_contain_at_least_one_number_or_symbol": "Password must contain at least one number or symbol",
   "please_enter_valid_email": "Please enter valid email",
 
   "please_verify_your_email": "Please Verify Your Email",
