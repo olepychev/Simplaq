@@ -12,22 +12,30 @@
     </div>
   </notifications>
 
-  <div class="flex flex-col items-center gap-[24px] justify-center h-full">
-    <div class="w-full flex flex-col gap-[24px] items-center justify-center">
-      <div class="flex flex-col">
-        <div class="flex w-[72px] h-[72px] rounded-full items-center justify-center bg-gray">
-          <Icon icon="solar:shield-check-broken" class="text-lg text-black" />
+  <form class=" w-full max-w-[464px] pt-[20px] pb-[25px]">
+    <div class="pl-[60px] flex flex-col gap-[8px]">
+        <div
+        :class="!isOldPasswordTouched ? 'border-transparent' : isOldPasswordTouched && oldPasswordNotCorrect ? 'border-green' : 'border-orange'"
+        class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] border-[1px] px-[20px] bg-gray rounded-[16px]"
+      >
+        <div>
+          <Icon icon="solar:lock-keyhole-minimalistic-linear" class="text-lg text-black" />
+        </div>
+        <div class="flex flex-col gap-[2px]">
+          <input
+            :type="oldPasswordShow ? 'text' : 'password'"
+            id="password"
+            :placeholder="$t('password')"
+            v-model="userData.oldPassword"
+            class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
+          />
+        </div>
+        <div @click="hideShowOldPassword" class="cursor-pointer">
+          <Icon v-if="oldPasswordShow" icon="mdi:eye-outline" class="text-lg text-black" />
+          <Icon v-else icon="bx:hide" class="text-lg text-black" />
         </div>
       </div>
-      <div class="flex flex-col items-center gap-[4px] max-w-[360px]">
-        <h6 class="text-black font-bold text-center text-xl">{{ $t('set_new_password') }}</h6>
-        <p class="font-normal text-sm text-grayDark2 leading-[24px] tracking-[0.1px]">
-          {{ $t('try_to_create_a_new_password_that_you_will_remember') }}
-        </p>
-      </div>
-    </div>
 
-    <form class="flex flex-col gap-[8px] w-full max-w-[360px]">
       <div
         :class="!isPasswordTouched ? 'border-transparent' : isPasswordTouched && !nonvalidatePassword ? 'border-green' : 'border-orange'"
         class="items-center gap-[12px] grid grid-cols-[20px,auto,20px] border-[1px] px-[20px] bg-gray rounded-[16px]"
@@ -102,29 +110,32 @@
           <p class="text-xs text-grayDark3">At least one number or symbol (optional)</p>
         </div>
       </div>
-      <div class="flex flex-col gap-[12px]">
+    </div>
+
+    <div class="w-full mt-[16px] pt-[16px] pb-[24px] pl-[60px] border-t-[1px] border-gray">
+      <div class="flex gap-[8px] items-center">
         <button
-          @click="handleSubmit"
           type="submit"
-          class="bg-orange py-[16px] rounded-[16px] text-white text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
+          @click.prevent="handleSubmit"
+          class="py-[17px] px-[69px] border-[1px] border-graylight rounded-[20px] group hover:bg-orange transition-all cursor-pointer"
         >
-          {{ $t('send_mail') }}
+          <p class="text-black text-sm font-semibold leading-[20px] tracking-[-0.2px] group-hover:text-white transition-all">
+            {{ $t('save') }}
+          </p>
+        </button>
+
+        <button
+          type="button"
+          @click=""
+          class="py-[17px] px-[69px] border-[1px] border-graylight rounded-[20px] group hover:bg-pink transition-all cursor-pointer"
+        >
+          <p class="text-black text-sm font-semibold leading-[20px] tracking-[-0.2px] group-hover:text-white transition-all">
+            {{ $t('cancel') }}
+          </p>
         </button>
       </div>
-
-      <div class="flex gap-[5px] justify-center items-center text-center text-grayDark text-xs font-normal mt-[60px] leading-[20px] tracking-[0.2px]">
-          {{ $t('need_help?') }}
-          <div
-            @click="openSupportModal"
-            class="text-pink font-semibold text-xs leading-[20px] tracking-[-0.2px] text-end cursor-pointer"
-            >{{ $t('contact_support') }}</div
-          >
-        </div>
-    </form>
-  </div>
-
-  <Contact_supportComponent @closeModal="closeSupportModal" v-if="contactSupportShow" />
-
+    </div>
+  </form>
 </template>
 
 <script lang="ts">
@@ -138,9 +149,11 @@ export default {
       alertMessage: '',
 
       userData: {
+        oldPassword: '',
         password: '',
         password_confirmation: ''
       },
+      isOldPasswordTouched: false,
       isPasswordTouched: false,
       isPassword_confirmationTouched: false,
 
@@ -150,8 +163,7 @@ export default {
 
       passwordShow: false,
       password_confirmationShow: false,
-
-      contactSupportShow: false
+      oldPasswordShow: false,
 
     }
   },
@@ -160,6 +172,9 @@ export default {
   },
 
   computed: {
+    oldPasswordNotCorrect() {
+        // check from database if password which user input in old password field is correct
+    },
     nonvalidatePassword(): boolean {
       const lengthRequirement = this.userData.password.length >= 8
       const hasUppercase = /[A-Z]/.test(this.userData.password)
@@ -203,6 +218,9 @@ export default {
     hideShowPasswordConfirmation() {
       this.password_confirmationShow = !this.password_confirmationShow
     },
+    hideShowOldPassword() {
+        this.oldPasswordShow = !this.oldPasswordShow
+    },
     handleSubmit(e) {
       e.preventDefault()
       this.isPasswordTouched = true
@@ -211,7 +229,7 @@ export default {
       if (!this.nonvalidatePassword && this.passwordMatched) {
         console.log('submit')
       } else {
-        if (this.userData.password.length === 0 || this.userData.password_confirmation.length === 0) {
+        if (this.userData.password.length === 0 || this.userData.password_confirmation.length === 0 || this.userData.oldPassword.length === 0) {
           this.userData.password_confirmation = ''
 
           this.$notify({
@@ -226,7 +244,7 @@ export default {
   `
             }
           })
-        } else if(this.nonvalidatePassword){
+        } else if (this.nonvalidatePassword) {
           this.userData.password_confirmation = ''
           this.$notify({
             title: this.$t('password_must_contain_at_least_8_characters'),
@@ -270,9 +288,9 @@ export default {
 }
 
 .vue-notification-group span {
- display: flex;
- flex-direction:column;
- gap:5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .vue-notification-wrapper {

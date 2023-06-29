@@ -1,6 +1,17 @@
 <template>
   <div class="w-full">
     <form class="w-full flex flex-col gap-[8px] w-full">
+
+      <div v-if="editMode" class="pt-[20px] pl-[60px]">
+        <div class="relative flex items-end flex justify-center gap-[8px] w-[64px] h-[64px] bg-gray rounded-full transition-all">
+          <img class="w-[80%] rounded-full" src="@/assets/imgs/profile.svg" alt="" />
+          <div class="absolute right-[-15px] cursor-pointer bottom-[-15px] w-[40px] h-[40px] overflow-hidden cursor-pointer bg-gray rounded-full flex items-center justify-center">
+            <Icon icon="fluent:edit-20-regular" class="text-md text-black cursor-pointer" />
+            <input class="absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer" type="file">
+          </div>
+        </div>
+      </div>
+
       <div class="w-full grid grid-cols-2 gap-[12px] pt-[20px] pb-[25px] pl-[60px]">
         <!---->
         <div
@@ -111,10 +122,12 @@
         <!---->
         <div
           :class="editMode ? 'bg-gray' : ''"
-          class="relative items-center gap-[0px] grid grid-cols-[20px,auto] px-[20px] gap-[12px] rounded-[16px]"
+          class="relative items-center border-[1px] border-transparent multiselect-focus-orange gap-[0px] grid grid-cols-[20px,auto] px-[20px] gap-[12px] rounded-[16px]"
         >
-          <div>
-            <Icon icon="ph:gender-female-light" class="text-lg text-black" />
+          <Icon v-if="!editMode" icon="ph:gender-male-light" class="text-lg text-black" />
+          <div v-if="editMode">
+            <Icon v-if="selectedGender.gender === 'Male'" icon="ph:gender-male-light" class="text-lg text-black" />
+            <Icon v-if="selectedGender.gender === 'Female'" icon="ph:gender-female-light" class="text-lg text-black" />
           </div>
           <div v-if="editMode" class="flex items-center gap-[12px] py-[17px]" id="genderSelect">
             <div class="flex flex-col gap-[2px] w-full">
@@ -125,6 +138,8 @@
                 :searchable="false"
                 :option-height="60"
                 :allow-empty="false"
+                @open="selectOnOpen"
+                @close="selectOnClose"
                 track-by="gender"
                 label="gender"
                 class="w-full cursor-pointer"
@@ -154,7 +169,7 @@
         <!---->
         <div
           :class="editMode ? 'bg-gray' : ''"
-          class="relative items-center gap-[0px] grid grid-cols-[20px,auto] px-[20px] gap-[12px] rounded-[16px]"
+          class="relative items-center multiselect-focus-orange border-[1px] border-transparent gap-[0px] grid grid-cols-[20px,auto] px-[20px] gap-[12px] rounded-[16px]"
         >
           <div>
             <Icon icon="system-uicons:location" class="text-lg text-black" />
@@ -311,10 +326,7 @@ export default {
     }
   },
   mounted() {
-    // this.appendUseMyLocationToCountrySelect()
-    // this.changeSearchInputPlace()
     this.selectedCountries = this.countries[0]
-
     this.selectedGender = this.genders[0]
   },
   updated() {
@@ -323,11 +335,18 @@ export default {
     this.appendUseMyLocationToCountrySelect()
   },
   methods: {
+    selectOnOpen() {
+        let active = document.querySelector('.multiselect--active')
+        console.log(active)
+    },
+    selectOnClose() {
+
+    },
     editPersonalData() {
       this.editMode = true
     },
     canelEditPersonalData() {
-        this.editMode = false
+      this.editMode = false
     },
     appendUseMyLocationToCountrySelect() {
       if (this.editMode) {
@@ -374,6 +393,15 @@ export default {
 </script>
 
 <style>
+.multiselect-focus-orange:has(.multiselect--active) {
+    border-color: #F18C53;
+}
+
+.multiselect-focus-orange:has(.multiselect--active) .select-icon {
+    color: #F18C53;
+    transform: rotate(180deg);
+}
+
 #genderSelect .multiselect__single {
   /* display: none; */
   outline: none;
@@ -388,7 +416,7 @@ export default {
 #countrySelect .multiselect__content-wrapper {
   position: absolute;
   left: 0px;
-  top: 100%;
+  top: calc(100% + 8px);
   width: 100%;
   background: var(--white);
   border: 1px solid var(--gray);
@@ -430,5 +458,9 @@ export default {
 
 .multiselect__option--selected .country-option .gender {
   font-weight: bold;
+}
+
+input[type='file']{
+    cursor: pointer;
 }
 </style>

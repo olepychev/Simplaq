@@ -3,11 +3,12 @@
     <h6 class="text-black font-bold text-xl leading-[28px] tracking-[-0.4px]">{{ $t('profile') }}</h6>
 
     <div class="w-full flex flex-col gap-[8px] bg-white p-[24px] border-[1px] border-graylight rounded-[24px]">
-      <AccordionComponent @accordionClicked="accordionClicked" icon="solar:user-linear" :title="$t('profile')">
-        <ProfilePersonalDataComponent v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('profile')}`" />
+      <AccordionComponent @accordionClicked="accordionClicked" icon="solar:user-linear" :title="$t('personal_data')">
+        <ProfilePersonalDataComponent v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('personal_data')}`" />
       </AccordionComponent>
 
       <AccordionComponent @accordionClicked="accordionClicked" icon="solar:lock-keyhole-minimalistic-linear" :title="$t('change_password')">
+        <ProfilePasswordChangeComponent v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('change_password')}`" />
       </AccordionComponent>
 
       <AccordionComponent @accordionClicked="accordionClicked" icon="clarity:notification-line" :title="$t('notifications')">
@@ -46,6 +47,7 @@
 <script lang="ts">
 import AccordionComponent from '@/components/accordion/AccordionComponent.vue'
 import ProfilePersonalDataComponent from '@/components/profile/personal_data/PersonalDataComponent.vue'
+import ProfilePasswordChangeComponent from '@/components/profile/change_password/changePasswordComponent.vue'
 export default {
   name: 'ProfileTab',
   data() {
@@ -55,7 +57,8 @@ export default {
   },
   components: {
     AccordionComponent,
-    ProfilePersonalDataComponent
+    ProfilePersonalDataComponent,
+    ProfilePasswordChangeComponent
   },
   methods: {
     accordionClicked(activeAccordion) {
