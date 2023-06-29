@@ -91,10 +91,15 @@
 
   "name": "Name",
   "full_name": "Full name",
+  "enter_full_name": "Enter full name",
   "surname": "Surname",
   "email": "Email",
   "phone_number": "Phone number",
+  "enter_phone_number": "Enter phone number",
   "password": "Password",
+  "birthday": "Birthday",
+  "gender": "Gender",
+  "select_your_gender": "Select your gender",
   "already_a_member?": "Already a member",
   "dont_have_registration_yet?": "Don't have registration yet?",
   "invalid_password_confirmation": "Invalid password confirmation",
@@ -160,5 +165,24 @@
 
   "loyalty_points": "Loyalty points",
   "pt": "pt",
-  "got_it":"Got it"
+  "got_it":"Got it",
+
+  "profile": "Profile",
+  "favorites": "Favoritets",
+  "my_receipts": "My receipts",
+  "payment_methods": "Payment methods",
+  "purchase": "Purchase",
+  "log_out": "Log out",
+  "change_password": "Change Password",
+  "notifications": "Notifications",  
+  "interests": "Interests",
+  "connected_accounts": "Connected Accounts",
+  "delete_account": "Delete Account",
+
+  "location": "Location",
+  "adress": "Adress",
+  "use_my_location": "Use my location",
+  "search_adress": "Search adress",
+
+  "user_id": "User id"
 }

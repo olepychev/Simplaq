@@ -1,15 +1,21 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 /* Home */
 import HomeView from '@/views/HomeView.vue';
 /* Auth */
 import LoginView from '@/views/auth/LoginView.vue';
 import RegisterView from '@/views/auth/RegisterView.vue';
 /* Auth - Password */
-import ForgotPassword from '@/views/auth/password/ForgotPassword.vue'
-import SetnewPassword from '@/views/auth/password/SetnewPassword.vue'
+import ForgotPassword from '@/views/auth/password/ForgotPassword.vue';
+import SetnewPassword from '@/views/auth/password/SetnewPassword.vue';
 /* Lite */
 import LiteView from '@/views/lite/LiteView.vue';
 import LiteSingleRewardView from '@/views/lite/LiteSingleRewardView.vue';
+/* Profile */
+import ProfileView from '@/views/profile/ProfileView.vue';
+/* Profile - Tabs */
+import ProfileTabView from '@/views/profile/Tabs/ProfileTabView.vue';
+
+/* User Store */
 import { useUserStore } from '@/stores/user';
 
 import Routes from './routes';
@@ -76,6 +82,23 @@ const routes = [
       title: "My Reward Page"
     },
     component: LiteSingleRewardView,
+  },
+  {
+    path: '/profile',
+    name: Routes.PROFILE,
+    meta: {
+      requiresAuth: true,
+      title: "Profile Page"
+    },
+    component: ProfileView,
+    children: [
+      {
+        path: '',
+        name: Routes.PROFILE_TAB,
+        default: ProfileTabView,
+        component: ProfileTabView,
+      },
+    ]
   }
 ]
 const router = createRouter({

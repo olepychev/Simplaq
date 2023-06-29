@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <form class="flex flex-col gap-[8px] w-full max-w-[360px]" action="#" method="POST">
+    <form class="flex flex-col gap-[8px] w-full max-w-[360px]">
       <div class="items-center gap-[0px] grid grid-cols-[20px,auto,20px] px-[20px] gap-[12px] bg-gray rounded-[16px]">
         <div>
           <Icon icon="ph:phone-light" class="text-lg text-black" />

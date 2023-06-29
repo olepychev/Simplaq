@@ -8,6 +8,8 @@ enum Routes {
     MY_REWARD = "My-reward",
     CREATE_ACCOUNT="Create-account",
     SUPPORT="Support",
+    PROFILE="Profile",
+    PROFILE_TAB="Profile_tab"
   }
   
   export default Routes;

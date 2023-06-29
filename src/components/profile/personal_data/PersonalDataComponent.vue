@@ -1,0 +1,360 @@
+<template>
+  <div class="pt-[20px] pb-[25px] pl-[60px]">
+    <form class="w-full flex flex-col gap-[8px] w-full">
+      <div class="w-full grid grid-cols-2 gap-[12px]">
+        <!---->
+        <div
+          :class="editMode ? 'bg-gray' : ''"
+          class="items-center gap-[12px] border-[1px] border-transparent grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] rounded-[16px]"
+        >
+          <div>
+            <Icon icon="mdi-light:email" class="text-lg text-black" />
+          </div>
+          <div v-if="editMode" class="flex flex-col gap-[2px]">
+            <label for="email" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('email') }}</label>
+            <input
+              type="text"
+              id="email"
+              :placeholder="$t('enter_your_email')"
+              value="Gaydukegors@gmail.com"
+              class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
+            />
+          </div>
+          <div v-else class="flex flex-col gap-[2px]">
+            <p class="text-s text-grayDark leading-[16px] font-medium">{{ $t('email') }}</p>
+            <p class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]">Gaydukegors@gmail.com</p>
+          </div>
+          <div v-if="editMode">
+            <Icon icon="bi:check" class="text-lg text-green" />
+          </div>
+        </div>
+        <!---->
+        <div
+          :class="editMode ? 'bg-gray' : ''"
+          class="items-center gap-[12px] border-[1px] border-transparent grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] rounded-[16px]"
+        >
+          <div>
+            <Icon icon="ph:phone-light" class="text-lg text-black" />
+          </div>
+          <div v-if="editMode" class="flex flex-col gap-[2px]">
+            <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('phone_number') }}</label>
+            <input
+              type="number"
+              id="phone"
+              :placeholder="$t('enter_phone_number')"
+              value="380939412641"
+              class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
+            />
+          </div>
+          <div v-else class="flex flex-col gap-[2px]">
+            <p class="text-s text-grayDark leading-[16px] font-medium">{{ $t('phone_number') }}</p>
+            <p class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]">380939412641</p>
+          </div>
+          <div v-if="editMode">
+            <Icon icon="bi:check" class="text-lg text-green" />
+          </div>
+        </div>
+
+        <!---->
+        <div
+          :class="editMode ? 'bg-gray' : ''"
+          class="items-center gap-[12px] border-[1px] border-transparent grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] rounded-[16px]"
+        >
+          <div>
+            <Icon icon="solar:shield-user-outline" class="text-lg text-black" />
+          </div>
+          <div v-if="editMode" class="flex flex-col gap-[2px]">
+            <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('full_name') }}</label>
+            <input
+              type="text"
+              id="full_name"
+              :placeholder="$t('enter_full_name')"
+              value="Ann Haiduk"
+              class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
+            />
+          </div>
+          <div v-else class="flex flex-col gap-[2px]">
+            <p class="text-s text-grayDark leading-[16px] font-medium">{{ $t('full_name') }}</p>
+            <p class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]">Ann Haiduk</p>
+          </div>
+          <div v-if="editMode">
+            <Icon icon="bi:check" class="text-lg text-green" />
+          </div>
+        </div>
+
+        <!---->
+        <div
+          :class="editMode ? 'bg-gray' : ''"
+          class="items-center gap-[12px] border-[1px] border-transparent grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] rounded-[16px]"
+        >
+          <div>
+            <Icon icon="solar:calendar-date-linear" class="text-lg text-black" />
+          </div>
+          <div v-if="editMode" class="flex flex-col gap-[2px]">
+            <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('birthday') }}</label>
+            <input
+              type="date"
+              id="full_name"
+              value="02/10/1991"
+              class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
+            />
+          </div>
+          <div v-else class="flex flex-col gap-[2px]">
+            <p class="text-s text-grayDark leading-[16px] font-medium">{{ $t('birthday') }}</p>
+            <p class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]">08/10/1991</p>
+          </div>
+          <div v-if="editMode">
+            <Icon icon="bi:check" class="text-lg text-green" />
+          </div>
+        </div>
+
+        <!---->
+        <div
+          :class="editMode ? 'bg-gray' : ''"
+          class="relative items-center gap-[0px] grid grid-cols-[20px,auto] px-[20px] gap-[12px] rounded-[16px]"
+        >
+          <div>
+            <Icon icon="ph:gender-female-light" class="text-lg text-black" />
+          </div>
+          <div v-if="editMode" class="flex items-center gap-[12px] py-[17px]" id="genderSelect">
+            <div class="flex flex-col gap-[2px] w-full">
+              <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('gender') }}</label>
+              <vue-multiselect
+                v-model="selectedGender"
+                :options="genders"
+                :searchable="false"
+                :option-height="60"
+                :allow-empty="false"
+                track-by="gender"
+                label="gender"
+                class="w-full cursor-pointer"
+              >
+                <template #option="{ option }">
+                  <div class="gender-details flex w-full items-center justify-between hover:bg-gray cursor-pointer">
+                    <div class="gender-option w-full flex px-[20px]">
+                      <div class="flex items-center w-full justify-between border-b-[1px] py-[16px] border-gray">
+                        <p class="gender text-sm text-black font-bold leading-[20px] tracking-[-0.2px]">
+                          {{ option.gender }}
+                        </p>
+                        <Icon icon="bi:check" class="check text-lg text-orange hidden" />
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </vue-multiselect>
+            </div>
+            <Icon v-if="editMode" icon="octicon:chevron-down-24" class="select-icon text-lg text-black" />
+          </div>
+          <div v-else class="flex flex-col gap-[2px]">
+            <p class="text-s text-grayDark leading-[16px] font-medium">{{ $t('gender') }}</p>
+            <p class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]">Male</p>
+          </div>
+        </div>
+
+        <!---->
+        <div
+          :class="editMode ? 'bg-gray' : ''"
+          class="relative items-center gap-[0px] grid grid-cols-[20px,auto] px-[20px] gap-[12px] rounded-[16px]"
+        >
+          <div>
+            <Icon icon="system-uicons:location" class="text-lg text-black" />
+          </div>
+          <div v-if="editMode" class="flex items-center gap-[12px] py-[17px]" id="countrySelect">
+            <div
+              id="useMyLocation"
+              class="cursor-pointer group hover:bg-yellowLight px-[12px] my-[16px] w-[90%] mx-auto py-[8px] border-[1px] border-gray rounded-[16px] flex items-center gap-[12px]"
+            >
+              <div class="w-[48px] h-[48px] bg-gray rounded-full group-hover:bg-white flex items-center justify-center">
+                <Icon icon="fluent:my-location-16-regular" class="select-icon text-lg text-black group-hover:text-orange" />
+              </div>
+              <p class="text-sm font-bold text-black leading-[20px] group-hover:text-orange">{{ $t('use_my_location') }}</p>
+            </div>
+            <div class="flex flex-col gap-[2px] w-full">
+              <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('adress') }}</label>
+              <vue-multiselect
+                v-model="selectedCountries"
+                :options="countries"
+                :searchable="searchable"
+                :placeholder="$t('search_adress')"
+                :option-height="60"
+                track-by="country"
+                :custom-label="customLabel"
+              >
+                <template #option="{ option }">
+                  <div class="country-option flex items-center gap-[12px]">
+                    <div class="country-details flex w-full items-center justify-between px-[20px] border-b-[1px] py-[16px] border-gray">
+                      <p class="country-name text-sm text-black font-bold leading-[20px] tracking-[-0.2px]">{{ option.country }}</p>
+                      <Icon icon="bi:check" class="check text-lg text-orange hidden" />
+                    </div>
+                  </div>
+                </template>
+
+                <template #noResult>
+                  <div class="w-full flex flex-col items-center justify-center">
+                    <img src="@/assets/imgs/noresult.svg" class="max-w-[136px] mt-[40px] mb-[24px]" alt="" />
+                    <h6 class="text-lg text-black font-bold leading-[26px] tracking-[-0.4px]">{{ $t('search') }}</h6>
+                    <p class="text-center mt-[12px] text-grayDark text-sm leading-[24px] tracking-[0.1px]">
+                      {{ $t('unfortunately_nothing_was_found_Try_changing_your_request') }}
+                    </p>
+                  </div>
+                </template>
+              </vue-multiselect>
+            </div>
+            <Icon v-if="editMode" icon="octicon:chevron-down-24" class="select-icon text-lg text-black" />
+          </div>
+          <div v-else class="flex flex-col gap-[2px]">
+            <p class="text-s text-grayDark leading-[16px] font-medium">{{ $t('adress') }}</p>
+            <p class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]">Ukraine</p>
+          </div>
+        </div>
+      </div>
+      
+    </form>
+
+  </div>
+</template>
+
+<script lang="ts">
+import VueMultiselect from 'vue-multiselect'
+
+export default {
+  name: 'PersonalData',
+  components: {
+    VueMultiselect
+  },
+  data() {
+    return {
+      editMode: false,
+
+      countries: [
+        {
+          country: 'Ukraine'
+        },
+        {
+          country: 'United Kingdom'
+        },
+        {
+          country: 'Indonesia'
+        }
+      ],
+      selectedCountries: null,
+
+      genders: [
+        {
+          gender: 'Male'
+        },
+        {
+          gender: 'Female'
+        }
+      ],
+      selectedGender: null
+    }
+  },
+  mounted() {
+    this.appendUseMyLocationToCountrySelect()
+    // this.changeSearchInputPlace()
+    this.selectedCountries = this.countries[0]
+
+    this.selectedGender = this.genders[0]
+  },
+  methods: {
+    appendUseMyLocationToCountrySelect() {
+      if (this.editMode) {
+        const countrySelect = document.querySelector('#countrySelect .multiselect__content-wrapper')
+        const useMyLocation = document.getElementById('useMyLocation')
+        countrySelect.prepend(useMyLocation)
+      }
+    },
+    changeSearchInputPlace() {
+      let searchInput = document.querySelector('#countrySelect .multiselect__input')
+      let searchInputParent = document.querySelector('#countrySelect .multiselect__content-wrapper')
+      searchInputParent.prepend(searchInput)
+    },
+
+    customLabel({ country }) {
+      return `${country}`
+    }
+  },
+
+  watch: {
+    selectedCountries(newSelectedCountries) {
+      if (this.editMode) {
+        // Do something when the value of selectedCountries changes
+        let selected = `<div class="flex items-center gap-[8px]">
+          <p class="text-sm leading-[20px] tracking-[-0.2px] text-black">${newSelectedCountries.country}</p>
+      </div>`
+        let selectedEl = document.createElement('div')
+        selectedEl.classList.add('country-selected')
+        selectedEl.innerHTML = selected
+
+        if (document.querySelector('.multiselect__tags .country-selected')) {
+          document
+            .querySelector('#countrySelect .multiselect__tags')
+            .removeChild(document.querySelector('.multiselect__tags .country-selected'))
+        }
+        document.querySelector('#countrySelect .multiselect__tags').appendChild(selectedEl)
+      }
+    }
+  }
+}
+</script>
+
+<style>
+#genderSelect .multiselect__single {
+  /* display: none; */
+  outline: none;
+  color: var(--black);
+  font-size: 14px;
+}
+#countrySelect .multiselect__single {
+  display: none;
+}
+
+#genderSelect .multiselect__content-wrapper,
+#countrySelect .multiselect__content-wrapper {
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--gray);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: auto;
+}
+
+#genderSelect .multiselect__content,
+#countrySelect .multiselect__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+#countrySelect .multiselect--active .country-selected {
+  display: none;
+}
+#countrySelect .multiselect__input {
+  outline: none;
+  background: transparent;
+}
+/* .multiselect__option--highlight .gender-option {
+  background: var(--gray);
+} */
+
+.multiselect__option--selected .gender-option .check {
+  display: block;
+}
+
+.multiselect__option--selected .gender-option .gender {
+  font-weight: bold;
+}
+
+.multiselect__option--selected .country-option .check {
+  display: block;
+}
+
+.multiselect__option--selected .country-option .gender {
+  font-weight: bold;
+}
+</style>
