@@ -20,7 +20,6 @@
 
       <AccordionComponent @accordionClicked="accordionClicked" icon="carbon:user-avatar" :title="$t('interests')">
         <ProfileInterestsComponent
-          @cancelBtn="cancelBtn"
           v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('interests')}`"
         />
       </AccordionComponent>
