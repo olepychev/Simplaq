@@ -126,7 +126,7 @@
 
         <button
           type="button"
-          @click="cancelChangePassword"
+          @click="cancelBtn"
           class="py-[17px] px-[69px] border-[1px] border-graylight rounded-[20px] group hover:bg-pink transition-all cursor-pointer"
         >
           <p class="text-black text-sm font-semibold leading-[20px] tracking-[-0.2px] group-hover:text-white transition-all">
@@ -195,8 +195,8 @@ export default {
     }
   },
   methods: {
-    cancelChangePassword() {
-      this.$emit('cancelChangePassword')
+    cancelBtn() {
+      this.$emit('cancelBtn')
     },
     openSupportModal() {
       this.contactSupportShow = true

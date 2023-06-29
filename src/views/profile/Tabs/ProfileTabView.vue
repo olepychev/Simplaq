@@ -8,14 +8,22 @@
       </AccordionComponent>
 
       <AccordionComponent @accordionClicked="accordionClicked" icon="solar:lock-keyhole-minimalistic-linear" :title="$t('change_password')">
-        <ProfilePasswordChangeComponent @cancelChangePassword="cancelChangePassword"  v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('change_password')}`" />
+        <ProfilePasswordChangeComponent
+          @cancelBtn="cancelBtn"
+          v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('change_password')}`"
+        />
       </AccordionComponent>
 
       <AccordionComponent @accordionClicked="accordionClicked" icon="clarity:notification-line" :title="$t('notifications')">
-        <ProfileNotificationsToggleComponent v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('notifications')}`"/>
+        <ProfileNotificationsToggleComponent v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('notifications')}`" />
       </AccordionComponent>
 
-      <AccordionComponent @accordionClicked="accordionClicked" icon="carbon:user-avatar" :title="$t('interests')"> </AccordionComponent>
+      <AccordionComponent @accordionClicked="accordionClicked" icon="carbon:user-avatar" :title="$t('interests')">
+        <ProfileInterestsComponent
+          @cancelBtn="cancelBtn"
+          v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('interests')}`"
+        />
+      </AccordionComponent>
 
       <AccordionComponent @accordionClicked="accordionClicked" icon="icons8:add-user" :title="$t('connected_accounts')">
       </AccordionComponent>
@@ -50,6 +58,7 @@ import AccordionComponent from '@/components/accordion/AccordionComponent.vue'
 import ProfilePersonalDataComponent from '@/components/profile/personal_data/PersonalDataComponent.vue'
 import ProfilePasswordChangeComponent from '@/components/profile/change_password/changePasswordComponent.vue'
 import ProfileNotificationsToggleComponent from '@/components/profile/notifications/NotificationsComponent.vue'
+import ProfileInterestsComponent from '@/components/profile/interests/InterestsComponent.vue'
 export default {
   name: 'ProfileTab',
   data() {
@@ -62,6 +71,7 @@ export default {
     ProfilePersonalDataComponent,
     ProfilePasswordChangeComponent,
     ProfileNotificationsToggleComponent,
+    ProfileInterestsComponent
   },
   methods: {
     accordionClicked(activeAccordion) {
@@ -71,7 +81,7 @@ export default {
         this.activeAccordionIs = null
       }
     },
-    cancelChangePassword() {
+    cancelBtn() {
       document.getElementById(`${this.activeAccordionIs}`).classList.remove('active')
       this.activeAccordionIs = null
     }
