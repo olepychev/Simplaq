@@ -18,42 +18,63 @@ const routes = [
   {
     path: "/",
     name: Routes.HOME,
+    meta: {
+      title: "Home Page"
+    },
     component: HomeView,
   },
   {
     path: "/login",
     name: Routes.LOGIN,
-    meta: {isGuest: true},
+    meta: {
+      isGuest: true,
+      title: "Login Page"
+    },
     component: LoginView,
   },
   {
     path: "/register",
     name: Routes.REGISTER,
-    meta: {isGuest: true},
+    meta: {
+      isGuest: true,
+      title: "Register Page"
+    },
     component: RegisterView,
   },
   {
     path: "/forgot-password",
     name: Routes.FORGOT_PASSWORD,
-    meta: {isGuest: true},
+    meta: {
+      isGuest: true,
+      title: "Forgot password Page"
+    },
     component: ForgotPassword,
   },
   {
     path: "/setnew-password",
     name: Routes.SETNEW_PASSWORD,
-    meta: {isGuest: true},
+    meta: {
+      isGuest: true,
+      title: "Set New Password Page"
+    },
     component: SetnewPassword,
   },
   {
     path: "/lite",
     name: Routes.LITE,
-    meta: {requiresAuth: true},
+    meta: {
+      requiresAuth: true,
+      title: "Lite Page"
+    },
     component: LiteView,
   },
   {
     path: '/my-reward',
     name: Routes.MY_REWARD,
-    meta: {requiresAuth: true},
+    meta: {
+      requiresAuth: true,
+      title: "My Reward Page"
+    },
     component: LiteSingleRewardView,
   }
 ]
@@ -64,7 +85,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const user = useUserStore()
-
+  window.document.title = to.meta.title ? to.meta.title : ''
   if (to.meta.requiresAuth && !user.token){
     next({name: Routes.LOGIN})
   } 

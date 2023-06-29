@@ -399,7 +399,7 @@
 
     ]">
     <swiper-slide>
-      <div class="relative w-full flex flex-col shadow-sm">
+      <div class="relative w-full flex flex-col shadow-sm group">
         <div class="relative w-full lg:h-[315px]  xl:h-[324px] 2xl:h-[382px]  rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
           <img class="w-full h-full object-cover" src="@/assets/imgs/item2.png" alt="" />
           <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">

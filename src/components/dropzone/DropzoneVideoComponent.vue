@@ -32,9 +32,9 @@ export default {
         previewTemplate: `
           <div class="dz-preview dz-file-preview relative group">
             <div class="dz-details">
-              <video autoplay class="w-full rounded-[12px] min-h-[60px] max-w-[118px]" controls>
-                <source :src="file.dataURL" type="file.type" />
-              </video>
+              <div class="w-full flex items-center justify-center w-[118px] rounded-[16px] bg-graylight">
+                <img class="w-[50%] h-[118px]" src="../../src/assets/imgs/Video.svg"/>
+                </div>
             </div>
             <div class="absolute top-0 right-0 rounded-full w-[40px] h-[40px] flex items-center justify-center cursor-pointer opacity-0 group-hover:opacity-100 transition-all dz-remove bg-black dz-remove" data-dz-remove>
               <button>
