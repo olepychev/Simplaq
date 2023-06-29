@@ -156,7 +156,9 @@
   "follow":"Follow",
   "submit": "Submit",
   "cancel": "Cancel",
+  "save": "Save",
   "done": "Done",
+  "edit": "Edit",
 
   "scan_your_receipt_and": "Scan your receipt and",
   "get_points_for_rewards": "get points for reward",
@@ -182,6 +184,8 @@
   "location": "Location",
   "adress": "Adress",
   "use_my_location": "Use my location",
+  "car_license_plate_number": "Car license plate number",
+  "enter_car_license_plate_number": "Enter car license plate number",
   "search_adress": "Search adress",
 
   "user_id": "User id"

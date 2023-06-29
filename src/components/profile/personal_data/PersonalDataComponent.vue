@@ -1,7 +1,7 @@
 <template>
-  <div class="pt-[20px] pb-[25px] pl-[60px]">
+  <div class="w-full">
     <form class="w-full flex flex-col gap-[8px] w-full">
-      <div class="w-full grid grid-cols-2 gap-[12px]">
+      <div class="w-full grid grid-cols-2 gap-[12px] pt-[20px] pb-[25px] pl-[60px]">
         <!---->
         <div
           :class="editMode ? 'bg-gray' : ''"
@@ -207,10 +207,70 @@
             <p class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]">Ukraine</p>
           </div>
         </div>
-      </div>
-      
-    </form>
 
+        <!---->
+        <div
+          :class="editMode ? 'bg-gray' : ''"
+          class="items-center gap-[12px] border-[1px] border-transparent grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] rounded-[16px]"
+        >
+          <div>
+            <Icon icon="ion:car-sport-outline" class="text-lg text-black" />
+          </div>
+          <div v-if="editMode" class="flex flex-col gap-[2px]">
+            <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('car_license_plate_number') }}</label>
+            <input
+              type="text"
+              id="phone"
+              :placeholder="$t('enter_car_license_plate_number')"
+              value="AB6041AA"
+              class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
+            />
+          </div>
+          <div v-else class="flex flex-col gap-[2px]">
+            <p class="text-s text-grayDark leading-[16px] font-medium">{{ $t('car_license_plate_number') }}</p>
+            <p class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]">380939412641</p>
+          </div>
+          <div v-if="editMode">
+            <Icon icon="bi:check" class="text-lg text-green" />
+          </div>
+        </div>
+      </div>
+
+      <div v-if="!editMode" class="w-full pt-[16px] pb-[24px] pl-[60px] border-t-[1px] border-gray">
+        <button
+          type="button"
+          @click="editPersonalData"
+          class="py-[17px] px-[69px] border-[1px] border-orange rounded-[20px] group hover:bg-orange transition-all cursor-pointer"
+        >
+          <p class="text-pink text-sm font-semibold leading-[20px] tracking-[-0.2px] group-hover:text-white transition-all">
+            {{ $t('edit') }}
+          </p>
+        </button>
+      </div>
+
+      <div v-else class="w-full pt-[16px] pb-[24px] pl-[60px] border-t-[1px] border-gray">
+        <div class="flex gap-[8px] items-center">
+          <button
+            type="button"
+            class="py-[17px] px-[69px] border-[1px] border-graylight rounded-[20px] group hover:bg-orange transition-all cursor-pointer"
+          >
+            <p class="text-black text-sm font-semibold leading-[20px] tracking-[-0.2px] group-hover:text-white transition-all">
+              {{ $t('save') }}
+            </p>
+          </button>
+
+          <button
+            type="button"
+            @click="canelEditPersonalData"
+            class="py-[17px] px-[69px] border-[1px] border-graylight rounded-[20px] group hover:bg-pink transition-all cursor-pointer"
+          >
+            <p class="text-black text-sm font-semibold leading-[20px] tracking-[-0.2px] group-hover:text-white transition-all">
+              {{ $t('cancel') }}
+            </p>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -251,13 +311,24 @@ export default {
     }
   },
   mounted() {
-    this.appendUseMyLocationToCountrySelect()
+    // this.appendUseMyLocationToCountrySelect()
     // this.changeSearchInputPlace()
     this.selectedCountries = this.countries[0]
 
     this.selectedGender = this.genders[0]
   },
+  updated() {
+    this.updateSelectedCountries(this.selectedCountries)
+
+    this.appendUseMyLocationToCountrySelect()
+  },
   methods: {
+    editPersonalData() {
+      this.editMode = true
+    },
+    canelEditPersonalData() {
+        this.editMode = false
+    },
     appendUseMyLocationToCountrySelect() {
       if (this.editMode) {
         const countrySelect = document.querySelector('#countrySelect .multiselect__content-wrapper')
@@ -270,14 +341,7 @@ export default {
       let searchInputParent = document.querySelector('#countrySelect .multiselect__content-wrapper')
       searchInputParent.prepend(searchInput)
     },
-
-    customLabel({ country }) {
-      return `${country}`
-    }
-  },
-
-  watch: {
-    selectedCountries(newSelectedCountries) {
+    updateSelectedCountries(newSelectedCountries) {
       if (this.editMode) {
         // Do something when the value of selectedCountries changes
         let selected = `<div class="flex items-center gap-[8px]">
@@ -294,6 +358,16 @@ export default {
         }
         document.querySelector('#countrySelect .multiselect__tags').appendChild(selectedEl)
       }
+    },
+
+    customLabel({ country }) {
+      return `${country}`
+    }
+  },
+
+  watch: {
+    selectedCountries(newSelectedCountries) {
+      this.updateSelectedCountries(newSelectedCountries)
     }
   }
 }
