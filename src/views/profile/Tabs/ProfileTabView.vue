@@ -25,9 +25,10 @@
       </AccordionComponent>
 
       <AccordionComponent @accordionClicked="accordionClicked" icon="icons8:add-user" :title="$t('connected_accounts')">
+        <ProfileConnectedAccountsComponent v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('connected_accounts')}`" />
       </AccordionComponent>
 
-      <div
+      <div @click="deleteAccount"
         class="w-full flex items-center justify-between rounded-[16px] border-[1px] border-gray pl-[12px] py-[8px] pr-[20px] cursor-pointer"
       >
         <div class="flex items-center gap-[12px]">
@@ -39,6 +40,7 @@
       </div>
 
       <div
+      @click="logout"
         class="w-full flex items-center justify-between rounded-[16px] border-[1px] border-gray pl-[12px] py-[8px] pr-[20px] cursor-pointer"
       >
         <div class="flex items-center gap-[12px]">
@@ -50,6 +52,9 @@
       </div>
     </div>
   </div>
+
+  <DeleteAccountComponent @cancelDeleteAccount="cancelDeleteAccount" v-if="activeDeleteAccount"/>
+  <LogoutComponet @cancelLogout="cancelLogout" v-if="activeLogout"/>
 </template>
 
 <script lang="ts">
@@ -58,11 +63,16 @@ import ProfilePersonalDataComponent from '@/components/profile/personal_data/Per
 import ProfilePasswordChangeComponent from '@/components/profile/change_password/changePasswordComponent.vue'
 import ProfileNotificationsToggleComponent from '@/components/profile/notifications/NotificationsComponent.vue'
 import ProfileInterestsComponent from '@/components/profile/interests/InterestsComponent.vue'
+import ProfileConnectedAccountsComponent from '@/components/profile/connected_accounts/connectedAccountsComponent.vue'
+import DeleteAccountComponent from '@/components/profile/delete/DeleteAccountComponent.vue'
+import LogoutComponet from '@/components/modals/logoutComponent.vue'
 export default {
   name: 'ProfileTab',
   data() {
     return {
-      activeAccordionIs: null
+      activeAccordionIs: null,
+      activeDeleteAccount: false,
+      activeLogout: false,
     }
   },
   components: {
@@ -70,7 +80,10 @@ export default {
     ProfilePersonalDataComponent,
     ProfilePasswordChangeComponent,
     ProfileNotificationsToggleComponent,
-    ProfileInterestsComponent
+    ProfileInterestsComponent,
+    ProfileConnectedAccountsComponent,
+    DeleteAccountComponent,
+    LogoutComponet,
   },
   methods: {
     accordionClicked(activeAccordion) {
@@ -83,7 +96,19 @@ export default {
     cancelBtn() {
       document.getElementById(`${this.activeAccordionIs}`).classList.remove('active')
       this.activeAccordionIs = null
-    }
+    },
+    deleteAccount() {
+      this.activeDeleteAccount = true
+    },
+    cancelDeleteAccount() {
+      this.activeDeleteAccount = false
+    },
+    logout() {
+      this.activeLogout = true
+    },
+    cancelLogout() {
+      this.activeLogout = false
+    },
   }
 }
 </script>

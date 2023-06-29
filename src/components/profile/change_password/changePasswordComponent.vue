@@ -172,7 +172,8 @@ export default {
   },
 
   computed: {
-    oldPasswordNotCorrect() {
+    oldPasswordNotCorrect(): boolean {
+      return true
         // check from database if password which user input in old password field is correct
     },
     nonvalidatePassword(): boolean {

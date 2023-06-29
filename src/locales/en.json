@@ -178,11 +178,17 @@
   "payment_methods": "Payment methods",
   "purchase": "Purchase",
   "log_out": "Log out",
+  "are_you_sure_you_want_to_log_out_of_your_account": "Are you sure you want to log out of your account?",
   "change_password": "Change Password",
   "notifications": "Notifications",  
   "interests": "Interests",
   "connected_accounts": "Connected Accounts",
   "delete_account": "Delete Account",
+  "delete_account_text": "Are you sure you want to close Simlaq account? This account contains 1200 points. Deleting your account will remove all of your loyalty points",
+
+  "yes_delete": "Yes delete",
+  "no": "No",
+  "yes_log_out": "Yes log out",
 
   "food_&_drinks": "Foods & Drinks",
   "film_&_entertainment": "Film & entertaiment",
@@ -193,6 +199,9 @@
   "car_license_plate_number": "Car license plate number",
   "enter_car_license_plate_number": "Enter car license plate number",
   "search_adress": "Search adress",
+  
+  "disconnect": "Disconnect",
+  "connect": "Connect",
 
   "user_id": "User id"
 }
