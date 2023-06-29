@@ -171,6 +171,7 @@
   "purchase_complete": "Purchase complete",
   "saved_items_on_sale": "Saved items on sale",
 
+
   "profile": "Profile",
   "personal_data": "Personal data",
   "favorites": "Favoritets",
@@ -194,6 +195,10 @@
   "film_&_entertainment": "Film & entertaiment",
 
   "location": "Location",
+  "not_now": "Not now",
+  "allow_location": "Allow location",
+  "share_your_location": "Share your location",
+  "share_your_location_text": "We’ll use your location to display upcoming events near you and show you most relevant search results",
   "adress": "Adress",
   "use_my_location": "Use my location",
   "car_license_plate_number": "Car license plate number",

@@ -9,7 +9,7 @@
 
           <h6 class="font-bold text-black text-xl mb-[8px] text-center">{{ $t('delete_account') }}</h6>
 
-          <p class="max-w-[400px] w-full mx-auto font-medium text-base text-grayDark text-center">{{ $t('are_you_sure_you_want_to_log_out_of_your_account') }}</p>
+          <p class="max-w-[342px] w-full mx-auto font-medium text-sm text-grayDark text-center leading-[24px]">{{ $t('are_you_sure_you_want_to_log_out_of_your_account') }}</p>
 
           <div class="flex gap-[8px] mt-[33px] w-full items-center justify-center">
             <button

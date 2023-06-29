@@ -176,6 +176,7 @@
           </div>
           <div v-if="editMode" class="flex items-center gap-[12px] py-[17px]" id="countrySelect">
             <div
+            @click="openShareLocation"
               id="useMyLocation"
               class="cursor-pointer group hover:bg-yellowLight px-[12px] my-[16px] w-[90%] mx-auto py-[8px] border-[1px] border-gray rounded-[16px] flex items-center gap-[12px]"
             >
@@ -287,18 +288,24 @@
       </div>
     </form>
   </div>
+
+  <shareLocationComponent v-if="activeShareLocation" @closeShareLocation="closeShareLocation" />
 </template>
 
 <script lang="ts">
 import VueMultiselect from 'vue-multiselect'
+import shareLocationComponent from '@/components/modals/shareLocationComponent.vue'
 
 export default {
   name: 'PersonalData',
   components: {
-    VueMultiselect
+    VueMultiselect,
+    shareLocationComponent
   },
   data() {
     return {
+      activeShareLocation: false,
+
       editMode: false,
 
       countries: [
@@ -335,6 +342,12 @@ export default {
     this.appendUseMyLocationToCountrySelect()
   },
   methods: {
+    openShareLocation() {
+      this.activeShareLocation = true
+    },
+    closeShareLocation() {
+      this.activeShareLocation = false
+    },
     selectOnOpen() {
         let active = document.querySelector('.multiselect--active')
         console.log(active)
