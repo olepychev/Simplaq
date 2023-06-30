@@ -2404,6 +2404,8 @@
 
   <!-- Footer Component -->
   <FooterComponentVue />
+
+  <turnonNotificationsComponent v-if="turnOnNotifications" @closeTurnonNotifications="closeTurnonNotifications" />
 </template>
 
 <script lang="ts">
@@ -2419,14 +2421,23 @@ import SliderComponentVue from '@/components/slider/SliderComponent.vue'
 import CTAComponentVue from '@/components/CTAComponent.vue'
 import FooterComponentVue from '@/components/layouts/FooterComponent.vue'
 
+import turnonNotificationsComponent from '@/components/modals/turnonNotificationsComponent.vue'
+
 export default {
   name: 'Home',
+  data() {
+    return {
+      turnOnNotifications: true,
+    }
+  },
   components: {
     HeaderComponent,
     HeroComponent,
     SliderComponentVue,
     CTAComponentVue,
     FooterComponentVue,
+
+    turnonNotificationsComponent,
 
     Swiper,
     SwiperSlide
@@ -2435,6 +2446,12 @@ export default {
   setup() {
     return {
       modules: [Pagination, Navigation]
+    }
+  },
+
+  methods: {
+    closeTurnonNotifications() {
+      this.turnOnNotifications = false
     }
   }
 }
