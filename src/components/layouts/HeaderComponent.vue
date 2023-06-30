@@ -8,21 +8,18 @@
           </a>
           <div class="header_btns flex items-center gap-[8px]">
             <button
-              class="flex lg:hidden items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
-            >
+              class="flex lg:hidden items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all">
               <Icon icon="ion:menu-outline" class="text-xl" />
             </button>
             <button
-              class="flex items-center justify-center min-w-[48px] min-h-[48px] gap-[8px] lg:px-[24px] lg:py-[12px] bg-gray rounded-full lg:rounded-[16px] opacity-80 hover:opacity-100 transition-all"
-            >
+              class="flex items-center justify-center min-w-[48px] min-h-[48px] gap-[8px] lg:px-[24px] lg:py-[12px] bg-gray rounded-full lg:rounded-[16px] opacity-80 hover:opacity-100 transition-all">
               <Icon icon="ri:search-2-line" class="text-xl text-black" />
 
               <p class="hidden lg:block text-sm text-black font-semibold">{{ $t('search') }}</p>
             </button>
 
             <button
-              class="flex items-center justify-center min-w-[48px] min-h-[48px] gap-[8px] md:px-[24px] md:py-[12px] bg-gray rounded-full md:rounded-[16px] opacity-80 hover:opacity-100 transition-all"
-            >
+              class="flex items-center justify-center min-w-[48px] min-h-[48px] gap-[8px] md:px-[24px] md:py-[12px] bg-gray rounded-full md:rounded-[16px] opacity-80 hover:opacity-100 transition-all">
               <Icon icon="solar:streets-map-point-bold" class="text-xl text-pink" />
 
               <p class="hidden md:block text-sm text-black font-semibold">{{ $t('floorplan') }}</p>
@@ -35,60 +32,45 @@
         </a>
         <div v-if="!userStore.token" class="header_top-right flex items-center gap-[8px]">
           <button
-            class="hidden lg:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
-          >
+            class="hidden lg:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all">
             <Icon icon="ph:chats-circle-light" class="text-xl text-black" />
           </button>
           <button
-            class="hidden lg:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
-          >
+            class="hidden lg:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all">
             <Icon icon="clarity:notification-line" class="text-xl text-black" />
           </button>
 
-          <router-link
-            :to="{ name: $Routes.LOGIN }"
-            class="px-[26px] py-[13px] min-w-[120px] flex items-center justify-center rounded-[16px] transparent border-[1px] border-graylight text-sm font-semibold transition-all"
-            >{{ $t('login') }}
+          <router-link :to="{ name: $Routes.LOGIN }"
+            class="px-[26px] py-[13px] min-w-[120px] flex items-center justify-center rounded-[16px] transparent border-[1px] border-graylight text-sm font-semibold transition-all">{{
+              $t('login') }}
           </router-link>
-          <router-link
-            :to="{ name: $Routes.REGISTER }"
-            class="px-[26px] py-[13px] min-w-[120px] hidden md:flex items-center justify-center rounded-[16px] transparent border-[1px] border-transparent text-sm font-semibold bg-orange text-white transition-all"
-            >{{ $t('create_account') }}</router-link
-          >
+          <router-link :to="{ name: $Routes.REGISTER }"
+            class="px-[26px] py-[13px] min-w-[120px] hidden md:flex items-center justify-center rounded-[16px] transparent border-[1px] border-transparent text-sm font-semibold bg-orange text-white transition-all">{{
+              $t('create_account') }}</router-link>
         </div>
         <div v-else class="relative header_top-right flex items-center gap-[8px]">
           <button
-            class="hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
-          >
+            class="hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all">
             <Icon icon="iconamoon:heart-thin" class="text-xl text-black" />
           </button>
 
           <button
-            class="hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
-          >
+            class="hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all">
             <Icon icon="ph:chats-circle-light" class="text-xl text-black" />
           </button>
-          <button 
-          @click="openNotifications"
-          :titleIs="$t('notifications')"
-          :class="activeNotifications ? 'bg-yellowLight' : 'bg-gray'"
-            class="header_notification_button relative hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] rounded-full transition-all
-            before:content-[attr(titleIs)] before:absolute before:top-[calc(100%+14px)] before:z-50 before:bg-black before:px-[16px] before:py-[8px] before:text-white before:font-medium before:text-xs before:tracking-[-0.2px] before:rounded before:invisible
-            after:absolute after:w-[12px] after:h-[12px] after:bg-black after:rotate-45 after:top-[calc(100%+12px)] after:invisible hover:after:visible hover:before:visible transition-all before:delay-300 after:delay-300 before:transition-all after:transition-all"
-          >
-            <Icon icon="clarity:notification-line" 
-            :class="activeNotifications ? 'text-orange' : 'text-black'"
-            class="text-lg" />
-
+          <button @click="openNotifications" :titleIs="$t('notifications')"
+            :class="activeNotifications ? 'bg-yellowLight' : 'bg-gray'"
+            class="header_notification_button relative hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] rounded-full transition-all before:content-[attr(titleIs)] before:absolute before:top-[calc(100%+14px)] before:z-50 before:bg-black before:px-[16px] before:py-[8px] before:text-white before:font-medium before:text-xs before:tracking-[-0.2px] before:rounded before:invisible after:absolute after:w-[12px] after:h-[12px] after:bg-black after:rotate-45 after:top-[calc(100%+12px)] after:invisible hover:after:visible hover:before:visible transition-all before:delay-300 after:delay-300 before:transition-all after:transition-all">
+            <Icon icon="clarity:notification-line" :class="activeNotifications ? 'text-orange' : 'text-black'"
+              class="text-lg" />
+              <div v-if="notification" class="w-[8px] h-[8px] bg-orange rounded-full absolute top-[11px] right-[11px]"></div>
           </button>
 
           <button
-            class=" flex items-end flex overflow-hidden justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
-          >
-            <img class="w-[80%]" src="@/assets/imgs/profile.svg" alt="">
+            class="flex items-end flex overflow-hidden justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all">
+            <img class="w-[80%]" src="@/assets/imgs/profile.svg" alt="" />
           </button>
-          <HeaderNotifications v-if="activeNotifications"/>
-
+          <HeaderNotifications v-if="activeNotifications" />
         </div>
       </div>
       <div class="lg:flex hidden header_bot mt-[20px] pb-[22px] items-center justify-between">
@@ -156,28 +138,27 @@ import HeaderNotifications from '@/components/popups/HeaderNotifications.vue'
 
 export default {
   name: 'HeaderComponent',
-  components:{
-    HeaderNotifications,
+  components: {
+    HeaderNotifications
   },
   data() {
     return {
-      activeNotifications:false,
+      activeNotifications: false,
+      notification: false,
     }
   },
   computed: {
     userStore() {
       return useUserStore()
-    },
+    }
   },
   mounted() {
-    document.addEventListener('click', (e:Event) => {
-      // if(! || !e.target.closest('header_notification_button')) {
-      //   console.log('asd')
-      // }
-     if(!e.target.closest('.header_notification_button') && !e.target.closest('.header_notifications_wrapper')) {
-      this.activeNotifications = false
-     }
-    })
+    document.addEventListener('click', (e: Event) => {
+      const target = e.target as Element;
+      if (!target.closest('.header_notification_button') && !target.closest('.header_notifications_wrapper')) {
+        this.activeNotifications = false;
+      }
+    });
   },
   methods: {
     openNotifications() {
