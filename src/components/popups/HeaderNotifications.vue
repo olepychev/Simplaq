@@ -1,22 +1,22 @@
 <template>
   <div
-    class="header_notifications_wrapper absolute top-[calc(100%+8px)] z-[99] right-0 w-[383px] bg-white border border-gray rounded-[16px] px-[20px] py-[20px] pb-[24px] drop-shadow-md"
+    class="header_notifications_wrapper absolute top-[calc(100%+8px)] z-[99] right-0 w-[383px] bg-white border border-gray rounded-[16px]  py-[20px] pb-[24px] drop-shadow-md"
   >
-    <div class="w-full flex items-center justify-between pb-[16px] mb-[12px] border-b border-gray">
+    <div class="w-full flex items-center justify-between pb-[16px] mb-[12px] border-b border-gray px-[20px]">
       <h6 class="text-black font-bold text-base leading-[24px]">{{ $t('notifications') }}</h6>
       <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center cursor-pointer">
         <Icon icon="tabler:settings-2" class="text-lg text-black" />
       </div>
     </div>
 
-    <HeaderNoNotifications v-if="!notifications" />
+    <HeaderNoNotifications v-if="!isNotification"  />
     <div v-else class="w-full">
-      <div class="w-full flex items-center justify-between mb-[16px]">
+      <div class="w-full flex items-center justify-between mb-[16px] px-[20px]">
         <p class="text-xs text-grayDark font-normal leading-[20px]">{{ $t('recent') }}</p>
         <a class="text-xs text-pink font-semibold leading-[20px] tracking-[-0.2px]" href="#">{{ $t('view_all') }}</a>
       </div>
 
-      <div class="w-full flex flex-col gap-[12px]">
+      <div class="w-full flex flex-col gap-[12px] max-h-[calc(100vh-350px)] overflow-auto custom-scrollbar px-[20px]">
 
         <a href="#" class="w-full flex items-start justify-between notification message !border-gray">
           <div class="flex items-center gap-[12px]">
@@ -85,6 +85,73 @@
           <p class="text-grayDark font-normal border-gray leading-[20px] tracking-[-0.2px] text-xs">12 {{ $t('hr_ago') }}</p>
         </a>
 
+        <!--dell-->
+         
+        <a href="#" class="w-full flex items-start justify-between notification offer !border-gray">
+          <div class="flex items-center gap-[12px]">
+            <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center cursor-pointer">
+                <Icon icon="ion:gift" class="text-lg text-orange" />
+            </div>
+            <div class="flex flex-col gap-[4px]">
+                <p class="text-black font-bold leading-[20px] text-sm capitaize">{{ $t('get')}} 45% {{ $t('discount_for_sturbacks') }}</p>
+                <p class="text-orange font-semibold leading-[20px] tracking-[-0.2px] text-xs">{{ $t('click_to_go_to_the_offer') }}</p>
+            </div>
+          </div>
+          <p class="text-grayDark font-normal border-gray leading-[20px] tracking-[-0.2px] text-xs">12 {{ $t('hr_ago') }}</p>
+        </a>
+         
+        <a href="#" class="w-full flex items-start justify-between notification offer !border-gray">
+          <div class="flex items-center gap-[12px]">
+            <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center cursor-pointer">
+                <Icon icon="ion:gift" class="text-lg text-orange" />
+            </div>
+            <div class="flex flex-col gap-[4px]">
+                <p class="text-black font-bold leading-[20px] text-sm capitaize">{{ $t('get')}} 45% {{ $t('discount_for_sturbacks') }}</p>
+                <p class="text-orange font-semibold leading-[20px] tracking-[-0.2px] text-xs">{{ $t('click_to_go_to_the_offer') }}</p>
+            </div>
+          </div>
+          <p class="text-grayDark font-normal border-gray leading-[20px] tracking-[-0.2px] text-xs">12 {{ $t('hr_ago') }}</p>
+        </a>
+         
+        <a href="#" class="w-full flex items-start justify-between notification offer !border-gray">
+          <div class="flex items-center gap-[12px]">
+            <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center cursor-pointer">
+                <Icon icon="ion:gift" class="text-lg text-orange" />
+            </div>
+            <div class="flex flex-col gap-[4px]">
+                <p class="text-black font-bold leading-[20px] text-sm capitaize">{{ $t('get')}} 45% {{ $t('discount_for_sturbacks') }}</p>
+                <p class="text-orange font-semibold leading-[20px] tracking-[-0.2px] text-xs">{{ $t('click_to_go_to_the_offer') }}</p>
+            </div>
+          </div>
+          <p class="text-grayDark font-normal border-gray leading-[20px] tracking-[-0.2px] text-xs">12 {{ $t('hr_ago') }}</p>
+        </a>
+         
+        <a href="#" class="w-full flex items-start justify-between notification offer !border-gray">
+          <div class="flex items-center gap-[12px]">
+            <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center cursor-pointer">
+                <Icon icon="ion:gift" class="text-lg text-orange" />
+            </div>
+            <div class="flex flex-col gap-[4px]">
+                <p class="text-black font-bold leading-[20px] text-sm capitaize">{{ $t('get')}} 45% {{ $t('discount_for_sturbacks') }}</p>
+                <p class="text-orange font-semibold leading-[20px] tracking-[-0.2px] text-xs">{{ $t('click_to_go_to_the_offer') }}</p>
+            </div>
+          </div>
+          <p class="text-grayDark font-normal border-gray leading-[20px] tracking-[-0.2px] text-xs">12 {{ $t('hr_ago') }}</p>
+        </a>
+         
+        <a href="#" class="w-full flex items-start justify-between notification offer !border-gray">
+          <div class="flex items-center gap-[12px]">
+            <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center cursor-pointer">
+                <Icon icon="ion:gift" class="text-lg text-orange" />
+            </div>
+            <div class="flex flex-col gap-[4px]">
+                <p class="text-black font-bold leading-[20px] text-sm capitaize">{{ $t('get')}} 45% {{ $t('discount_for_sturbacks') }}</p>
+                <p class="text-orange font-semibold leading-[20px] tracking-[-0.2px] text-xs">{{ $t('click_to_go_to_the_offer') }}</p>
+            </div>
+          </div>
+          <p class="text-grayDark font-normal border-gray leading-[20px] tracking-[-0.2px] text-xs">12 {{ $t('hr_ago') }}</p>
+        </a>
+
       </div>
     </div>
   </div>
@@ -94,9 +161,10 @@
 import HeaderNoNotifications from '@/components/popups/HeaderNoNotifications.vue'
 export default {
   name: 'HeaderNotifications',
-  data() {
-    return {
-      notifications: true
+  props: {
+    isNotification: {
+      type: Boolean,
+      required: true,
     }
   },
   components: {

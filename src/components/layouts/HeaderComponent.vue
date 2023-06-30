@@ -70,7 +70,7 @@
             class="flex items-end flex overflow-hidden justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all">
             <img class="w-[80%]" src="@/assets/imgs/profile.svg" alt="" />
           </button>
-          <HeaderNotifications v-if="activeNotifications" />
+          <HeaderNotifications v-if="activeNotifications" :isNotification="notification" />
         </div>
       </div>
       <div class="lg:flex hidden header_bot mt-[20px] pb-[22px] items-center justify-between">
@@ -144,7 +144,7 @@ export default {
   data() {
     return {
       activeNotifications: false,
-      notification: false,
+      notification: true,
     }
   },
   computed: {

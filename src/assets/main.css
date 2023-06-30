@@ -4,7 +4,25 @@
 :root {
   --activeSidebarDiv: #fdf3ed;
   --activeSidebarIcon: #F18C53;
-  --black: '#17181B';
+  --yellowLight: #FDF3ED;
+  --orange: #F18C53;
+}
+
+/* width */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--yellowLight);
+  border-radius: 20px;
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 20px;
 }
 
 .orange-border {
