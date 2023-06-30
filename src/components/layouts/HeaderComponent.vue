@@ -56,7 +56,7 @@
             >{{ $t('create_account') }}</router-link
           >
         </div>
-        <div v-else class="header_top-right flex items-center gap-[8px]">
+        <div v-else class="relative header_top-right flex items-center gap-[8px]">
           <button
             class="hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
           >
@@ -68,17 +68,27 @@
           >
             <Icon icon="ph:chats-circle-light" class="text-xl text-black" />
           </button>
-          <button
-            class="hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
+          <button 
+          @click="openNotifications"
+          :titleIs="$t('notifications')"
+          :class="activeNotifications ? 'bg-yellowLight' : 'bg-gray'"
+            class="header_notification_button relative hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] rounded-full transition-all
+            before:content-[attr(titleIs)] before:absolute before:top-[calc(100%+14px)] before:z-50 before:bg-black before:px-[16px] before:py-[8px] before:text-white before:font-medium before:text-xs before:tracking-[-0.2px] before:rounded before:invisible
+            after:absolute after:w-[12px] after:h-[12px] after:bg-black after:rotate-45 after:top-[calc(100%+12px)] after:invisible hover:after:visible hover:before:visible transition-all before:delay-300 after:delay-300 before:transition-all after:transition-all"
           >
-            <Icon icon="clarity:notification-line" class="text-lg text-black" />
+            <Icon icon="clarity:notification-line" 
+            :class="activeNotifications ? 'text-orange' : 'text-black'"
+            class="text-lg" />
+
           </button>
 
           <button
-            class="flex items-end flex overflow-hidden justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
+            class=" flex items-end flex overflow-hidden justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all"
           >
             <img class="w-[80%]" src="@/assets/imgs/profile.svg" alt="">
           </button>
+          <HeaderNotifications v-if="activeNotifications"/>
+
         </div>
       </div>
       <div class="lg:flex hidden header_bot mt-[20px] pb-[22px] items-center justify-between">
@@ -142,11 +152,36 @@
 
 <script lang="ts">
 import { useUserStore } from '@/stores/user'
+import HeaderNotifications from '@/components/popups/HeaderNotifications.vue'
+
 export default {
   name: 'HeaderComponent',
+  components:{
+    HeaderNotifications,
+  },
+  data() {
+    return {
+      activeNotifications:false,
+    }
+  },
   computed: {
     userStore() {
       return useUserStore()
+    },
+  },
+  mounted() {
+    document.addEventListener('click', (e:Event) => {
+      // if(! || !e.target.closest('header_notification_button')) {
+      //   console.log('asd')
+      // }
+     if(!e.target.closest('.header_notification_button') && !e.target.closest('.header_notifications_wrapper')) {
+      this.activeNotifications = false
+     }
+    })
+  },
+  methods: {
+    openNotifications() {
+      this.activeNotifications = !this.activeNotifications
     }
   }
 }

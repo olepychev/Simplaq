@@ -50,12 +50,14 @@ module.exports = {
       },
       dropShadow: {
         'sm': ' 0px 16px 120px 0px rgba(17, 24, 39, 0.08)',
+        'md': '0 24px 70px -16px rgba(188, 194, 197, 0.12)'
       },
       fontSize: {
         's': '10px',
         'xs': '12px',
         'sm': '14px',
         'base': '16px',
+        'base2': '18px',
         'lg': '20px',
         'xl': '24px',
         '2xl': '32px',

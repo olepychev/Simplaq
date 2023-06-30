@@ -47,7 +47,7 @@
           <input
             :type="passwordShow ? 'text' : 'password'"
             id="password"
-            :placeholder="$t('password')"
+            :placeholder="$t('new_password')"
             @input="handlePasswordInput"
             v-model="userData.password"
             class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
