@@ -19,16 +19,15 @@
       </AccordionComponent>
 
       <AccordionComponent @accordionClicked="accordionClicked" icon="carbon:user-avatar" :title="$t('interests')">
-        <ProfileInterestsComponent
-          v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('interests')}`"
-        />
+        <ProfileInterestsComponent v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('interests')}`" />
       </AccordionComponent>
 
       <AccordionComponent @accordionClicked="accordionClicked" icon="icons8:add-user" :title="$t('connected_accounts')">
         <ProfileConnectedAccountsComponent v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('connected_accounts')}`" />
       </AccordionComponent>
 
-      <div @click="deleteAccount"
+      <div
+        @click="deleteAccount"
         class="w-full flex items-center justify-between rounded-[16px] border-[1px] border-gray pl-[12px] py-[8px] pr-[20px] cursor-pointer"
       >
         <div class="flex items-center gap-[12px]">
@@ -40,7 +39,7 @@
       </div>
 
       <div
-      @click="logout"
+        @click="logout"
         class="w-full flex items-center justify-between rounded-[16px] border-[1px] border-gray pl-[12px] py-[8px] pr-[20px] cursor-pointer"
       >
         <div class="flex items-center gap-[12px]">
@@ -53,8 +52,8 @@
     </div>
   </div>
 
-  <DeleteAccountComponent @cancelDeleteAccount="cancelDeleteAccount" v-if="activeDeleteAccount"/>
-  <LogoutComponet @cancelLogout="cancelLogout" v-if="activeLogout"/>
+  <DeleteAccountComponent @cancelDeleteAccount="cancelDeleteAccount" v-if="activeDeleteAccount" />
+  <LogoutComponet @cancelLogout="cancelLogout" v-if="activeLogout" />
 </template>
 
 <script lang="ts">
@@ -72,7 +71,7 @@ export default {
     return {
       activeAccordionIs: null,
       activeDeleteAccount: false,
-      activeLogout: false,
+      activeLogout: false
     }
   },
   components: {
@@ -83,7 +82,7 @@ export default {
     ProfileInterestsComponent,
     ProfileConnectedAccountsComponent,
     DeleteAccountComponent,
-    LogoutComponet,
+    LogoutComponet
   },
   methods: {
     accordionClicked(activeAccordion) {
@@ -94,7 +93,13 @@ export default {
       }
     },
     cancelBtn() {
-      document.getElementById(`${this.activeAccordionIs}`).classList.remove('active')
+      let activeAccordion = document.getElementById(`${this.activeAccordionIs}`)
+      activeAccordion.classList.remove('active')
+      activeAccordion.querySelector(`.icon`).classList.remove('bg-yellowLight')
+      activeAccordion.querySelector(`.icon svg`).classList.remove('text-orange')
+      activeAccordion.querySelector(`.icon svg`).classList.remove('text-orange')
+      activeAccordion.querySelector(`.title`).classList.remove('text-orange')
+      activeAccordion.querySelector(`.accordion-icon`).classList.remove('text-orange')
       this.activeAccordionIs = null
     },
     deleteAccount() {
@@ -108,7 +113,7 @@ export default {
     },
     cancelLogout() {
       this.activeLogout = false
-    },
+    }
   }
 }
 </script>
