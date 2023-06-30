@@ -1,13 +1,27 @@
 <template>
+  <notifications #body="props" position="bottom center" :duration="5000" :max="4">
+    <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
+      <div class="flex items-center gap-[12px]">
+        <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+        <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">
+          {{ props.item.title }}
+        </p>
+      </div>
+
+      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+    </div>
+  </notifications>
+
   <div class="w-full">
     <form class="w-full flex flex-col gap-[8px] w-full">
-
       <div v-if="editMode" class="pt-[20px] pl-[60px]">
         <div class="relative flex items-end flex justify-center gap-[8px] w-[64px] h-[64px] bg-gray rounded-full transition-all">
-          <img class="w-[80%] rounded-full" src="@/assets/imgs/profile.svg" alt="" />
-          <div class="absolute right-[-15px] cursor-pointer bottom-[-15px] w-[40px] h-[40px] overflow-hidden cursor-pointer bg-gray rounded-full flex items-center justify-center">
+          <img id="profile-image-update" class="w-full max-h-full rounded-full" src="@/assets/imgs/profile.svg" alt="" />
+          <div
+            class="absolute right-[-15px] cursor-pointer bottom-[-15px] w-[40px] h-[40px] overflow-hidden cursor-pointer bg-gray rounded-full flex items-center justify-center"
+          >
             <Icon icon="fluent:edit-20-regular" class="text-md text-black cursor-pointer" />
-            <input class="absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer" type="file">
+            <input @change="handleFileChange" class="absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer" type="file" />
           </div>
         </div>
       </div>
@@ -176,7 +190,7 @@
           </div>
           <div v-if="editMode" class="flex items-center gap-[12px] py-[17px]" id="countrySelect">
             <div
-            @click="openShareLocation"
+              @click="openShareLocation"
               id="useMyLocation"
               class="cursor-pointer group hover:bg-yellowLight px-[12px] my-[16px] w-[90%] mx-auto py-[8px] border-[1px] border-gray rounded-[16px] flex items-center gap-[12px]"
             >
@@ -342,6 +356,34 @@ export default {
     this.appendUseMyLocationToCountrySelect()
   },
   methods: {
+    handleFileChange(e: Event) {
+      const target = e.target as Element
+      const file = target.files[0]
+      if (file) {
+        if (!file.type.startsWith('image/')) {
+          this.$notify({
+            title: this.$t('please_choose_valid_image'),
+            component: {
+              template: `
+    <div class="flex items-center gap-[12px]">
+      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
+    </div>
+    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+  `
+            }
+          })
+          return
+        }
+
+        const reader = new FileReader()
+        reader.onload = e => {
+          document.getElementById('profile-image-update').src = e.target.result
+          console.log(e.target.result)
+        }
+        reader.readAsDataURL(file)
+      }
+    },
     openShareLocation() {
       this.activeShareLocation = true
     },
@@ -349,12 +391,10 @@ export default {
       this.activeShareLocation = false
     },
     selectOnOpen() {
-        let active = document.querySelector('.multiselect--active')
-        console.log(active)
+      let active = document.querySelector('.multiselect--active')
+      console.log(active)
     },
-    selectOnClose() {
-
-    },
+    selectOnClose() {},
     editPersonalData() {
       this.editMode = true
     },
@@ -407,12 +447,12 @@ export default {
 
 <style>
 .multiselect-focus-orange:has(.multiselect--active) {
-    border-color: #F18C53;
+  border-color: #f18c53;
 }
 
 .multiselect-focus-orange:has(.multiselect--active) .select-icon {
-    color: #F18C53;
-    transform: rotate(180deg);
+  color: #f18c53;
+  transform: rotate(180deg);
 }
 
 #genderSelect .multiselect__single {
@@ -473,7 +513,7 @@ export default {
   font-weight: bold;
 }
 
-input[type='file']{
-    cursor: pointer;
+input[type='file'] {
+  cursor: pointer;
 }
 </style>
