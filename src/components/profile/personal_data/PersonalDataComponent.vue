@@ -1,6 +1,6 @@
 <template>
   <notifications #body="props" position="bottom center" :duration="5000" :max="4">
-    <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
+    <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] shadow-md">
       <div class="flex items-center gap-[12px]">
         <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
         <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">
@@ -89,7 +89,7 @@
             <Icon icon="solar:shield-user-outline" class="text-lg text-black" />
           </div>
           <div v-if="editMode" class="flex flex-col gap-[2px]">
-            <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('full_name') }}</label>
+            <label for="full_name" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('full_name') }}</label>
             <input
               type="text"
               id="full_name"
@@ -116,10 +116,10 @@
             <Icon icon="solar:calendar-date-linear" class="text-lg text-black" />
           </div>
           <div v-if="editMode" class="flex flex-col gap-[2px]">
-            <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('birthday') }}</label>
+            <label for="birthday" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('birthday') }}</label>
             <input
               type="date"
-              id="full_name"
+              id="birthday"
               value="02/10/1991"
               class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
             />
@@ -145,7 +145,7 @@
           </div>
           <div v-if="editMode" class="flex items-center gap-[12px] py-[17px]" id="genderSelect">
             <div class="flex flex-col gap-[2px] w-full">
-              <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('gender') }}</label>
+              <label for="genderSelect" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('gender') }}</label>
               <vue-multiselect
                 v-model="selectedGender"
                 :options="genders"
@@ -247,10 +247,10 @@
             <Icon icon="ion:car-sport-outline" class="text-lg text-black" />
           </div>
           <div v-if="editMode" class="flex flex-col gap-[2px]">
-            <label for="phone" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('car_license_plate_number') }}</label>
+            <label for="carPlate" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('car_license_plate_number') }}</label>
             <input
               type="text"
-              id="phone"
+              id="carPlate"
               :placeholder="$t('enter_car_license_plate_number')"
               value="AB6041AA"
               class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"

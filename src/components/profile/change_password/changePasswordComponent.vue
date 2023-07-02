@@ -1,6 +1,6 @@
 <template>
   <notifications #body="props" position="bottom center" :duration="5000" :max="2">
-    <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] drop-shadow-md">
+    <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] shadow-md">
       <div class="flex items-center gap-[12px]">
         <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
         <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">
@@ -24,7 +24,7 @@
         <div class="flex flex-col gap-[2px]">
           <input
             :type="oldPasswordShow ? 'text' : 'password'"
-            id="password"
+            id="old_password"
             :placeholder="$t('password')"
             v-model="userData.oldPassword"
             class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
@@ -46,7 +46,7 @@
         <div class="flex flex-col gap-[2px]">
           <input
             :type="passwordShow ? 'text' : 'password'"
-            id="password"
+            id="new_password"
             :placeholder="$t('new_password')"
             @input="handlePasswordInput"
             v-model="userData.password"

@@ -2406,48 +2406,10 @@
   <FooterComponentVue />
 
   <turnonNotificationsComponent v-if="turnOnNotifications" @closeTurnonNotifications="closeTurnonNotifications" />
-  <!-- Complete Account Setup Modals -->
-  <CompleteProfileComponent
-    v-if="completeProfileModal"
-    @closeCompleteProfileComponent="closeCompleteProfileComponent"
-    @nextDatePickerComponent="nextDatePickerComponent"
-  />
-  <DatePickerComponent
-    v-if="datePickerModal"
-    @skipDatePickerComponent="skipDatePickerComponent"
-    @nextGenderPickerComponent="nextGenderPickerComponent"
-  />
-  <GenderPickerComponent
-    v-if="genderPickerModal"
-    @previousDatePickerComponent="previousDatePickerComponent"
-    @skipGenderPickerComponent="skipGenderPickerComponent"
-    @nextInterestsPickerComponent="nextInterestsPickerComponent"
-  />
 
-  <InterestsPickerComponent
-    v-if="interestsPickerModal"
-    @previousGenderPickerComponent="previousGenderPickerComponent"
-    @nextSelectProfileComponent="nextSelectProfileComponent"
-    @skipSelectProfileComponent="skipSelectProfileComponent"
-  />
+  <!-- Account Setup Modal -->
+  <AccountSetupComponent v-if="accountSetup" @closeCompleteProfileComponent="closeCompleteProfileComponent"/>
 
-  <SelectProfileComponent
-    v-if="profileSelectModal"
-    @previousInterestsPickerComponent="previousInterestsPickerComponent"
-    @skipProfileSelectComponent="skipProfileSelectComponent"
-    @nextLocationPickerComponent="nextLocationPickerComponent"
-  />
-
-  <LocationPickerComponent 
-  v-if="locationPickerModal" 
-  @previousProfileSelectComponent="previousProfileSelectComponent" 
-  @skipLocationComponent="skipLocationComponent"
-  @nextCarLicenseComponent="nextCarLicenseComponent"/>
-
-  <CarLicenseComponent 
-  v-if="carLicenseModal"
-  @previousLocationPickerComponent="previousLocationPickerComponent"
-  />
 </template>
 
 <script lang="ts">
@@ -2465,27 +2427,17 @@ import FooterComponentVue from '@/components/layouts/FooterComponent.vue'
 
 import turnonNotificationsComponent from '@/components/modals/turnonNotificationsComponent.vue'
 
+/* Account Setup Modal */
+import AccountSetupComponent from '@/components/modals/account_setup/AccountSetupComponent.vue'
+
 /* Complete Account Setup Modals */
-import CompleteProfileComponent from '@/components/modals/account_setup/completeProfileComponent.vue'
-import DatePickerComponent from '@/components/modals/account_setup/datePickerComponent.vue'
-import GenderPickerComponent from '@/components/modals/account_setup/genderPickerComponent.vue'
-import InterestsPickerComponent from '@/components/modals/account_setup/interestsPickerComponent.vue'
-import SelectProfileComponent from '@/components/modals/account_setup/selectProfileComponent.vue'
-import LocationPickerComponent from '@/components/modals/account_setup/locationPickerComponent.vue'
-import CarLicenseComponent from '@/components/modals/account_setup/carLicenseComponent.vue'
+
 export default {
   name: 'Home',
   data() {
     return {
       turnOnNotifications: false,
-      /* Complete Account Setup Modals Variables*/
-      completeProfileModal: false,
-      datePickerModal: false,
-      genderPickerModal: false,
-      interestsPickerModal: false,
-      profileSelectModal: false,
-      locationPickerModal: true,
-      carLicenseModal: false,
+      accountSetup: false,
     }
   },
   components: {
@@ -2494,17 +2446,9 @@ export default {
     SliderComponentVue,
     CTAComponentVue,
     FooterComponentVue,
-    /* Complete Account Setup Modals */
-    CompleteProfileComponent,
-    DatePickerComponent,
-    GenderPickerComponent,
-    InterestsPickerComponent,
-    SelectProfileComponent,
-    LocationPickerComponent,
-    CarLicenseComponent,
-    /* END Complete Account Setup Modals */
 
     turnonNotificationsComponent,
+    AccountSetupComponent,
 
     Swiper,
     SwiperSlide
@@ -2521,73 +2465,7 @@ export default {
       this.turnOnNotifications = false
     },
     closeCompleteProfileComponent() {
-      this.completeProfileModal = false
-    },
-    nextDatePickerComponent() {
-      this.completeProfileModal = false
-      this.datePickerModal = true
-    },
-    nextGenderPickerComponent() {
-      // has Date Data
-      this.datePickerModal = false
-      this.genderPickerModal = true
-    },
-    skipDatePickerComponent() {
-      // has not Date data
-      this.datePickerModal = false
-      this.genderPickerModal = true
-    },
-    previousDatePickerComponent() {
-      this.genderPickerModal = false
-      this.datePickerModal = true
-    },
-    nextInterestsPickerComponent() {
-      this.genderPickerModal = false
-      this.interestsPickerModal = true
-    },
-    skipGenderPickerComponent() {
-      this.genderPickerModal = false
-      this.interestsPickerModal = true
-    },
-    previousGenderPickerComponent() {
-      this.genderPickerModal = true
-      this.interestsPickerModal = false
-    },
-    nextSelectProfileComponent() {
-      this.interestsPickerModal = false
-      this.profileSelectModal = true
-    },
-    skipSelectProfileComponent() {
-      this.interestsPickerModal = false
-      this.profileSelectModal = true
-    },
-    previousInterestsPickerComponent() {
-      this.interestsPickerModal = true
-      this.profileSelectModal = false
-    },
-    skipProfileSelectComponent() {
-      this.profileSelectModal = false
-      this.locationPickerModal = true
-    },
-    nextLocationPickerComponent() {
-      this.locationPickerModal = true
-      this.profileSelectModal = false
-    },
-    previousProfileSelectComponent() {
-      this.locationPickerModal = false
-      this.profileSelectModal = true
-    },
-    nextCarLicenseComponent() {
-      this.locationPickerModal = false
-      this.carLicenseModal = true
-    },
-    skipLocationComponent() {
-      this.locationPickerModal = false
-      this.carLicenseModal = true
-    },
-    previousLocationPickerComponent() {
-      this.carLicenseModal = false
-      this.locationPickerModal = true
+      this.accountSetup = false
     }
   }
 }
