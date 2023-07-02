@@ -47,6 +47,7 @@ module.exports = {
       },
       boxShadow: {
         'sm': '0px 24px 70px -16px rgba(188, 194, 197, 0.12)',
+        'md': '0 24px 70px -16px rgba(188, 194, 197, 0.12)'
       },
       dropShadow: {
         'sm': ' 0px 16px 120px 0px rgba(17, 24, 39, 0.08)',

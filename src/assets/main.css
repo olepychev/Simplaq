@@ -8,6 +8,16 @@
   --orange: #F18C53;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 99999;
+}
+
 /* width */
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;

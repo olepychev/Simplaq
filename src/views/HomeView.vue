@@ -2406,6 +2406,32 @@
   <FooterComponentVue />
 
   <turnonNotificationsComponent v-if="turnOnNotifications" @closeTurnonNotifications="closeTurnonNotifications" />
+  <!-- Complete Account Setup Modals -->
+  <CompleteProfileComponent
+    v-if="completeProfileModal"
+    @closeCompleteProfileComponent="closeCompleteProfileComponent"
+    @nextDatePickerComponent="nextDatePickerComponent"
+  />
+  <DatePickerComponent
+    v-if="datePickerModal"
+    @skipDatePickerComponent="skipDatePickerComponent"
+    @nextGenderPickerComponent="nextGenderPickerComponent"
+
+    />
+  <GenderPickerComponent
+    v-if="genderPickerModal"
+    @previousDatePickerComponent="previousDatePickerComponent"
+    @skipGenderPickerComponent="skipGenderPickerComponent"
+    @nextInterestsPickerComponent="nextInterestsPickerComponent"
+  />
+
+  <InterestsPickerComponent v-if="interestsPickerModal"
+   @previousGenderPickerComponent="previousGenderPickerComponent"
+   @nextSelectProfileComponent="nextSelectProfileComponent" 
+   @skipSelectProfileComponent="skipSelectProfileComponent"/>
+
+
+   <SelectProfileComponent v-if="profileSelectModal" @previousInterestsPickerComponent="previousInterestsPickerComponent"/>
 </template>
 
 <script lang="ts">
@@ -2423,11 +2449,24 @@ import FooterComponentVue from '@/components/layouts/FooterComponent.vue'
 
 import turnonNotificationsComponent from '@/components/modals/turnonNotificationsComponent.vue'
 
+/* Complete Account Setup Modals */
+import CompleteProfileComponent from '@/components/modals/account_setup/completeProfileComponent.vue'
+import DatePickerComponent from '@/components/modals/account_setup/datePickerComponent.vue'
+import GenderPickerComponent from '@/components/modals/account_setup/genderPickerComponent.vue'
+import InterestsPickerComponent from '@/components/modals/account_setup/interestsPickerComponent.vue'
+import SelectProfileComponent from '@/components/modals/account_setup/selectProfileComponent.vue'
+
 export default {
   name: 'Home',
   data() {
     return {
-      turnOnNotifications: true,
+      turnOnNotifications: false,
+      /* Complete Account Setup Modals Variables*/
+      completeProfileModal: false,
+      datePickerModal: false,
+      genderPickerModal: false,
+      interestsPickerModal: false,
+      profileSelectModal: true,
     }
   },
   components: {
@@ -2436,6 +2475,13 @@ export default {
     SliderComponentVue,
     CTAComponentVue,
     FooterComponentVue,
+    /* Complete Account Setup Modals */
+    CompleteProfileComponent,
+    DatePickerComponent,
+    GenderPickerComponent,
+    InterestsPickerComponent,
+    SelectProfileComponent,
+    /* END Complete Account Setup Modals */
 
     turnonNotificationsComponent,
 
@@ -2452,6 +2498,51 @@ export default {
   methods: {
     closeTurnonNotifications() {
       this.turnOnNotifications = false
+    },
+    closeCompleteProfileComponent() {
+      this.completeProfileModal = false
+    },
+    nextDatePickerComponent() {
+      this.completeProfileModal = false
+      this.datePickerModal = true
+    },
+    nextGenderPickerComponent() {
+      // has Date Data
+      this.datePickerModal = false
+      this.genderPickerModal = true
+    },
+    skipDatePickerComponent() {
+      // has not Date data
+      this.datePickerModal = false
+      this.genderPickerModal = true
+    },
+    previousDatePickerComponent() {
+      this.genderPickerModal = false
+      this.datePickerModal = true
+    },
+    nextInterestsPickerComponent() {
+      this.genderPickerModal = false
+      this.interestsPickerModal = true
+    },
+    skipGenderPickerComponent() {
+      this.genderPickerModal = false
+      this.interestsPickerModal = true
+    },
+    previousGenderPickerComponent() {
+      this.genderPickerModal = true
+      this.interestsPickerModal = false
+    },
+    nextSelectProfileComponent() {
+      this.interestsPickerModal = false
+      this.profileSelectModal = true
+    },
+    skipSelectProfileComponent() {
+      this.interestsPickerModal = false
+      this.profileSelectModal = true
+    },
+    previousInterestsPickerComponent() {
+      this.interestsPickerModal = true
+      this.profileSelectModal = false
     }
   }
 }

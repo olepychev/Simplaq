@@ -144,7 +144,7 @@ export default {
   data() {
     return {
       activeNotifications: false,
-      notification: true,
+      notification: false,
     }
   },
   computed: {

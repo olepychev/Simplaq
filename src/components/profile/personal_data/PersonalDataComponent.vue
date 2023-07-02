@@ -110,9 +110,9 @@
         <!---->
         <div
           :class="editMode ? 'bg-gray' : ''"
-          class="items-center gap-[12px] border-[1px] border-transparent grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] rounded-[16px]"
+          class="form-controll relative items-center gap-[12px] border-[1px] border-transparent grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] rounded-[16px]"
         >
-          <div>
+          <div @mouseenter="datePickerCalendar">
             <Icon icon="solar:calendar-date-linear" class="text-lg text-black" />
           </div>
           <div v-if="editMode" class="flex flex-col gap-[2px]">
@@ -389,6 +389,14 @@ export default {
     },
     closeShareLocation() {
       this.activeShareLocation = false
+    },
+    datePickerCalendar(e: Event) {
+      const target = e.target as Element
+      if (target.closest('.form-controll').querySelector('input')) {
+        if (!target.closest('.form-controll').querySelector('input').focused) {
+          target.closest('.form-controll').querySelector('input').focus()
+        }
+      }
     },
     selectOnOpen() {
       let active = document.querySelector('.multiselect--active')

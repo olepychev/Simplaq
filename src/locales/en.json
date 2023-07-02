@@ -63,6 +63,16 @@
   "careers": "Careers",
   "media_center": "Media Center",
 
+  "i'll_do_it_later": "I'll do it later",
+  "when_were_you_born": "When were you born",
+  "skip_for_now": "Skip for now",
+  "when_were_you_born_text": "Everyone loves birthday presents and we can help you with that",
+  "what's_your_gender": "What's your gender",
+  "what's_your_gender_text": "Everyone loves birthday presents and we can help you with that ",
+  "continue": "Continue",
+  "complete_your_profile": "Complete your profile",
+  "complete_your_profile_text": "We want to help you get the most out of the app. All information you enter will be used to adjust your app expirience to you preferences.",
+
   "useful_links": "Useful links",
   "faq": "FAQ",
   "contact_support": "Contact Support",
@@ -87,10 +97,19 @@
   "terms_service": "Terms of Service",
   "terms_conditions": "Terms & Conditions",
 
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "please_upload_profile_image": "Please upload profile image",
+
   "you_may_also_like": "You May Also Like",
   "redeem_for": "Redeem for",
   "gift_card_sturbucks": "Gift Card Sturbucks",
   "pick_up_the_reward": "Pick up the reward",
+  "pick_your_interest": "Pick your interest",
+  "pick_your_interest_text": "Pick your favorites interest to find stores and revards related to them.",
+  "please_pick_your_interests": "Please pick your interests",
+  "select_profile_picture": "Select your picture",
+  "select_profile_picture_text": "You can select photo from one of presetor add your own photo",
   "in_stock": "in stock",
   "max": "Max",
   "items_per_person": "items per person",
@@ -146,6 +165,10 @@
   "signup_title": "Sign up to get great experience with Galerie Harfa",
   "signup_welcome_text": "Let's go through a few simple steps",
 
+  "male": "Male",
+  "female": "Female",
+  "prefer_not_to_say": "Prefer not to say",
+
   "enter_your_email":"Enter your email",
   "enter_your_password": "Enter your password",
   "sign_in": "Sign In",
@@ -162,12 +185,20 @@
   "tap_the_button_in_the_email_we’ve_sent_to": "Tap the button in the email we’ve sent to ",
   "thank_you_for_contacting_support_we_will_get_back_to_you_as_soon_as_possible": "Thank you for contacting support. We will get back to you as soon as possible.",
 
+  "sports_&_fitnes": "Sports & fitnes",
+  "music": "Music",
+  "technology": "Technology",
+  "fashion": "Fashion",
+  "tatoo": "Tatoo",
+
   "all": "All",
   "approved": "Approved",
   "rejected": "Rejected",
   "pending_approval": "Pending approval",
   "upload_my_receipt": "Upload my receipt",
   "date": "Date",
+  "please_choose_valid_Date": "Please choose valide date",
+  "please_choose_your_gender": "Please choose your gender",
   "points": "Points",
   "show_result": "Show result",
   "my_rewards": "My Rewards",
@@ -206,6 +237,7 @@
   "connected_accounts": "Connected Accounts",
   "delete_account": "Delete Account",
   "delete_account_text": "Are you sure you want to close Simlaq account? This account contains 1200 points. Deleting your account will remove all of your loyalty points",
+
 
   "yes_delete": "Yes delete",
   "no": "No",
