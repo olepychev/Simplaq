@@ -20,7 +20,7 @@
             <div class="flex items-center justify-center pb-[16px]">
               <div class="w-[76px] h-[76px] rounded-full flex items-center bg-gray justify-center cursor-pointer">
                 <p class="text-black font-bold text-base2 leading-[26px]">
-                  1<sup class="text-grayDark font-semibold text-xs leading-[16px]">/ 6</sup>
+                  1 <sup class="text-grayDark font-semibold text-xs leading-[16px]">/ 6</sup>
                 </p>
               </div>
             </div>

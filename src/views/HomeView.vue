@@ -2416,8 +2416,7 @@
     v-if="datePickerModal"
     @skipDatePickerComponent="skipDatePickerComponent"
     @nextGenderPickerComponent="nextGenderPickerComponent"
-
-    />
+  />
   <GenderPickerComponent
     v-if="genderPickerModal"
     @previousDatePickerComponent="previousDatePickerComponent"
@@ -2425,13 +2424,30 @@
     @nextInterestsPickerComponent="nextInterestsPickerComponent"
   />
 
-  <InterestsPickerComponent v-if="interestsPickerModal"
-   @previousGenderPickerComponent="previousGenderPickerComponent"
-   @nextSelectProfileComponent="nextSelectProfileComponent" 
-   @skipSelectProfileComponent="skipSelectProfileComponent"/>
+  <InterestsPickerComponent
+    v-if="interestsPickerModal"
+    @previousGenderPickerComponent="previousGenderPickerComponent"
+    @nextSelectProfileComponent="nextSelectProfileComponent"
+    @skipSelectProfileComponent="skipSelectProfileComponent"
+  />
 
+  <SelectProfileComponent
+    v-if="profileSelectModal"
+    @previousInterestsPickerComponent="previousInterestsPickerComponent"
+    @skipProfileSelectComponent="skipProfileSelectComponent"
+    @nextLocationPickerComponent="nextLocationPickerComponent"
+  />
 
-   <SelectProfileComponent v-if="profileSelectModal" @previousInterestsPickerComponent="previousInterestsPickerComponent"/>
+  <LocationPickerComponent 
+  v-if="locationPickerModal" 
+  @previousProfileSelectComponent="previousProfileSelectComponent" 
+  @skipLocationComponent="skipLocationComponent"
+  @nextCarLicenseComponent="nextCarLicenseComponent"/>
+
+  <CarLicenseComponent 
+  v-if="carLicenseModal"
+  @previousLocationPickerComponent="previousLocationPickerComponent"
+  />
 </template>
 
 <script lang="ts">
@@ -2455,7 +2471,8 @@ import DatePickerComponent from '@/components/modals/account_setup/datePickerCom
 import GenderPickerComponent from '@/components/modals/account_setup/genderPickerComponent.vue'
 import InterestsPickerComponent from '@/components/modals/account_setup/interestsPickerComponent.vue'
 import SelectProfileComponent from '@/components/modals/account_setup/selectProfileComponent.vue'
-
+import LocationPickerComponent from '@/components/modals/account_setup/locationPickerComponent.vue'
+import CarLicenseComponent from '@/components/modals/account_setup/carLicenseComponent.vue'
 export default {
   name: 'Home',
   data() {
@@ -2466,7 +2483,9 @@ export default {
       datePickerModal: false,
       genderPickerModal: false,
       interestsPickerModal: false,
-      profileSelectModal: true,
+      profileSelectModal: false,
+      locationPickerModal: true,
+      carLicenseModal: false,
     }
   },
   components: {
@@ -2481,6 +2500,8 @@ export default {
     GenderPickerComponent,
     InterestsPickerComponent,
     SelectProfileComponent,
+    LocationPickerComponent,
+    CarLicenseComponent,
     /* END Complete Account Setup Modals */
 
     turnonNotificationsComponent,
@@ -2543,6 +2564,30 @@ export default {
     previousInterestsPickerComponent() {
       this.interestsPickerModal = true
       this.profileSelectModal = false
+    },
+    skipProfileSelectComponent() {
+      this.profileSelectModal = false
+      this.locationPickerModal = true
+    },
+    nextLocationPickerComponent() {
+      this.locationPickerModal = true
+      this.profileSelectModal = false
+    },
+    previousProfileSelectComponent() {
+      this.locationPickerModal = false
+      this.profileSelectModal = true
+    },
+    nextCarLicenseComponent() {
+      this.locationPickerModal = false
+      this.carLicenseModal = true
+    },
+    skipLocationComponent() {
+      this.locationPickerModal = false
+      this.carLicenseModal = true
+    },
+    previousLocationPickerComponent() {
+      this.carLicenseModal = false
+      this.locationPickerModal = true
     }
   }
 }

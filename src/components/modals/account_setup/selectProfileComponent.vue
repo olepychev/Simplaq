@@ -30,7 +30,7 @@
               <div class="flex items-center justify-center pb-[16px]">
                 <div class="w-[76px] h-[76px] rounded-full flex items-center bg-gray justify-center cursor-pointer">
                   <p class="text-black font-bold text-base2 leading-[26px]">
-                    4<sup class="text-grayDark font-semibold text-xs leading-[16px]">/ 6</sup>
+                    4 <sup class="text-grayDark font-semibold text-xs leading-[16px]">/ 6</sup>
                   </p>
                 </div>
               </div>
@@ -88,6 +88,7 @@
 
           <div class="flex gap-[8px] mt-[67px] border-t pt-[16px] border-gray w-full items-center justify-center">
             <button
+            @click="skipProfileSelectComponent"
               type="button"
               class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold text-black hover:bg-orange hover:text-white transition-all"
             >
@@ -114,10 +115,13 @@ export default {
       isUploaded: null
     }
   },
-  emits: ['previousInterestsPickerComponent', 'nextLocationPickerComponent'],
+  emits: ['previousInterestsPickerComponent', 'nextLocationPickerComponent', 'skipProfileSelectComponent'],
   methods: {
     previousInterestsPickerComponent() {
       this.$emit('previousInterestsPickerComponent')
+    },
+    skipProfileSelectComponent() {
+        this.$emit('skipProfileSelectComponent')
     },
     removeFile(e) {
         this.isUploaded = null
