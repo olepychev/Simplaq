@@ -2,8 +2,6 @@
 @import 'base.css';
 
 :root {
-  --activeSidebarDiv: #fdf3ed;
-  --activeSidebarIcon: #F18C53;
   --yellowLight: #FDF3ED;
   --orange: #F18C53;
 }
@@ -67,10 +65,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   bottom: -2px !important;
 }
 
-.auth-slider .swiper-pagination-bullet {
-  background: #e4e7ea !important;
-}
-
 .swiper-wrapper {
   padding-bottom: 30px;
 }
@@ -78,14 +72,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .swiper-pagination-bullet {
   width: 6px !important;
   height: 6px !important;
-  background: white !important;
   opacity: 1 !important;
 }
 
 .swiper-pagination-bullet-active,
 .auth-slider .swiper-pagination-bullet-active {
   transform: scale(1.2);
-  background: #f18c53 !important;
 }
 
 .body-sliders .swiper-pagination {
@@ -124,29 +116,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
-/* .lr-lines {
-    position: relative;
-}
-
-.lr-lines::before,
-.lr-lines::after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    max-width: 114px;
-    height: 10000px;
-    background: #F9FAFB;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.lr-lines::before {
-    right: 70%;
-}
-
-.lr-lines::after {
-    left: 70%;
-} */
 
 select {
   min-width: 80px;

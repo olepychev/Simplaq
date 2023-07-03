@@ -41,12 +41,3 @@ export default {
   name: 'Profile-Sidebar'
 }
 </script>
-
-<style>
-.sidebar-link.router-link-active .icon {
-  background: var(--activeSidebarDiv);
-}
-.sidebar-link.router-link-active .icon svg {
-  color: var(--activeSidebarIcon);
-}
-</style>

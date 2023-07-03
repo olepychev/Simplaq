@@ -21,9 +21,13 @@ module.exports = {
         'linearPink': 'linear-gradient(180.19deg, rgba(0, 0, 0, 0.2) 0.16%, rgba(0, 0, 0, 0.16) 59.34%, rgba(233, 59, 101, 0.48) 99.84%)',
       },
       colors: {
+        customGreen: {
+          DEFAULT: '#f23145',
+        },
         'black': '#17181B',
         'black-500': '#232528',
         'white': '#FFFFFF',
+        'white-light': '#e4e7ea',
         'orange': '#F18C53',
         'pink': '#E83A64',
         'gray': '#F9FAFB',

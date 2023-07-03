@@ -12,6 +12,8 @@
           <swiper
             class="h-full w-full"
             :modules="modules"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
             :slides-per-view="1"
             :space-between="0"
             navigation
@@ -125,7 +127,35 @@ export default {
     SwiperSlide
   },
   setup() {
+    const onSwiper = swiper => {
+      let heroSlider = document.querySelector('.hero-slider')
+      if (heroSlider) {
+        heroSlider.querySelectorAll('.swiper-pagination-bullet').forEach(bullet => {
+          if (bullet.classList.contains('swiper-pagination-bullet-active')) {
+            bullet.classList.add('!bg-orange')
+          } else {
+            bullet.classList.add('!bg-white')
+          }
+        })
+      }
+    }
+    const onSlideChange = () => {
+      let heroSlider = document.querySelector('.hero-slider')
+      if (heroSlider) {
+        heroSlider.querySelectorAll('.swiper-pagination-bullet').forEach(bullet => {
+          if (bullet.classList.contains('swiper-pagination-bullet-active')) {
+            bullet.classList.add('!bg-orange')
+            bullet.classList.remove("!bg-white")
+          } else {
+            bullet.classList.remove('!bg-orange')
+            bullet.classList.add("!bg-white")
+          }
+        })
+      }
+    }
     return {
+      onSwiper,
+      onSlideChange,
       modules: [Pagination]
     }
   }

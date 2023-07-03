@@ -38,8 +38,10 @@
       <swiper
         class="h-full w-full"
         :modules="modules"
+        @swiper="onSwiper"
         :slides-per-view="slidesPerViewIs"
         :space-between="spaceBetween"
+        @slideChange="onSlideChange"
         :pagination="{ clickable: true }"
         navigation
         :scrollbar="{ draggable: true }"
@@ -145,7 +147,36 @@ export default {
     })
   },
   setup() {
+    const onSwiper = () => {
+      let authSliderBullets = document.querySelectorAll('.auth-slider .swiper-pagination-bullet')
+      if (authSliderBullets) {
+        authSliderBullets.forEach(bullet => {
+          if (bullet.classList.contains('swiper-pagination-bullet-active')) {
+            bullet.classList.add('!bg-orange')
+          }else {
+            bullet.classList.add('!bg-white-light')
+          }
+        })
+      }
+    }
+    const onSlideChange = () => {
+
+      let authSliderBullets = document.querySelectorAll('.auth-slider .swiper-pagination-bullet')
+      if (authSliderBullets) {
+        authSliderBullets.forEach(bullet => {
+          if (bullet.classList.contains('swiper-pagination-bullet-active')) {
+            bullet.classList.add('!bg-orange')
+            bullet.classList.remove('!bg-white-light')
+          } else {
+            bullet.classList.remove('!bg-orange')
+            bullet.classList.add('!bg-white-light')
+          }
+        })
+      }
+    }
     return {
+      onSwiper,
+      onSlideChange,
       modules: [Pagination, Navigation]
     }
   }
