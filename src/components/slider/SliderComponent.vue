@@ -33,11 +33,11 @@
           </div>
         </div>
       </div>
-
       <!-- Swiper -->
       <swiper
-        class="h-full w-full"
+        class="mySwiper h-full w-full"
         :modules="modules"
+        :autoplay="autoplay ? autoplay : false"
         @swiper="onSwiper"
         :slides-per-view="slidesPerViewIs"
         :space-between="spaceBetween"
@@ -79,8 +79,7 @@
 </template>
 
 <script>
-import { Pagination } from 'swiper'
-import { Navigation } from 'swiper'
+import { Pagination, Navigation, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -92,6 +91,9 @@ export default {
     }
   },
   props: {
+    autoplay: {
+      required: false,
+    },
     controllers: {},
     sectionTitle: {
       required: false
@@ -147,7 +149,8 @@ export default {
     })
   },
   setup() {
-    const onSwiper = () => {
+    
+    const onSwiper = (swiper) => {
       let authSliderBullets = document.querySelectorAll('.auth-slider .swiper-pagination-bullet')
       if (authSliderBullets) {
         authSliderBullets.forEach(bullet => {
@@ -159,8 +162,7 @@ export default {
         })
       }
     }
-    const onSlideChange = () => {
-
+    const onSlideChange = (swiper) => {
       let authSliderBullets = document.querySelectorAll('.auth-slider .swiper-pagination-bullet')
       if (authSliderBullets) {
         authSliderBullets.forEach(bullet => {
@@ -177,7 +179,7 @@ export default {
     return {
       onSwiper,
       onSlideChange,
-      modules: [Pagination, Navigation]
+      modules: [Pagination, Navigation, Autoplay]
     }
   }
 }
