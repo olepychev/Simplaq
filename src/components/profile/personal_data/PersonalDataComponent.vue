@@ -455,18 +455,17 @@ export default {
 
 <style>
 .multiselect-focus-orange:has(.multiselect--active) {
-  border-color: #f18c53;
+  border-color: theme('colors.orange');
 }
 
 .multiselect-focus-orange:has(.multiselect--active) .select-icon {
-  color: #f18c53;
+  color: theme('colors.orange');
   transform: rotate(180deg);
 }
 
 #genderSelect .multiselect__single {
-  /* display: none; */
   outline: none;
-  color: var(--black);
+  color: theme('colors.black');
   font-size: 14px;
 }
 #countrySelect .multiselect__single {
@@ -479,10 +478,10 @@ export default {
   left: 0px;
   top: calc(100% + 8px);
   width: 100%;
-  background: var(--white);
-  border: 1px solid var(--gray);
+  background: theme('colors.white');
+  border: 1px solid theme('colors.gray');
   border-radius: 16px;
-  box-shadow: var(--shadow);
+  box-shadow: theme('boxShadow.md');
   overflow: auto;
 }
 
@@ -501,9 +500,6 @@ export default {
   outline: none;
   background: transparent;
 }
-/* .multiselect__option--highlight .gender-option {
-  background: var(--gray);
-} */
 
 .multiselect__option--selected .gender-option .check {
   display: block;

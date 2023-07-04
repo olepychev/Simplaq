@@ -147,6 +147,7 @@
   "password_must_contain_both_uppercase_&_lowercase_letters": "Password must contain both uppercase & lowercase letters",
   "password_must_contain_at_least_one_number_or_symbol": "Password must contain at least one number or symbol",
   "please_enter_valid_email": "Please enter valid email",
+  "password_must_contain_at_least_8_characters_both_uppercase_and_lowercase_letters_and_at_lease_one_number_or_symbol":"Password must contain at least 8 characters, both uppercase and lowercase letters and at least one number or symbol",
 
   "please_verify_your_email": "Please Verify Your Email",
   "verify_email_text": "Check your email and Tap the button in the email we’ve sent to",

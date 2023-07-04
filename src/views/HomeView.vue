@@ -2408,8 +2408,7 @@
   <turnonNotificationsComponent v-if="turnOnNotifications" @closeTurnonNotifications="closeTurnonNotifications" />
 
   <!-- Account Setup Modal -->
-  <AccountSetupComponent v-if="accountSetup" @closeCompleteProfileComponent="closeCompleteProfileComponent"/>
-
+  <AccountSetupComponent v-if="accountSetup" @closeCompleteProfileComponent="closeCompleteProfileComponent" />
 </template>
 
 <script lang="ts">
@@ -2430,14 +2429,15 @@ import turnonNotificationsComponent from '@/components/modals/turnonNotification
 /* Account Setup Modal */
 import AccountSetupComponent from '@/components/modals/account_setup/AccountSetupComponent.vue'
 
-/* Complete Account Setup Modals */
+/* vue use head */
+import { useHead } from '@vueuse/head'
 
 export default {
   name: 'Home',
   data() {
     return {
       turnOnNotifications: false,
-      accountSetup: false,
+      accountSetup: false
     }
   },
   components: {
@@ -2455,6 +2455,29 @@ export default {
   },
 
   setup() {
+    useHead({
+      title: 'Galerie Harfa Mall Mobile App - Your Favorite Mall on Your Phone',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Your favorite Mall now on your phone. Scan receipts and collect points. Find your favorite places and boutiques quickly and easily. Download on the app store and Google Play.'
+        },
+        {
+          property: 'og:title',
+          content: 'Galerie Harfa Mall Mobile App'
+        },
+        {
+          property: 'og:description',
+          content:
+            'Your favorite Mall now on your phone. Scan receipts and collect points. Find your favorite places and boutiques quickly and easily.'
+        },
+        {
+          property: 'og:image',
+          content: 'image.jpg'
+        }
+      ]
+    })
     return {
       modules: [Pagination, Navigation]
     }
@@ -2471,7 +2494,4 @@ export default {
 }
 </script>
 
-
-<style>
-
-</style>
+<style></style>

@@ -55,6 +55,9 @@ import AuthSliderComponent from '@/components/slider/AuthSliderComponent.vue'
 import SetnewpasswordComponent from '@/components/auth/password/setnewpasswordComponent.vue'
 import Succesful_changepasswordComponent from '@/components/auth/password/succesful_changepasswordComponent.vue'
 
+/* vue use head */
+import { useHead } from '@vueuse/head'
+
 export default {
   name: 'Setnew-password',
   components: {
@@ -71,6 +74,28 @@ export default {
     }
   },
   setup() {
+    useHead({
+    title: 'Galerie Harfa Mall - Set New Password',
+    meta: [
+      {
+        name: 'description',
+        content: 'Set a new password for your Galerie Harfa Mall account. Enter your new password and confirm to complete the password reset process.'
+      },
+      {
+        property: 'og:title',
+        content: 'Galerie Harfa Mall - Set New Password'
+      },
+      {
+        property: 'og:description',
+        content: 'Set a new password for your Galerie Harfa Mall account. Enter your new password and confirm to complete the password reset process.'
+      },
+      {
+        property: 'og:image',
+        content: 'image.jpg'
+      }
+    ]
+  });
+
     const onSwiper = swiper => {
       console.log(swiper)
     }

@@ -147,6 +147,10 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 import AuthSliderComponent from '@/components/slider/AuthSliderComponent.vue'
+
+/* vue use head */
+import { useHead } from '@vueuse/head'
+
 export default {
   name: 'Login',
   components: {
@@ -227,6 +231,28 @@ export default {
     }
   },
   setup() {
+    useHead({
+    title: 'Galerie Harfa Mall - Login',
+    meta: [
+      {
+        name: 'description',
+        content: 'Login to the Galerie Harfa Mall platform to access personalized features, view your rewards, manage receipts, and explore exclusive offers.'
+      },
+      {
+        property: 'og:title',
+        content: 'Galerie Harfa Mall - Login'
+      },
+      {
+        property: 'og:description',
+        content: 'Login to the Galerie Harfa Mall platform to access personalized features, view your rewards, manage receipts, and explore exclusive offers.'
+      },
+      {
+        property: 'og:image',
+        content: 'image.jpg'
+      }
+    ]
+  });
+
     const onSwiper = swiper => {
       console.log(swiper)
     }

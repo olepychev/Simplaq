@@ -53,6 +53,9 @@ import AuthSliderComponent from '@/components/slider/AuthSliderComponent.vue'
 import ForgotpasswordComponent from '@/components/auth/password/forgotpasswordComponent.vue'
 import SuccessfulsendingComponent from '@/components/auth/password/succesful_sendingComponent.vue'
 
+/* vue use head */
+import { useHead } from '@vueuse/head'
+
 export default {
   name: 'Forgot-password',
   components: {
@@ -69,6 +72,28 @@ export default {
     }
   },
   setup() {
+    useHead({
+    title: 'Galerie Harfa Mall - Forgot Password',
+    meta: [
+      {
+        name: 'description',
+        content: 'Recover your password for your Galerie Harfa Mall account. Enter your email address to receive instructions on resetting your password.'
+      },
+      {
+        property: 'og:title',
+        content: 'Galerie Harfa Mall - Forgot Password'
+      },
+      {
+        property: 'og:description',
+        content: 'Recover your password for your Galerie Harfa Mall account. Enter your email address to receive instructions on resetting your password.'
+      },
+      {
+        property: 'og:image',
+        content: 'image.jpg'
+      }
+    ]
+  });
+  
     const onSwiper = swiper => {
       console.log(swiper)
     }

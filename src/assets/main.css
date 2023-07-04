@@ -1,10 +1,6 @@
 @import 'fonts.css';
 @import 'base.css';
 
-:root {
-  --yellowLight: #FDF3ED;
-  --orange: #F18C53;
-}
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute;
@@ -23,13 +19,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* Track */
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: var(--yellowLight);
+  background: theme('colors.yellowLight');
   border-radius: 20px;
 }
 
 /* Handle */
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--orange);
+  background: theme('colors.orange');
   border-radius: 20px;
 }
 

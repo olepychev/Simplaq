@@ -111,11 +111,14 @@ import SignupPhoneComponent from '@/components/auth/signup_phoneComponent.vue'
 import VerificationcodeComponent from '@/components/auth/verificationcodeComponent.vue'
 import SuccessfulsendingComponent from '@/components/auth/successful_sendingComponent.vue'
 
+/* vue use head */
+import { useHead } from '@vueuse/head'
+
 export default {
   name: 'Login',
   data() {
     return {
-      step: 1,
+      step: 4
     }
   },
   components: {
@@ -140,6 +143,29 @@ export default {
     }
   },
   setup() {
+    useHead({
+      title: 'Galerie Harfa Mall - Registration',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Register for an account on the Galerie Harfa Mall platform to unlock personalized features, access rewards, manage receipts, and enjoy exclusive offers.'
+        },
+        {
+          property: 'og:title',
+          content: 'Galerie Harfa Mall - Registration'
+        },
+        {
+          property: 'og:description',
+          content:
+            'Register for an account on the Galerie Harfa Mall platform to unlock personalized features, access rewards, manage receipts, and enjoy exclusive offers.'
+        },
+        {
+          property: 'og:image',
+          content: 'image.jpg'
+        }
+      ]
+    })
     const onSwiper = swiper => {
       console.log(swiper)
     }

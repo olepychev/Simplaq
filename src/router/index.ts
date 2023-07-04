@@ -24,9 +24,6 @@ const routes = [
   {
     path: "/",
     name: Routes.HOME,
-    meta: {
-      title: "Home Page"
-    },
     component: HomeView,
   },
   {
@@ -34,7 +31,6 @@ const routes = [
     name: Routes.LOGIN,
     meta: {
       isGuest: true,
-      title: "Login Page"
     },
     component: LoginView,
   },
@@ -43,7 +39,6 @@ const routes = [
     name: Routes.REGISTER,
     meta: {
       isGuest: true,
-      title: "Register Page"
     },
     component: RegisterView,
   },
@@ -52,7 +47,6 @@ const routes = [
     name: Routes.FORGOT_PASSWORD,
     meta: {
       isGuest: true,
-      title: "Forgot password Page"
     },
     component: ForgotPassword,
   },
@@ -61,7 +55,6 @@ const routes = [
     name: Routes.SETNEW_PASSWORD,
     meta: {
       isGuest: true,
-      title: "Set New Password Page"
     },
     component: SetnewPassword,
   },
@@ -70,7 +63,6 @@ const routes = [
     name: Routes.LITE,
     meta: {
       requiresAuth: true,
-      title: "Lite Page"
     },
     component: LiteView,
   },
@@ -79,7 +71,6 @@ const routes = [
     name: Routes.MY_REWARD,
     meta: {
       requiresAuth: true,
-      title: "My Reward Page"
     },
     component: LiteSingleRewardView,
   },
@@ -88,7 +79,6 @@ const routes = [
     name: Routes.PROFILE,
     meta: {
       requiresAuth: true,
-      title: "Profile Page"
     },
     component: ProfileView,
     children: [
@@ -108,7 +98,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const user = useUserStore()
-  window.document.title = to.meta.title ? to.meta.title : ''
   if (to.meta.requiresAuth && !user.token){
     next({name: Routes.LOGIN})
   } 

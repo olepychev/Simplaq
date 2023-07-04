@@ -142,11 +142,6 @@ export default {
 </script>
 
 <style>
-:root {
-  --white: white;
-  --gray: #f9fafb;
-  --shadow: 0px 24px 70px -16px rgba(188, 194, 197, 0.12);
-}
 #phoneSelect .multiselect__single {
   display: none;
 }
@@ -156,11 +151,11 @@ export default {
   left: -52px;
   top: 100%;
   min-width: 360px;
-  background: var(--white);
-  border: 1px solid var(--gray);
+  background: theme('colors.white');
+  border: 1px solid theme('colors.gray');
   padding: 16px 16px;
   border-radius: 16px;
-  box-shadow: var(--shadow);
+  box-shadow: theme('boxShadow.md');
   overflow: auto;
 }
 
@@ -174,7 +169,7 @@ export default {
 #phoneSelect .multiselect__input {
   width: 100%;
   padding: 10px;
-  background: var(--gray);
+  background: theme('colors.gray');
   outline: none;
   border-radius: 16px;
   font-size: 12px;
@@ -183,7 +178,7 @@ export default {
 }
 
 .multiselect__option--highlight .country-option {
-  background: var(--gray);
+  background: theme('colors.gray');
 }
 
 .multiselect__option--selected .country-option .country-code {

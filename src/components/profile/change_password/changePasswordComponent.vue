@@ -2,13 +2,13 @@
   <notifications #body="props" position="bottom center" :duration="5000" :max="2">
     <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] shadow-md">
       <div class="flex items-center gap-[12px]">
-        <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+        <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2 min-w-max" />
         <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">
           {{ props.item.title }}
         </p>
       </div>
 
-      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+      <Icon @click="props.close()" icon="majesticons:close" class="min-w-max text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
     </div>
   </notifications>
 
@@ -84,10 +84,10 @@
       <div class="flex flex-col gap-[8px]">
         <div class="flex items-center gap-[12px]">
           <div
-            :class="!nonvalidatePassword ? 'bg-green' : ''"
+            :class="!passLength? 'bg-green' : ''"
             class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center"
           >
-            <Icon v-if="nonvalidatePassword" icon="jam:close" class="text-xs text-black" />
+            <Icon v-if="passLength" icon="jam:close" class="text-xs text-black" />
             <Icon v-else icon="gg:check" class="text-xs text-white" />
           </div>
           <p class="text-xs text-grayDark3">At least 8 characters</p>
@@ -167,6 +167,7 @@ export default {
 
     }
   },
+  emits: ['cancelBtn'],
   components: {
     Contact_supportComponent
   },
@@ -175,6 +176,10 @@ export default {
     oldPasswordNotCorrect(): boolean {
       return true
         // check from database if password which user input in old password field is correct
+    },
+    passLength(): boolean {
+      const lengthRequirement = this.userData.password.length >= 8
+      return !lengthRequirement
     },
     nonvalidatePassword(): boolean {
       const lengthRequirement = this.userData.password.length >= 8
@@ -186,7 +191,7 @@ export default {
       this.hasLowercase = hasLowercase
       this.hasNumberOrSymbol = hasNumberOrSymbol
 
-      return !lengthRequirement
+      return !lengthRequirement || !hasUppercase || !hasLowercase || !hasNumberOrSymbol
     },
     passwordMatched(): boolean {
       return this.userData.password === this.userData.password_confirmation
@@ -208,10 +213,6 @@ export default {
 
     handlePasswordInput() {
       this.isPasswordTouched = true
-
-      this.hasUppercase = /[A-Z]/.test(this.userData.password)
-      this.hasLowercase = /[a-z]/.test(this.userData.password)
-      this.hasNumberOrSymbol = /[0-9!@#$%^&*()]/.test(this.userData.password)
     },
     handlePasswordConfirmationInput() {
       console.log(this.userData.password)
@@ -251,7 +252,7 @@ export default {
         } else if (this.nonvalidatePassword) {
           this.userData.password_confirmation = ''
           this.$notify({
-            title: this.$t('password_must_contain_at_least_8_characters'),
+            title: this.$t('password_must_contain_at_least_8_characters_both_uppercase_and_lowercase_letters_and_at_lease_one_number_or_symbol'),
             component: {
               template: `
     <div class="flex items-center gap-[12px]">
