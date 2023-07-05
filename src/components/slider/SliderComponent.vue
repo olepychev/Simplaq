@@ -149,7 +149,6 @@ export default {
     })
   },
   setup() {
-    
     const onSwiper = (swiper) => {
       let authSliderBullets = document.querySelectorAll('.auth-slider .swiper-pagination-bullet')
       if (authSliderBullets) {

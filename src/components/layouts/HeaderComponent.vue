@@ -44,9 +44,9 @@
             class="px-[26px] py-[13px] min-w-[120px] flex items-center justify-center rounded-[16px] transparent border-[1px] border-graylight text-sm font-semibold transition-all">{{
               $t('login') }}
           </router-link>
-          <router-link :to="{ name: $Routes.REGISTER }"
+          <a @click.prevent="termsAndConditions" href="#"
             class="px-[26px] py-[13px] min-w-[120px] hidden md:flex items-center justify-center rounded-[16px] transparent border-[1px] border-transparent text-sm font-semibold bg-orange text-white transition-all">{{
-              $t('create_account') }}</router-link>
+              $t('create_account') }}</a>
         </div>
         <div v-else class="relative header_top-right flex items-center gap-[8px]">
           <button
@@ -130,21 +130,27 @@
       </div>
     </div>
   </header>
+
+  <TermsAndConditionsComponent @cancelTerms="cancelTerms"  v-if="termsAndConditionsModal"/>
 </template>
 
 <script lang="ts">
 import { useUserStore } from '@/stores/user'
 import HeaderNotifications from '@/components/popups/HeaderNotifications.vue'
 
+import TermsAndConditionsComponent from '@/components/modals/terms&conditions/termsAndConditionsComponent.vue'
+
 export default {
   name: 'HeaderComponent',
   components: {
-    HeaderNotifications
+    HeaderNotifications,
+    TermsAndConditionsComponent
   },
   data() {
     return {
       activeNotifications: false,
-      notification: false,
+      notification:false,
+      termsAndConditionsModal: false,
     }
   },
   computed: {
@@ -161,8 +167,14 @@ export default {
     });
   },
   methods: {
+    cancelTerms() {
+      this.termsAndConditionsModal = false
+    },
     openNotifications() {
       this.activeNotifications = !this.activeNotifications
+    },
+    termsAndConditions() {
+      this.termsAndConditionsModal = true
     }
   }
 }

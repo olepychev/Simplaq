@@ -76,10 +76,10 @@
       <div class="flex flex-col gap-[8px]">
         <div class="flex items-center gap-[12px]">
           <div
-            :class="!nonvalidatePassword ? 'bg-green' : ''"
+            :class="!passLength ? 'bg-green' : ''"
             class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center"
           >
-            <Icon v-if="nonvalidatePassword" icon="jam:close" class="text-xs text-black" />
+            <Icon v-if="passLength" icon="jam:close" class="text-xs text-black" />
             <Icon v-else icon="gg:check" class="text-xs text-white" />
           </div>
           <p class="text-xs text-grayDark3">At least 8 characters</p>
@@ -108,7 +108,7 @@
           type="submit"
           class="bg-orange py-[16px] rounded-[16px] text-white text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
         >
-          {{ $t('send_mail') }}
+          {{ $t('apply_new_password') }}
         </button>
       </div>
 
@@ -160,6 +160,10 @@ export default {
   },
 
   computed: {
+    passLength() {
+      const lengthRequirement = this.userData.password.length >= 8
+      return !lengthRequirement
+    },
     nonvalidatePassword(): boolean {
       const lengthRequirement = this.userData.password.length >= 8
       const hasUppercase = /[A-Z]/.test(this.userData.password)
@@ -170,7 +174,7 @@ export default {
       this.hasLowercase = hasLowercase
       this.hasNumberOrSymbol = hasNumberOrSymbol
 
-      return !lengthRequirement
+      return !lengthRequirement || !hasUppercase || !hasLowercase || !hasNumberOrSymbol
     },
     passwordMatched(): boolean {
       return this.userData.password === this.userData.password_confirmation

@@ -115,10 +115,10 @@ import SuccessfulsendingComponent from '@/components/auth/successful_sendingComp
 import { useHead } from '@vueuse/head'
 
 export default {
-  name: 'Login',
+  name: 'Register',
   data() {
     return {
-      step: 4
+      step: 6
     }
   },
   components: {

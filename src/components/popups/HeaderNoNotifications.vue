@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full flex flex-col items-center justify-center gap-[24px] pt-[28px]">
-    <div class="flex relative w-full mb-[24px] rounded-[16px] bg-gray rounded-full w-[136px] overflow-hidden flex items-start justify-center gap-[10px]">
+  <div class="w-full flex flex-col items-center justify-center gap-[24px] pt-[28px] px-[20px]">
+    <div class="flex relative w-full max-w-max mb-[24px] rounded-[16px] bg-gray rounded-full w-[136px] overflow-hidden flex items-start justify-center gap-[10px]">
       <img class="w-full max-w-[136px]" src="@/assets/imgs/notification.svg" alt="" />
     </div>
     <div class="flex flex-col items-center justify-center gap-[8px]">

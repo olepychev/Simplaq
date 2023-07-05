@@ -83,7 +83,8 @@
   "quick_pay_for_parking_text": "Now there is no need to look for available places, just book it with the app in one click",
   "everything_you_love": "Everything You Love",
   "everything_you_love_text": "Get exclusive limited apparel that only you have! Made by famous brands in the world",
-
+  "accept_terms": "Accept terms",
+  "apply_new_password": "Apply new password",
   "useful_links": "Useful links",
   "faq": "FAQ",
   "contact_support": "Contact Support",
@@ -260,6 +261,15 @@
 
   "food_&_drinks": "Foods & Drinks",
   "film_&_entertainment": "Film & entertaiment",
+
+  "privacy_policy": "Privacy policy",
+  "terms_&_conditions": "Terms & Conditions",
+  "last_updated": "Last updated",
+  "overview": "Overview",
+  "our_privacy_statement": "Our privacy statement",
+  "i_accept": "I accept",
+  "i_want_to_receive_commercial_offers_from_mall_&_stores": "I want to receive commercial offers from mall & stores",
+  "please_accept_the_terms_to_continue": "Please accept the terms to continue",
 
   "location": "Location",
   "not_now": "Not now",

@@ -70,7 +70,7 @@ export default {
   },
   data() {
     return {
-      step: 1
+      step: 2
     }
   },
   setup() {
