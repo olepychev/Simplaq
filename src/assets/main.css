@@ -17,6 +17,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 5px;
 }
 
+.custom-scrollbar.hr::-webkit-scrollbar {
+  height: 3px;
+}
+
 /* Track */
 .custom-scrollbar::-webkit-scrollbar-track {
   background: theme('colors.yellowLight');

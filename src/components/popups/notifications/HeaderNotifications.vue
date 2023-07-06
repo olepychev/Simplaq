@@ -158,17 +158,17 @@
 </template>
 
 <script lang="ts">
-import HeaderNoNotifications from '@/components/popups/HeaderNoNotifications.vue'
+import HeaderNoNotifications from '@/components/popups/notifications/HeaderNoNotifications.vue'
 export default {
   name: 'HeaderNotifications',
   props: {
     isNotification: {
       type: Boolean,
       required: true,
-    }
+    },
   },
   components: {
-    HeaderNoNotifications
+    HeaderNoNotifications,
   }
 }
 </script>

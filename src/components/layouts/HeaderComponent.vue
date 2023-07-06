@@ -49,15 +49,18 @@
               $t('create_account') }}</a>
         </div>
         <div v-else class="relative header_top-right flex items-center gap-[8px]">
-          <button
-            class="hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all">
-            <Icon icon="iconamoon:heart-thin" class="text-xl text-black" />
+
+          <button @click="openFavorites" :titleIs="$t('favorites')"
+          :class="activeFavorites ? 'bg-yellowLight' : 'bg-gray'"
+            class="header_notification_button relative hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] rounded-full opacity-80 hover:opacity-100 transition-all before:content-[attr(titleIs)] before:absolute before:top-[calc(100%+14px)] before:z-50 before:bg-black before:px-[16px] before:py-[8px] before:text-white before:font-medium before:text-xs before:tracking-[-0.2px] before:rounded before:invisible after:absolute after:w-[12px] after:h-[12px] after:bg-black after:rotate-45 after:top-[calc(100%+12px)] after:invisible hover:after:visible hover:before:visible transition-all before:delay-300 after:delay-300 before:transition-all after:transition-all">
+            <Icon icon="iconamoon:heart-thin" :class="activeFavorites ? 'text-orange' : 'text-black'" class="text-xl" />
           </button>
 
           <button
             class="hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full opacity-80 hover:opacity-100 transition-all">
             <Icon icon="ph:chats-circle-light" class="text-xl text-black" />
           </button>
+
           <button @click="openNotifications" :titleIs="$t('notifications')"
             :class="activeNotifications ? 'bg-yellowLight' : 'bg-gray'"
             class="header_notification_button relative hidden sm:flex items-center justify-center gap-[8px] w-[48px] h-[48px] rounded-full transition-all before:content-[attr(titleIs)] before:absolute before:top-[calc(100%+14px)] before:z-50 before:bg-black before:px-[16px] before:py-[8px] before:text-white before:font-medium before:text-xs before:tracking-[-0.2px] before:rounded before:invisible after:absolute after:w-[12px] after:h-[12px] after:bg-black after:rotate-45 after:top-[calc(100%+12px)] after:invisible hover:after:visible hover:before:visible transition-all before:delay-300 after:delay-300 before:transition-all after:transition-all">
@@ -71,6 +74,7 @@
             <img class="w-[80%]" src="@/assets/imgs/profile.svg" alt="" />
           </button>
           <HeaderNotifications v-if="activeNotifications" :isNotification="notification" />
+          <HeaderFavorites v-if="activeFavorites" :isFavorites="favorites"/>
         </div>
       </div>
       <div class="lg:flex hidden header_bot mt-[20px] pb-[22px] items-center justify-between">
@@ -136,7 +140,9 @@
 
 <script lang="ts">
 import { useUserStore } from '@/stores/user'
-import HeaderNotifications from '@/components/popups/HeaderNotifications.vue'
+import HeaderNotifications from '@/components/popups/notifications/HeaderNotifications.vue'
+import HeaderFavorites from '@/components/popups/favorites/FavoritesComponent.vue'
+
 
 import TermsAndConditionsComponent from '@/components/modals/terms&conditions/termsAndConditionsComponent.vue'
 
@@ -144,12 +150,18 @@ export default {
   name: 'HeaderComponent',
   components: {
     HeaderNotifications,
+    HeaderFavorites,
+
     TermsAndConditionsComponent
   },
   data() {
     return {
       activeNotifications: false,
+      activeFavorites: false,
+
       notification:false,
+      favorites: true,
+
       termsAndConditionsModal: false,
     }
   },
@@ -163,6 +175,7 @@ export default {
       const target = e.target as Element;
       if (!target.closest('.header_notification_button') && !target.closest('.header_notifications_wrapper')) {
         this.activeNotifications = false;
+        this.activeFavorites = false;
       }
     });
   },
@@ -172,6 +185,17 @@ export default {
     },
     openNotifications() {
       this.activeNotifications = !this.activeNotifications
+      // close other Notifications
+      if(this.activeFavorites) {
+        this.activeFavorites = false
+      }
+     },
+    openFavorites() {
+      this.activeFavorites = !this.activeFavorites
+      // close other Notifications
+      if(this.activeNotifications) {
+        this.activeNotifications = false
+      }
     },
     termsAndConditions() {
       this.termsAndConditionsModal = true

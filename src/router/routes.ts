@@ -9,7 +9,8 @@ enum Routes {
     CREATE_ACCOUNT="Create-account",
     SUPPORT="Support",
     PROFILE="Profile",
-    PROFILE_TAB="Profile_tab"
+    PROFILE_TAB="Profile_tab",
+    FAVORITES_TAB="Favorites_tab",
   }
   
   export default Routes;

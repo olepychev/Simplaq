@@ -22,13 +22,21 @@
         </div>
 
         <div class="w-full flex flex-col gap-[2px]">
-          <RouterLink exact-active-class :to="{ name: $Routes.PROFILE_TAB }" class="sidebar-link w-full flex p-[8px] items-center gap-[12px]">
+          <RouterLink :to="{ name: $Routes.PROFILE_TAB }" class="sidebar-link w-full flex p-[8px] items-center gap-[12px]">
             <div
               class="icon flex group-active:bg-yellowLight items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full transition-all"
             >
               <Icon icon="solar:user-linear" class="text-lg text-black" />
             </div>
             <p class="font-bold text-sm text-black leading-[20px]">{{ $t('profile') }}</p>
+          </RouterLink>
+          <RouterLink :to="{ name: $Routes.FAVORITES_TAB }" class="sidebar-link w-full flex p-[8px] items-center gap-[12px]">
+            <div
+              class="icon flex group-active:bg-yellowLight items-center justify-center gap-[8px] w-[48px] h-[48px] bg-gray rounded-full transition-all"
+            >
+              <Icon icon="solar:heart-outline" class="text-lg text-black" />
+            </div>
+            <p class="font-bold text-sm text-black leading-[20px]">{{ $t('favorites') }}</p>
           </RouterLink>
         </div>
       </div>
@@ -41,3 +49,13 @@ export default {
   name: 'Profile-Sidebar'
 }
 </script>
+
+<style scoped>
+.router-link-exact-active .icon{
+  background: theme('colors.yellowLight');
+}
+.router-link-exact-active .icon svg {
+  color: theme('colors.orange');
+}
+
+</style>

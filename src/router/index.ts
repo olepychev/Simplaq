@@ -14,6 +14,7 @@ import LiteSingleRewardView from '@/views/lite/LiteSingleRewardView.vue';
 import ProfileView from '@/views/profile/ProfileView.vue';
 /* Profile - Tabs */
 import ProfileTabView from '@/views/profile/Tabs/ProfileTabView.vue';
+import FavoritesTabView from '@/views/profile/Tabs/FavoritesTabView.vue'
 
 /* User Store */
 import { useUserStore } from '@/stores/user';
@@ -85,8 +86,12 @@ const routes = [
       {
         path: '',
         name: Routes.PROFILE_TAB,
-        default: ProfileTabView,
         component: ProfileTabView,
+      },
+      {
+        path: '/my-favorites',
+        name: Routes.FAVORITES_TAB,
+        component: FavoritesTabView,
       },
     ]
   }
