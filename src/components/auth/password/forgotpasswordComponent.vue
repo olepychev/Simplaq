@@ -62,36 +62,27 @@
   </div>
 
   <Contact_supportComponent @closeModal="closeSupportModal" v-if="contactSupportShow" />
-
 </template>
 
 <script lang="ts">
 import Contact_supportComponent from '@/components/modals/contact_support/contact_supportComponent.vue'
 
+interface UserData {
+  email: string;
+}
+
 export default {
-  name: 'forgot-password',
-  data() {
-    return {
-      userData: {
-        email: ''
-      },
-      isEmailTouched: false,
-
-      contactSupportShow: false
-
-    }
-  },
+  name: 'Forgot_password',
   components: {
     Contact_supportComponent
   },
-
-  computed: {
-    validateEmail(): boolean {
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      return emailPattern.test(this.userData.email)
-    },
-    readyForSubmit(): boolean {
-      return this.validateEmail
+  data() {
+    return {
+      userData: {
+        email: '' as string,
+      } as UserData,
+      isEmailTouched: false as boolean,
+      contactSupportShow: false as boolean,
     }
   },
   methods: {
@@ -127,6 +118,15 @@ export default {
         console.log('submit')
       }
     }
-  }
+  },
+  computed: {
+    validateEmail(): boolean {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      return emailPattern.test(this.userData.email)
+    },
+    readyForSubmit(): boolean {
+      return this.validateEmail
+    }
+  },
 }
 </script>

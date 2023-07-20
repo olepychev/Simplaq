@@ -1,17 +1,19 @@
 <template>
     <HeaderComponent/>
-    <BreadcrumbComponent page="Rewards" subPage="Gift Card Sturbucks"/>
+    <BreadcrumbComponent :pagesArr="pagesArr" currentPage="Gift Card Sturbucks"/>
 
     <SingleRewardCardComponent />
     <SignleRewardCardsComponent />
-    <LiteFooterComponent />
+    <SubscribeComponent  />
+    <FooterComponent />
 </template>
 
 <script lang="ts">
 import HeaderComponent from '@/components/layouts/HeaderComponent.vue';
-import LiteFooterComponent from '@/components/lite-pages/layouts/LiteFooterComponent.vue';
+import FooterComponent from '@/components/layouts/FooterComponent.vue';
 import SingleRewardCardComponent from '@/components/lite-pages/SingleRewardCardComponent.vue';
 import SignleRewardCardsComponent from '@/components/lite-pages/SignleRewardCardsComponent.vue';
+import SubscribeComponent from '@/components/layouts/SubscribeComponent.vue'
 
 
 import BreadcrumbComponent from '@/components/layouts/BreadcrumbComponent.vue'
@@ -19,18 +21,34 @@ import BreadcrumbComponent from '@/components/layouts/BreadcrumbComponent.vue'
 /* vue use head */
 import { useHead } from '@vueuse/head'
 
+interface PagesArr {
+  page: string,
+  routeName: string,
+}
+
 export default {
     name: "Lite",
     components: {
         HeaderComponent,
         BreadcrumbComponent,
-        LiteFooterComponent,
+        FooterComponent,
         SingleRewardCardComponent,
         SignleRewardCardsComponent,
+        SubscribeComponent ,
+    },
+    data() {
+      return {
+        pagesArr: [
+        {
+          page: this.$t('rewards'),
+          routeName: this.$Routes.REWARDS
+        }
+      ] as PagesArr[]
+      }
     },
     setup() {
         useHead({
-    title: 'Galerie Harfa Mall - My Rewards',
+    title: 'My Rewards - Galerie Harfa Mall',
     meta: [
       {
         name: 'description',

@@ -118,7 +118,7 @@ export default {
   name: 'Register',
   data() {
     return {
-      step: 6
+      step: 1 as number
     }
   },
   components: {
@@ -144,7 +144,7 @@ export default {
   },
   setup() {
     useHead({
-      title: 'Galerie Harfa Mall - Registration',
+      title: 'Registration - Galerie Harfa Mall',
       meta: [
         {
           name: 'description',

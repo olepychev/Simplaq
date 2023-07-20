@@ -47,6 +47,8 @@
 
 <script lang="ts">
 export default {
+  name: 'Share_location',
+  emits: ['closeShareLocation'],
   methods: {
     closeShareLocation() {
       this.$emit('closeShareLocation', '')

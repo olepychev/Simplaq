@@ -68,12 +68,12 @@ export default {
   },
   data() {
     return {
-      step: 1
+      step: 1 as number,
     }
   },
   setup() {
     useHead({
-    title: 'Galerie Harfa Mall - Forgot Password',
+    title: 'Forgot Password - Galerie Harfa Mall',
     meta: [
       {
         name: 'description',

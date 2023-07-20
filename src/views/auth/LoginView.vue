@@ -8,23 +8,19 @@
         </p>
       </div>
 
-      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+      <Icon @click="props.close()" icon="majesticons:close"
+        class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
     </div>
   </notifications>
 
   <AuthSliderComponent>
     <div class="h-full w-full flex flex-col py-[40px] px-[15px] sm:px-[48px]">
       <div class="w-full">
-        <router-link :to="{ name: $Routes.HOME }" class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
+        <router-link :to="{ name: $Routes.HOME }"
+          class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4"
-              stroke="#17181B"
-              stroke-width="1.5"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+            <path d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4" stroke="#17181B"
+              stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </router-link>
       </div>
@@ -38,28 +34,23 @@
           </div>
           <div class="flex flex-col items-center gap-[4px]">
             <h6 class="text-black font-bold text-xl">{{ $t('hello_again') }} 👋</h6>
-            <p class="font-normal text-sm text-grayDark2 leading-[24px] tracking-[0.1px]">{{ $t('login_welcome_text') }}</p>
+            <p class="font-normal text-sm text-grayDark2 leading-[24px] tracking-[0.1px]">{{ $t('login_welcome_text') }}
+            </p>
           </div>
         </div>
 
         <form class="flex flex-col gap-[8px] w-full max-w-[360px]" action="#" method="POST">
           <div
             :class="!isEmailTouched ? 'border-transparent' : isEmailTouched && validateEmail ? 'border-green' : 'border-orange'"
-            class="items-center gap-[12px] border-[1px] grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] bg-gray rounded-[16px]"
-          >
+            class="items-center gap-[12px] border-[1px] grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] bg-gray rounded-[16px]">
             <div>
               <Icon icon="tabler:mail" class="text-lg text-black" />
             </div>
             <div class="flex flex-col gap-[2px]">
               <label for="email" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('email') }}</label>
-              <input
-                @input="emailTouched"
-                type="text"
-                id="email"
-                :placeholder="$t('enter_your_email')"
+              <input @input="emailTouched" type="text" id="email" :placeholder="$t('enter_your_email')"
                 v-model="userData.email"
-                class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
-              />
+                class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]" />
             </div>
             <div>
               <Icon v-if="validateEmail" icon="bi:check" class="text-lg text-green" />
@@ -68,20 +59,15 @@
 
           <div
             :class="!isPasswordTouched ? 'border-transparent' : !validatePassword ? 'border-orange' : 'border-transparent'"
-            class="border-[1px] items-center gap-[12px] grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] bg-gray rounded-[16px]"
-          >
+            class="border-[1px] items-center gap-[12px] grid grid-cols-[20px,auto,20px] px-[20px] py-[12px] bg-gray rounded-[16px]">
             <div>
               <Icon icon="solar:lock-keyhole-minimalistic-linear" class="text-lg text-black" />
             </div>
             <div class="flex flex-col gap-[2px]">
               <label for="password" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('password') }}</label>
-              <input
-                :type="passwordShow ? 'text' : 'password'"
-                id="password"
-                :placeholder="$t('enter_your_password')"
+              <input :type="passwordShow ? 'text' : 'password'" id="password" :placeholder="$t('enter_your_password')"
                 v-model="userData.password"
-                class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]"
-              />
+                class="text-black py-[4px] font-medium bg-transparent outline-none text-sm leading-[20px]" />
             </div>
             <div @click="hideShowPassword" class="cursor-pointer">
               <Icon v-if="passwordShow" icon="mdi:eye-outline" class="text-lg text-black" />
@@ -90,35 +76,29 @@
           </div>
 
           <div class="flex flex-col gap-[12px]">
-            <RouterLink
-              :to="{ name: $Routes.FORGOT_PASSWORD }"
-              class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end"
-              >{{ $t('forgot_password') }}?</RouterLink
-            >
-            <button
-              type="submit"
-              @click.prevent="handleSubmit"
-              class="bg-orange py-[16px] rounded-[16px] text-white text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
-            >
+            <RouterLink :to="{ name: $Routes.FORGOT_PASSWORD }"
+              class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end">{{
+                $t('forgot_password') }}?</RouterLink>
+            <button type="submit" @click.prevent="handleSubmit"
+              class="bg-orange py-[16px] rounded-[16px] text-white text-sm font-semibold leaing-[20px] tracking-[-0.2px]">
               {{ $t('sign_in') }}
             </button>
           </div>
-          <p class="text-grayDark max-w-[360px] font-normal mt-[15px] text-xs leading-[20px] tracking-[-0.2px] text-center">
+          <p
+            class="text-grayDark max-w-[360px] font-normal mt-[15px] text-xs leading-[20px] tracking-[-0.2px] text-center">
             {{ $t('or_use_social_media') }}
           </p>
 
           <div class="flex flex-col gap-[8px]">
             <button
-              class="bg-gray justify-center flex items-center gap-[8px] py-[16px] rounded-[16px] text-black text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
-            >
+              class="bg-gray justify-center flex items-center gap-[8px] py-[16px] rounded-[16px] text-black text-sm font-semibold leaing-[20px] tracking-[-0.2px]">
               <Icon icon="flat-color-icons:google" class="text-xl text-black" />
 
               {{ $t('sign_in_with_google') }}
             </button>
 
             <button
-              class="bg-gray justify-center flex items-center gap-[8px] py-[16px] rounded-[16px] text-black text-sm font-semibold leaing-[20px] tracking-[-0.2px]"
-            >
+              class="bg-gray justify-center flex items-center gap-[8px] py-[16px] rounded-[16px] text-black text-sm font-semibold leaing-[20px] tracking-[-0.2px]">
               <Icon icon="logos:facebook" class="text-xl text-white" />
 
               {{ $t('sign_in_with_facebook') }}
@@ -127,11 +107,9 @@
 
           <p class="text-center text-grayDark text-xs font-normal leading-[20px] tracking-[0.2px]">
             {{ $t('dont_have_registration_yet?') }}
-            <routerLink
-              :to="{ name: $Routes.REGISTER }"
-              class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end"
-              >{{ $t('register_now') }}</routerLink
-            >
+            <routerLink :to="{ name: $Routes.REGISTER }"
+              class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end">{{
+                $t('register_now') }}</routerLink>
           </p>
         </form>
       </div>
@@ -150,7 +128,10 @@ import AuthSliderComponent from '@/components/slider/AuthSliderComponent.vue'
 
 /* vue use head */
 import { useHead } from '@vueuse/head'
-
+interface UserData {
+  email: string,
+  password: string,
+}
 export default {
   name: 'Login',
   components: {
@@ -164,12 +145,12 @@ export default {
       userData: {
         email: '',
         password: ''
-      },
+      } as UserData,
 
-      isEmailTouched: false,
-      isPasswordTouched: false,
+      isEmailTouched: false as boolean,
+      isPasswordTouched: false as boolean,
 
-      passwordShow: false
+      passwordShow: false as boolean
     }
   },
   computed: {
@@ -232,26 +213,26 @@ export default {
   },
   setup() {
     useHead({
-    title: 'Galerie Harfa Mall - Login',
-    meta: [
-      {
-        name: 'description',
-        content: 'Login to the Galerie Harfa Mall platform to access personalized features, view your rewards, manage receipts, and explore exclusive offers.'
-      },
-      {
-        property: 'og:title',
-        content: 'Galerie Harfa Mall - Login'
-      },
-      {
-        property: 'og:description',
-        content: 'Login to the Galerie Harfa Mall platform to access personalized features, view your rewards, manage receipts, and explore exclusive offers.'
-      },
-      {
-        property: 'og:image',
-        content: 'image.jpg'
-      }
-    ]
-  });
+      title: 'Login - Galerie Harfa Mall',
+      meta: [
+        {
+          name: 'description',
+          content: 'Login to the Galerie Harfa Mall platform to access personalized features, view your rewards, manage receipts, and explore exclusive offers.'
+        },
+        {
+          property: 'og:title',
+          content: 'Galerie Harfa Mall - Login'
+        },
+        {
+          property: 'og:description',
+          content: 'Login to the Galerie Harfa Mall platform to access personalized features, view your rewards, manage receipts, and explore exclusive offers.'
+        },
+        {
+          property: 'og:image',
+          content: 'image.jpg'
+        }
+      ]
+    });
 
     const onSwiper = swiper => {
       console.log(swiper)

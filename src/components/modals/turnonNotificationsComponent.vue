@@ -47,6 +47,7 @@
   
   <script lang="ts">
   export default {
+    emits: ['closeTurnonNotifications'],
     methods: {
         closeTurnonNotifications() {
         this.$emit('closeTurnonNotifications', '')

@@ -26,12 +26,12 @@ export default {
     name: "Lite",
     data() {
         return {
-            authorized: true,
+            authorized: true as boolean,
         }
     },
     setup() {
         useHead({
-    title: 'Galerie Harfa Mall Lite Page - Receipts and Rewards',
+    title: 'Receipts and Rewards - Galerie Harfa Mall',
     meta: [
       {
         name: 'description',

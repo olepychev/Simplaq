@@ -70,12 +70,12 @@ export default {
   },
   data() {
     return {
-      step: 2
+      step: 2 as number,
     }
   },
   setup() {
     useHead({
-    title: 'Galerie Harfa Mall - Set New Password',
+    title: 'Set New Password - Galerie Harfa Mall',
     meta: [
       {
         name: 'description',

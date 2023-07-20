@@ -32,7 +32,7 @@ export default {
   name: 'Accordion',
   data() {
     return {
-      activeAccordion: ''
+      activeAccordion: '' as string,
     }
   },
   emits: ['accordionClicked'],
@@ -52,8 +52,8 @@ export default {
   },
   methods: {
     accordionClicked(e: Event) {
-      let accordion = e.target as Element
-      accordion = accordion.closest(`.accordion-item`).getAttribute('id')
+      const target = e.target as Element
+      const accordion = target.closest(`.accordion-item`).getAttribute('id')
       
       this.activeAccordion = accordion
       this.$emit('accordionClicked', this.activeAccordion)

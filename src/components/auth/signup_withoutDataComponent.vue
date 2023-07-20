@@ -111,11 +111,8 @@
       </div>
       <div class="flex flex-col gap-[8px]">
         <div class="flex items-center gap-[12px]">
-          <div
-            :class="!passLength ? 'bg-green' : ''"
-            class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center"
-          >
-            <Icon v-if="passLength" icon="jam:close" class="text-xs text-black" />
+          <div :class="passLength ? 'bg-green' : ''" class="w-[12px] h-[12px] rounded-full bg-gray flex items-center justify-center">
+            <Icon v-if="!passLength" icon="jam:close" class="text-xs text-black" />
             <Icon v-else icon="gg:check" class="text-xs text-white" />
           </div>
           <p class="text-xs text-grayDark3">At least 8 characters</p>
@@ -162,6 +159,12 @@
 </template>
 
 <script lang="ts">
+interface UserData {
+  name: string
+  surname: string
+  email: string
+  password: string
+}
 export default {
   name: 'signup-01step',
   data() {
@@ -171,17 +174,18 @@ export default {
         surname: '',
         email: '',
         password: ''
-      },
-      isNameTouched: false,
-      isSurnameTouched: false,
-      isEmailTouched: false,
-      isPasswordTouched: false,
+      } as UserData,
 
-      hasUppercase: false,
-      hasLowercase: false,
-      hasNumberOrSymbol: false,
+      isNameTouched: false as boolean,
+      isSurnameTouched: false as boolean,
+      isEmailTouched: false as boolean,
+      isPasswordTouched: false as boolean,
 
-      passwordShow: false
+      hasUppercase: false as boolean,
+      hasLowercase: false as boolean,
+      hasNumberOrSymbol: false as boolean,
+
+      passwordShow: false as boolean
     }
   },
 
@@ -200,10 +204,10 @@ export default {
     },
     passLength(): boolean {
       const lengthRequirement = this.userData.password.length >= 8
-      return !lengthRequirement
+      return lengthRequirement
     },
     nonvalidatePassword(): boolean {
-      const lengthRequirement = this.userData.password.length >= 8
+      const lengthRequirement = this.passLength
       const hasUppercase = /[A-Z]/.test(this.userData.password)
       const hasLowercase = /[a-z]/.test(this.userData.password)
       const hasNumberOrSymbol = /[0-9!@#$%^&*()]/.test(this.userData.password)
@@ -214,7 +218,7 @@ export default {
 
       return !lengthRequirement || !hasUppercase || !hasLowercase || !hasNumberOrSymbol
     },
-    readyForSubmit() {
+    readyForSubmit(): boolean {
       return this.validateName && this.validateSurname && this.validateEmail && !this.nonvalidatePassword
     }
   },
@@ -294,7 +298,7 @@ export default {
           })
         }
 
-        if(!this.hasLowercase || !this.hasUppercase) {
+        if (!this.hasLowercase || !this.hasUppercase) {
           this.$notify({
             title: this.$t('password_must_contain_both_uppercase_&_lowercase_letters'),
             component: {
@@ -309,7 +313,7 @@ export default {
           })
         }
 
-        if(!this.hasNumberOrSymbol) {
+        if (!this.hasNumberOrSymbol) {
           this.$notify({
             title: this.$t('password_must_contain_at_least_one_number_or_symbol'),
             component: {

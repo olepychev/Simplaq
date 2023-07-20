@@ -1,41 +1,19 @@
 <template>
-  <CompleteProfileComponent
-    v-if="completeProfileModal"
-    @closeCompleteProfileComponent="closeCompleteProfileComponent"
-    @nextDatePickerComponent="nextDatePickerComponent"
-  />
-  <DatePickerComponent
-    v-if="datePickerModal"
-    @skipDatePickerComponent="skipDatePickerComponent"
-    @nextGenderPickerComponent="nextGenderPickerComponent"
-  />
-  <GenderPickerComponent
-    v-if="genderPickerModal"
-    @previousDatePickerComponent="previousDatePickerComponent"
-    @skipGenderPickerComponent="skipGenderPickerComponent"
-    @nextInterestsPickerComponent="nextInterestsPickerComponent"
-  />
+  <CompleteProfileComponent v-if="completeProfileModal" @closeCompleteProfileComponent="closeCompleteProfileComponent"
+    @nextDatePickerComponent="nextDatePickerComponent" />
+  <DatePickerComponent v-if="datePickerModal" @skipDatePickerComponent="skipDatePickerComponent"
+    @nextGenderPickerComponent="nextGenderPickerComponent" />
+  <GenderPickerComponent v-if="genderPickerModal" @previousDatePickerComponent="previousDatePickerComponent"
+    @skipGenderPickerComponent="skipGenderPickerComponent" @nextInterestsPickerComponent="nextInterestsPickerComponent" />
 
-  <InterestsPickerComponent
-    v-if="interestsPickerModal"
-    @previousGenderPickerComponent="previousGenderPickerComponent"
-    @nextSelectProfileComponent="nextSelectProfileComponent"
-    @skipSelectProfileComponent="skipSelectProfileComponent"
-  />
+  <InterestsPickerComponent v-if="interestsPickerModal" @previousGenderPickerComponent="previousGenderPickerComponent"
+    @nextSelectProfileComponent="nextSelectProfileComponent" @skipSelectProfileComponent="skipSelectProfileComponent" />
 
-  <SelectProfileComponent
-    v-if="profileSelectModal"
-    @previousInterestsPickerComponent="previousInterestsPickerComponent"
-    @skipProfileSelectComponent="skipProfileSelectComponent"
-    @nextLocationPickerComponent="nextLocationPickerComponent"
-  />
+  <SelectProfileComponent v-if="profileSelectModal" @previousInterestsPickerComponent="previousInterestsPickerComponent"
+    @skipProfileSelectComponent="skipProfileSelectComponent" @nextLocationPickerComponent="nextLocationPickerComponent" />
 
-  <LocationPickerComponent
-    v-if="locationPickerModal"
-    @previousProfileSelectComponent="previousProfileSelectComponent"
-    @skipLocationComponent="skipLocationComponent"
-    @nextCarLicenseComponent="nextCarLicenseComponent"
-  />
+  <LocationPickerComponent v-if="locationPickerModal" @previousProfileSelectComponent="previousProfileSelectComponent"
+    @skipLocationComponent="skipLocationComponent" @nextCarLicenseComponent="nextCarLicenseComponent" />
 
   <CarLicenseComponent v-if="carLicenseModal" @previousLocationPickerComponent="previousLocationPickerComponent" />
 </template>
@@ -51,19 +29,6 @@ import CarLicenseComponent from '@/components/modals/account_setup/carLicenseCom
 
 export default {
   name: 'Home',
-  data() {
-    return {
-      /* Complete Account Setup Modals Variables*/
-      completeProfileModal: true,
-      datePickerModal: false,
-      genderPickerModal: false,
-      interestsPickerModal: false,
-      profileSelectModal: false,
-      locationPickerModal: false,
-      carLicenseModal: false
-    }
-  },
-  emits:['closeCompleteProfileComponent'],
   components: {
     CompleteProfileComponent,
     DatePickerComponent,
@@ -73,6 +38,19 @@ export default {
     LocationPickerComponent,
     CarLicenseComponent
   },
+  data() {
+    return {
+      /* Complete Account Setup Modals Variables*/
+      completeProfileModal: true as boolean,
+      datePickerModal: false as boolean,
+      genderPickerModal: false as boolean,
+      interestsPickerModal: false as boolean,
+      profileSelectModal: false as boolean,
+      locationPickerModal: false as boolean,
+      carLicenseModal: false as boolean
+    }
+  },
+  emits: ['closeCompleteProfileComponent'],
   methods: {
     closeCompleteProfileComponent() {
       this.completeProfileModal = false

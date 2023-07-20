@@ -8,13 +8,15 @@
         </p>
       </div>
 
-      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+      <Icon @click="props.close()" icon="majesticons:close"
+        class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
     </div>
   </notifications>
 
   <div class="w-full h-screen fixed top-0 left-0 bg-overlay z-50">
     <div class="w-full h-full flex overflow-auto md:py-[20px] bg-white md:bg-transparent">
-      <div class="w-full max-w-[664px] h-full md:min-h-[640px] md:h-[640px] m-auto px-[40px] pt-[40px] pb-[40px] bg-white md:rounded-[24px]">
+      <div
+        class="w-full max-w-[664px] h-full md:min-h-[640px] md:h-[640px] m-auto px-[40px] pt-[40px] pb-[40px] bg-white md:rounded-[24px]">
         <form @submit.prevent="handleSubmit" class="w-full h-full flex flex-col justify-between">
           <div class="flex flex-col max-w-[360px] mx-auto">
             <div class="flex items-center justify-center pb-[16px]">
@@ -25,25 +27,20 @@
               </div>
             </div>
 
-            <h6 class="font-bold text-black text-xl mb-[8px] text-center max-w-[360px] mx-auto">{{ $t('when_were_you_born') }}?</h6>
+            <h6 class="font-bold text-black text-xl mb-[8px] text-center max-w-[360px] mx-auto">{{
+              $t('when_were_you_born') }}?</h6>
             <p class="font-medium text-sm text-grayDark text-center leading-[24px]">
               {{ $t('when_were_you_born_text') }}
             </p>
             <div
               :class="!this.dateTouched ? 'border-transparent' : this.dateTouched && this.invalidDate ? 'border-orange' : 'border-green'"
-              class="mt-[24px] form-controll relative items-center gap-[12px] bg-gray border-[1px] grid grid-cols-[20px,auto,20px] px-[20px] py-[15px] rounded-[16px]"
-            >
+              class="mt-[24px] form-controll relative items-center gap-[12px] bg-gray border-[1px] grid grid-cols-[20px,auto,20px] px-[20px] py-[15px] rounded-[16px]">
               <div class="datePickerCalendar" @mouseenter="datePickerCalendar">
                 <Icon icon="solar:calendar-date-linear" class="text-lg text-black" />
               </div>
               <div class="flex flex-col gap-[2px]">
-                <input
-                  type="date"
-                  id="date"
-                  v-model="date"
-                  @input="handleInput"
-                  class="text-black py-[6px] font-medium bg-transparent outline-none text-sm leading-[20px]"
-                />
+                <input type="date" id="date" v-model="date" @input="handleInput"
+                  class="text-black py-[6px] font-medium bg-transparent outline-none text-sm leading-[20px]" />
               </div>
               <div v-if="!this.invalidDate && this.dateTouched">
                 <Icon icon="bi:check" class="text-lg text-green" />
@@ -52,24 +49,17 @@
           </div>
 
           <div class="flex gap-[8px] mt-[84px] border-t pt-[16px] border-gray w-full items-center justify-center">
-            <button
-              @click="skipDatePickerComponent"
-              type="button"
-              class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold text-black hover:bg-orange hover:text-white transition-all"
-            >
+            <button @click="skipDatePickerComponent" type="button"
+              class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold text-black hover:bg-orange hover:text-white transition-all">
               {{ $t(`skip_for_now`) }}
             </button>
-            <button
-              type="submit"
-              :class="
-                !this.dateTouched
-                  ? 'bg-transparent text-black'
-                  : this.dateTouched && invalidDate
-                  ? 'bg-transparent text-black'
-                  : 'bg-orange text-white'
+            <button type="submit" :class="!this.dateTouched
+              ? 'bg-transparent text-black'
+              : this.dateTouched && invalidDate
+                ? 'bg-transparent text-black'
+                : 'bg-orange text-white'
               "
-              class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold transition-all"
-            >
+              class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold transition-all">
               {{ $t('continue') }}
             </button>
           </div>
@@ -83,13 +73,12 @@
 export default {
   data() {
     return {
-      date: '',
-      invalidDate: false,
-      dateTouched: false
+      date: '' as string,
+      invalidDate: false as boolean,
+      dateTouched: false as boolean
     }
   },
-  computed: {},
-  emits : ['skipDatePickerComponent', 'nextGenderPickerComponent'],
+  emits: ['skipDatePickerComponent', 'nextGenderPickerComponent'],
   methods: {
     skipDatePickerComponent() {
       this.$emit('skipDatePickerComponent')
@@ -107,6 +96,12 @@ export default {
         const formattedDate = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}-${year.toString().padStart(4, '0')}`
         this.date = formattedDate
         this.$emit('nextGenderPickerComponent', this.date)
+      }
+    },
+    datePickerCalendar(e: Event) {
+      const target = e.target as Element
+      if (target.closest('.form-controll').querySelector('input')) {
+        target.closest('.form-controll').querySelector('input').focus()
       }
     },
     handleInput() {

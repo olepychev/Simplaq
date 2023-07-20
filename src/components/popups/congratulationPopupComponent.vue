@@ -40,6 +40,7 @@
   
 <script lang="ts">
 export default {
+  emits: ['closeCongratulation'],
   methods: {
     closeCongratulation() {
       this.$emit('closeCongratulation', '');

@@ -16,8 +16,9 @@
           <vue-multiselect
             v-model="selectedCountries"
             :options="countries"
-            :searchable="searchable"
+            :searchable="true"
             placeholder="Type to search"
+            :allow-empty="false"
             :option-height="60"
             track-by="code"
             :custom-label="customLabel"
@@ -34,10 +35,10 @@
 
             <template #noResult>
               <div class="w-full flex flex-col items-center justify-center">
-                <img src="@/assets/imgs/noresult.svg" class="max-w-[136px] mt-[40px] mb-[24px]" alt="">
+                <img src="@/assets/imgs/noresult.svg" class="max-w-[136px] mt-[40px] mb-[24px]" alt="" />
                 <h6 class="text-lg text-black font-bold leading-[26px] tracking-[-0.4px]">{{ $t('search') }}</h6>
                 <p class="text-center mt-[12px] text-grayDark text-sm leading-[24px] tracking-[0.1px]">
-                 {{$t('unfortunately_nothing_was_found_Try_changing_your_request')}}
+                  {{ $t('unfortunately_nothing_was_found_Try_changing_your_request') }}
                 </p>
               </div>
             </template>
@@ -45,7 +46,8 @@
           <div class="flex flex-col gap-[2px]">
             <input
               type="text"
-              id="name"
+              id="phone"
+              v-model="phone"
               :placeholder="$t('phone_number')"
               class="text-black py-[22px] font-medium bg-transparent outline-none text-sm leading-[20px]"
             />
@@ -64,20 +66,24 @@
     </form>
 
     <p class="text-center text-grayDark text-xs font-normal mt-[60px] leading-[20px] tracking-[0.2px]">
-          {{ $t('already_a_member?') }}
-          <router-link
-            :to="{ name: $Routes.LOGIN }"
-            class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end"
-            >{{ $t('login') }}</router-link
-          >
-        </p>
+      {{ $t('already_a_member?') }}
+      <router-link
+        :to="{ name: $Routes.LOGIN }"
+        class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end"
+        >{{ $t('login') }}</router-link
+      >
+    </p>
   </div>
 </template>
 
-<script>
-import { ref } from 'vue'
+<script lang="ts">
 import VueMultiselect from 'vue-multiselect'
 
+interface Countries {
+  country: string,
+  code: string,
+  image: string,
+}
 export default {
   name: 'YourComponent',
   components: {
@@ -100,9 +106,10 @@ export default {
           country: 'Indonesia',
           code: '+62',
           image: '../src/assets/imgs/in.svg'
-        },
-      ],
-      selectedCountries: null
+        }
+      ] as Countries[],
+      selectedCountries: null as Countries | null,
+      phone: '',
     }
   },
   mounted() {
@@ -116,26 +123,31 @@ export default {
       searchInputParent.prepend(searchInput)
     },
 
-    customLabel ({ country, code }) {
+    customLabel({ country, code }) {
       return `${country} – ${code}`
     }
-
   },
   watch: {
     selectedCountries(newSelectedCountries) {
-      // Do something when the value of selectedCountries changes
-      let selected = `<div class="flex items-center gap-[8px]">
+      if (this.selectedCountries) {
+        // Do something when the value of selectedCountries changes
+        let selected = `<div class="flex items-center gap-[8px]">
           <img class="w-[20px] h-[20px] rounded-full" src="${newSelectedCountries.image}"/>
           <p class="text-base leading-[20px] tracking-[-0.2px] text-black">${newSelectedCountries.code}</p>
       </div>`
-      let selectedEl = document.createElement('div')
-      selectedEl.classList.add('phone-selected')
-      selectedEl.innerHTML = selected
+        let selectedEl = document.createElement('div')
+        selectedEl.classList.add('phone-selected')
+        selectedEl.innerHTML = selected
 
-      if (document.querySelector('.multiselect__tags .phone-selected')) {
-        document.querySelector('.multiselect__tags').removeChild(document.querySelector('.multiselect__tags .phone-selected'))
+        if (document.querySelector('.multiselect__tags .phone-selected')) {
+          document.querySelector('.multiselect__tags').removeChild(document.querySelector('.multiselect__tags .phone-selected'))
+        }
+        document.querySelector('.multiselect__tags').appendChild(selectedEl)
+      } else {
+        if (document.querySelector('.multiselect__tags .phone-selected')) {
+          document.querySelector('.multiselect__tags').removeChild(document.querySelector('.multiselect__tags .phone-selected'))
+        }
       }
-      document.querySelector('.multiselect__tags').appendChild(selectedEl)
     }
   }
 }

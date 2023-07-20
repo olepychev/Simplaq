@@ -16,7 +16,7 @@
         <a class="text-xs text-pink font-semibold leading-[20px] tracking-[-0.2px]" href="#">{{ $t('view_all') }}</a>
       </div>
 
-      <div class="w-full flex flex-col gap-[12px] max-h-[calc(100vh-350px)] overflow-auto custom-scrollbar px-[20px]">
+      <div class="w-full flex flex-col gap-[12px] max-h-[calc(100vh-300px)] overflow-auto custom-scrollbar px-[20px]">
 
         <a href="#" class="w-full flex items-start justify-between notification message !border-gray">
           <div class="flex items-center gap-[12px]">

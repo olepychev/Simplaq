@@ -8,20 +8,18 @@
         </p>
       </div>
 
-      <Icon @click="props.close()" icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+      <Icon @click="props.close()" icon="majesticons:close"
+        class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
     </div>
   </notifications>
 
   <div class="w-full h-screen fixed top-0 left-0 bg-overlay z-50">
     <div class="w-full h-full flex overflow-auto md:py-[20px] bg-white md:bg-transparent">
       <div
-        class="w-full max-w-[664px] h-full md:min-h-[640px] md:h-[640px] m-auto px-[40px] pt-[40px] pb-[40px] bg-white md:rounded-[24px]"
-      >
+        class="w-full max-w-[664px] h-full md:min-h-[640px] md:h-[640px] m-auto px-[40px] pt-[40px] pb-[40px] bg-white md:rounded-[24px]">
         <form @submit.prevent="handleSubmit" class="relative w-full h-full flex flex-col justify-between">
-          <div
-            @click="previousGenderPickerComponent"
-            class="cursor-pointer z-[999] absolute top-0 left-0 w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center group hover:bg-graylight transition-all"
-          >
+          <div @click="previousGenderPickerComponent"
+            class="cursor-pointer z-[999] absolute top-0 left-0 w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center group hover:bg-graylight transition-all">
             <Icon icon="fluent:chevron-left-16-filled" class="text-lg text-black" />
           </div>
 
@@ -47,29 +45,17 @@
                 <div class="flex items-center justify-center">
                   <Icon icon="ri:search-2-line" class="text-lg text-black" />
                 </div>
-                <input
-                  @input="filter"
-                  type="text"
-                  v-model="search"
-                  :placeholder="$t('search')"
-                  class="py-[14px] bg-transparent text-xs leading-[20px] tracking-[-0.2px] text-black outline-none placeholder:text-grayDark"
-                />
+                <input @input="filter" type="text" v-model="search" :placeholder="$t('search')"
+                  class="py-[14px] bg-transparent text-xs leading-[20px] tracking-[-0.2px] text-black outline-none placeholder:text-grayDark" />
               </div>
 
               <div class="w-full flex items-center flex-wrap gap-[8px] max-h-[145px] overflow-auto custom-scrollbar">
                 <label v-for="(item, index) in dynamicInterestsArr" :key="index" class="flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    :value="item.interest"
-                    :checked="item.checked"
-                    @change="handleChange"
-                    :name="item.interest"
-                    :id="index"
-                    class="absolute sr-only w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 peer"
-                  />
+                  <input type="checkbox" :value="item.interest" :checked="item.checked" @change="handleChange"
+                    :name="item.interest" :id="index.toString()"
+                    class="absolute sr-only w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 peer" />
                   <div
-                    class="px-[24px] border-graylight py-[10px] border rounded-[12px] peer peer-checked:bg-orange peer-checked:text-white text-xs text-black capitalize font-semibold leading-[20px] tracking-[-0.2px]"
-                  >
+                    class="px-[24px] border-graylight py-[10px] border rounded-[12px] peer peer-checked:bg-orange peer-checked:text-white text-xs text-black capitalize font-semibold leading-[20px] tracking-[-0.2px]">
                     {{ $t(`${item.interest}`) }}
                   </div>
                 </label>
@@ -78,18 +64,12 @@
           </div>
 
           <div class="flex gap-[8px] mt-[67px] border-t pt-[16px] border-gray w-full items-center justify-center">
-            <button
-              @click="skipSelectProfileComponent"
-              type="button"
-              class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold text-black hover:bg-orange hover:text-white transition-all"
-            >
+            <button @click="skipSelectProfileComponent" type="button"
+              class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold text-black hover:bg-orange hover:text-white transition-all">
               {{ $t(`skip_for_now`) }}
             </button>
-            <button
-              type="submit"
-              :class="allChecked.length === 0 ? 'bg-transparent text-black' : 'bg-orange text-white'"
-              class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold transition-all"
-            >
+            <button type="submit" :class="allChecked.length === 0 ? 'bg-transparent text-black' : 'bg-orange text-white'"
+              class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold transition-all">
               {{ $t('continue') }}
             </button>
           </div>
@@ -100,13 +80,17 @@
 </template>
 
 <script lang="ts">
+interface StaticInterestsArr {
+  interest: string,
+  checked: boolean
+}
 export default {
   name: 'InterestsPicker',
   data() {
     return {
       staticInterestsArr: [
         {
-          interest: 'sports_&_fitnes',
+          interest: 'sports_&_fitness',
           checked: false
         },
         {
@@ -201,11 +185,11 @@ export default {
           interest: 'tatoo',
           checked: false
         }
-      ],
-      dynamicInterestsArr: [],
-      search: '',
-      interestsVal: '',
-      allChecked: []
+      ] as StaticInterestsArr[],
+      dynamicInterestsArr: [] as StaticInterestsArr[],
+      search: '' as string,
+      interestsVal: '' as string,
+      allChecked: [] as StaticInterestsArr[],
     }
   },
   emits: ['previousGenderPickerComponent', 'nextSelectProfileComponent', 'skipSelectProfileComponent'],
@@ -214,7 +198,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.allChecked = this.dynamicInterestsArr.filter(item => {
+      this.allChecked = this.dynamicInterestsArr.filter((item: { checked: any }) => {
         if (item.checked) {
           return item
         }
@@ -237,10 +221,10 @@ export default {
       }
     },
     handleChange(e: Event) {
-      const target = e.target as Element
+      const target = e.target as HTMLInputElement
       this.dynamicInterestsArr[target.id].checked = target.checked
 
-      this.allChecked = this.dynamicInterestsArr.filter(item => {
+      this.allChecked = this.dynamicInterestsArr.filter((item: { checked: any }) => {
         if (item.checked) {
           return item
         }
@@ -253,9 +237,9 @@ export default {
       const query = this.search.toLowerCase()
       const keywords = query.split(' ')
 
-      this.dynamicInterestsArr = this.staticInterestsArr.filter(item => {
+      this.dynamicInterestsArr = this.staticInterestsArr.filter((item: { interest: string }) => {
         const interest = item.interest.toLowerCase()
-        return keywords.every(keyword => interest.includes(keyword))
+        return keywords.every((keyword: any) => interest.includes(keyword))
       })
     },
     previousGenderPickerComponent() {

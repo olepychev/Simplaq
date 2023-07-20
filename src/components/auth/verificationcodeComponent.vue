@@ -56,13 +56,13 @@
   <Contact_supportComponent @closeModal="closeSupportModal" v-if="contactSupportShow"/>
 </template>
 
-<script>
+<script lang="ts">
 import Contact_supportComponent from '@/components/modals/contact_support/contact_supportComponent.vue'
 export default {
   data() {
     return {
-      otpValues: ['', '', '', '', '', ''],
-      contactSupportShow: false,
+      otpValues: ['', '', '', '', '', ''] as string[],
+      contactSupportShow: false as boolean,
     }
   },
   components: {

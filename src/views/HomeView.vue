@@ -9,6 +9,7 @@
     <SliderComponentVue
       :controllers="true"
       :sectionTitle="$t('upcoming_events')"
+      :routeName="$Routes.EVENTS"
       space-between="24"
       slides-per-view="4"
       :breakpoint="[
@@ -375,6 +376,7 @@
     <SliderComponentVue
       :controllers="true"
       :sectionTitle="$t('news')"
+      :routeName="$Routes.NEWS"
       space-between="24"
       slides-per-view="4"
       :breakpoint="[
@@ -617,6 +619,7 @@
     <SliderComponentVue
       :controllers="true"
       :sectionTitle="$t('rewards')"
+      :routeName="$Routes.REWARDS"
       space-between="24"
       slides-per-view="4"
       :breakpoint="[
@@ -2436,8 +2439,8 @@ export default {
   name: 'Home',
   data() {
     return {
-      turnOnNotifications: false,
-      accountSetup: false
+      turnOnNotifications: false as boolean,
+      accountSetup: false as boolean
     }
   },
   components: {

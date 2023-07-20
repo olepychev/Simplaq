@@ -7,7 +7,7 @@
             <Icon icon="fluent:delete-28-regular" class="text-lg text-black" />
           </div>
 
-          <h6 class="font-bold text-black text-xl mb-[8px] text-center">{{ $t('delete_account') }}</h6>
+          <h6 class="font-bold text-black text-xl mb-[8px] text-center">{{ $t('log_out') }}</h6>
 
           <p class="max-w-[342px] w-full mx-auto font-medium text-sm text-grayDark text-center leading-[24px]">{{ $t('are_you_sure_you_want_to_log_out_of_your_account') }}</p>
 
@@ -33,6 +33,7 @@
 
 <script lang="ts">
 export default {
+  emits: ['cancelLogout'],
   methods: {
     cancelLogout() {
       this.$emit('cancelLogout')

@@ -58,10 +58,11 @@
 <script lang="ts">
 export default {
   name: 'signup-01step',
+  emits: ['signupWithEmail'],
   methods: {
     registerWithEmail() {
       this.$emit('signupWithEmail')
     }
-  }
+  },
 }
 </script>

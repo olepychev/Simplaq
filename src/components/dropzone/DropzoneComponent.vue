@@ -2,24 +2,25 @@
   <div>
     <div ref="dropzone" class="dropzone">
       <div
-        class="dz-default dz-message max-w-max flex items-center gap-[12px] px-[13px] py-[12px] rounded-[16px] border-[1px] border-graylight cursor-pointer"
-      >
+        class="dz-default dz-message max-w-max flex items-center gap-[12px] px-[13px] py-[12px] rounded-[16px] border-[1px] border-graylight cursor-pointer">
         <Icon icon="ion:image-outline" class="icon text-black text-lg" />
-        <p class="text-sm text-grayDark font-medium leading-[20px] tracking-[-0.2px]">{{ acceptedFilesCount }} / {{ maxFiles }}</p>
+        <p class="text-sm text-grayDark font-medium leading-[20px] tracking-[-0.2px]">{{ acceptedFilesCount }} / {{
+          maxFiles }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Dropzone from 'dropzone'
 
 export default {
-  mounted() {
-    this.initializeDropzone()
-  },
-  destroyed() {
-    this.destroyDropzone()
+  data() {
+    return {
+      dropzone: null as Dropzone | null,
+      acceptedFilesCount: 0 as number,
+      maxFiles: 5 as number,
+    }
   },
   methods: {
     initializeDropzone() {
@@ -97,13 +98,12 @@ export default {
       }, 0)
     }
   },
-  data() {
-    return {
-      dropzone: null,
-      acceptedFilesCount: 0,
-      maxFiles: 5
-    }
-  }
+  mounted() {
+    this.initializeDropzone()
+  },
+  destroyed() {
+    this.destroyDropzone()
+  },
 }
 </script>
 

@@ -9,23 +9,17 @@
         </div>
 
         <div v-if="!authorized" class="header_top-right flex items-center gap-[8px]">
-          <router-link
-          :to="{name: $Routes.LOGIN}"
-            class="px-[26px] py-[13px] min-w-[120px] flex items-center justify-center rounded-[16px] transparent border-[1px] border-graylight text-sm font-semibold transition-all"
-            >{{$t('login')}}</router-link
-          >
-          <router-link
-          :to="{name: $Routes.CREATE_ACCOUNT}"
-            class="px-[26px] py-[13px] min-w-[120px] hidden md:flex items-center justify-center rounded-[16px] transparent border-[1px] border-transparent text-sm font-semibold bg-orange text-white transition-all"
-            >{{$t('create_account')}}</router-link
-          >
+          <router-link :to="{ name: $Routes.LOGIN }"
+            class="px-[26px] py-[13px] min-w-[120px] flex items-center justify-center rounded-[16px] transparent border-[1px] border-graylight text-sm font-semibold transition-all">{{ $t('login') }}</router-link>
+          <router-link :to="{ name: $Routes.CREATE_ACCOUNT }"
+            class="px-[26px] py-[13px] min-w-[120px] hidden md:flex items-center justify-center rounded-[16px] transparent border-[1px] border-transparent text-sm font-semibold bg-orange text-white transition-all">{{ $t('create_account') }}</router-link>
         </div>
         <div v-else class="header_top-right flex items-center gap-[8px]">
           <div class="hidden  bg-gray px-[16px] rounded-full min-w-max py-[12px] sm:flex items-center gap-[12px]">
             <img src="@/assets/imgs/logo-notitle.svg" class="w-[29px]" alt="">
 
             <p class="font-medium text-sm leading-[20px] tracking-[-0.2px] text-black">
-              {{$t('loyalty_points')}} : <span class="text-orange text-base font-bold">120 {{$t('pt')}}</span>
+              {{ $t('loyalty_points') }} : <span class="text-orange text-base font-bold">120 {{ $t('pt') }}</span>
             </p>
           </div>
           <div class="flex items-center gap-[8px] cursor-pointer">

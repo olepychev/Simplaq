@@ -1,6 +1,9 @@
 @import 'fonts.css';
 @import 'base.css';
 
+html {
+  scroll-behavior: smooth;
+}
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute;
@@ -17,20 +20,32 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 5px;
 }
 
+body.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Horizontal */
 .custom-scrollbar.hr::-webkit-scrollbar {
   height: 3px;
 }
 
 /* Track */
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: theme('colors.yellowLight');
+  background: transparent;
   border-radius: 20px;
+}
+
+body.custom-scrollbar::-webkit-scrollbar-track {
+  background: theme('colors.grayLight2');
 }
 
 /* Handle */
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: theme('colors.orange');
+  background: theme('colors.graylight');
   border-radius: 20px;
+}
+body.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: theme('colors.orange');
 }
 
 .orange-border {
@@ -126,4 +141,43 @@ select {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1.3em;
+}
+
+
+.router-link-exact-active .icon {
+  background: theme('colors.yellowLight');
+}
+.router-link-exact-active .icon svg {
+  color: theme('colors.orange');
+}
+.router-link-exact-active .icon.stroke svg path {
+  fill: theme('colors.orange');
+}
+
+.copy-icon.hide {
+  animation: hide 0.1s forwards;
+}
+
+.copied-icon {
+  transform: scale(0);
+}
+
+.copied-icon.show {
+  animation: show 0.1s forwards;
+}
+
+@keyframes hide {
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes show {
+  100% {
+    transform: scale(1);
+  }
+}
+
+.nav-item.active .chevron {
+  color: theme('colors.black');
+  transform: rotate(180deg);
 }

@@ -17,6 +17,7 @@
     "node_modules/swiper/vue",
   ],
   "compilerOptions": {
+    "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]

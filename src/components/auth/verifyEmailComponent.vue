@@ -48,8 +48,7 @@ export default {
   name: 'verifyEmail',
   data() {
     return {
-      otpValues: ['', '', '', '', '', ''],
-      contactSupportShow: false
+      contactSupportShow: false as boolean,
     }
   },
   components: {
