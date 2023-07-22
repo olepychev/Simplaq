@@ -13,6 +13,9 @@ import ShopSingle from '@/views/shop/ShopSingle.vue'
 /* Dine */
 import Dine from '@/views/dine/Dine.vue'
 import DineSingle from '@/views/dine/DineSingle.vue'
+/* Serviices */
+import Services from '@/views/services/Services.vue'
+import ServicesSingle from '@/views/services/ServicesSingle.vue'
 /* Auth */
 import Login from '@/views/auth/LoginView.vue'
 import Register from '@/views/auth/RegisterView.vue'
@@ -95,6 +98,16 @@ const routes = [
     path: '/dine/:id',
     name: Routes.DINE_SINGLE,
     component: DineSingle
+  },
+  {
+    path: '/services',
+    name: Routes.SERVICES,
+    component: Services,
+  },
+  {
+    path: '/services/:id',
+    name: Routes.SERVICES_SINGLE,
+    component: ServicesSingle
   },
   {
     path: '/login',

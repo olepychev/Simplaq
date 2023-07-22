@@ -8,6 +8,8 @@ enum Routes {
     SHOP_SINGLE='Shop_single',
     DINE='Dine',
     DINE_SINGLE='Dine_single',
+    SERVICES='Services',
+    SERVICES_SINGLE='Services_single',
     /* AUTH */
     LOGIN = "Login",
     REGISTER = "Register",
