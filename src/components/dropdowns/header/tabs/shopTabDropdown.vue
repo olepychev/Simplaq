@@ -307,6 +307,10 @@
         </div>
       </div>
     </div>
+    <RouterLink :to="{name: $Routes.SHOP}" class="text-orange flex items-center pt-[24px] border-t w-full justify-center mt-[24px] border-graylight gap-[8px]">
+      <Icon icon="solar:bag-4-bold" class="text-xl text-orange" />
+      {{ $t('view_all_shops') }}
+    </RouterLink>
   </div>
 </template>
 

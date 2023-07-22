@@ -1,7 +1,7 @@
 <template>
   <div class="w-full bg-gray">
-    <div class="relative w-full bg-white rounded-[12px]">
-      <div class="w-full px-[25px] py-[21px] flex items-center gap-[8px]">
+    <div class="relative w-full bg-gray">
+      <div class="w-full max-w-[1600px] mx-auto px-[25px] py-[21px] flex items-center gap-[8px]">
         <RouterLink :to="{ name: $Routes.HOME }">
           <img src="@/assets/imgs/logo-notitle.svg" class="w-[29px]" alt="" />
         </RouterLink>

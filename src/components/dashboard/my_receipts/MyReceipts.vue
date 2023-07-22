@@ -183,14 +183,114 @@
       </div>
     </div>
   </div>
-  <FilterComponent v-if="activefilter" @closeFilterComponent="closeFilterComponent" @filterOptions="filterOptions" />
+  <FilterComponent v-if="activefilter" @closeFilterComponent="closeFilterComponent">
+    <div class="w-full flex flex-col gap-[40px] mt-[16px]">
+      <p class="text-black font-bold text-base leading-[24px] capitalize">{{ $t('price_range') }}</p>
+      <div class="relative slider-container mb-[16px]">
+        <img src="@/assets/imgs/vector.svg" class="absolute left-0 bottom-full w-full z-1" />
+        <Slider v-model="range" :min="0" :max="1750" :tooltips="false" @slide="handleSliderSlide" />
+        <div class="flex items-center mt-[16px] w-full justify-between">
+          <div class="text-xs font-medium text-black leading-[20px] tracking-[-0.2px] handle-label">0</div>
+          <div class="text-xs font-medium text-black leading-[20px] tracking-[-0.2px] handle-label absolute left-[26.8%]">500</div>
+          <div class="text-xs font-medium text-black leading-[20px] tracking-[-0.2px] handle-label absolute left-[66.5%]">1200</div>
+          <div class="text-xs font-medium text-black leading-[20px] tracking-[-0.2px] handle-label">1750</div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="relative bg-gray items-center multiselect-focus-orange border-[1px] border-transparent gap-[0px] grid grid-cols-[20px,auto] px-[20px] gap-[12px] rounded-[16px]"
+    >
+      <div class="w-[20px]">
+        <img class="w-full" src="@/assets/imgs/logo-notitle.svg" />
+      </div>
+      <div class="flex items-center gap-[12px] py-[17px]" id="placeSelect">
+        <div class="flex flex-col gap-[2px] w-full">
+          <label for="place" class="text-s text-grayDark leading-[16px] font-medium">{{ $t('select_place') }}</label>
+          <vue-multiselect
+            v-model="selectedPlace"
+            :options="places"
+            :searchable="searchableSelect"
+            :placeholder="$t('search_place')"
+            :option-height="60"
+            ref="placeSelect"
+            track-by="title"
+            :custom-label="customLabel"
+          >
+            <template #option="{ option }">
+              <div class="country-option w-full flex items-center gap-[12px]">
+                <div class="country-details flex w-full items-center justify-between px-[20px] border-b-[1px] py-[16px] border-gray">
+                  <div class="flex items-start gap-[12px]">
+                    <div class="w-[56px] border border-graylight h-[56px] bg-gray rounded-full flex items-center justify-center">
+                      <img class="w-full max-w-[47px]" :src="option.image" />
+                    </div>
+                    <div class="flex flex-col gap-[10px]">
+                      <div class="flex flex-col gap-[4px]">
+                        <p class="country-name text-sm text-black font-bold leading-[20px] tracking-[-0.2px]">{{ option.title }}</p>
+                        <p class="text-xs text-grayDark font-medium leading-[20px] tracking-[-0.2px]">{{ option.type }}</p>
+                      </div>
+                      <div class="flex items-center gap-[4px]">
+                        <Icon icon="solar:routing-3-bold" class="text-lg text-black" />
+
+                        <p class="font-semibold text-sm leading-[20px] tracking-[-0.2px] text-black">{{ option.floor }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <Icon icon="bi:check" class="check text-lg text-orange hidden" />
+                </div>
+              </div>
+            </template>
+
+            <template #noResult>
+              <div class="w-full flex flex-col items-center justify-center">
+                <img src="@/assets/imgs/noresult.svg" class="max-w-[136px] mt-[40px] mb-[24px]" alt="" />
+                <h6 class="text-lg text-black font-bold leading-[26px] tracking-[-0.4px]">{{ $t('search') }}</h6>
+                <p class="text-center mt-[12px] text-grayDark text-sm leading-[24px] tracking-[0.1px]">
+                  {{ $t('unfortunately_nothing_was_found_Try_changing_your_request') }}
+                </p>
+              </div>
+            </template>
+          </vue-multiselect>
+        </div>
+        <Icon icon="octicon:chevron-down-24" class="select-icon text-lg text-black" />
+      </div>
+    </div>
+
+    <div class="flex gap-[8px] mt-[84px] border-t pt-[16px] border-gray w-full items-center justify-center">
+      <button
+        @click="resetValue"
+        class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold text-black hover:bg-orange hover:text-white transition-all"
+      >
+        {{ $t('reset') }}
+      </button>
+      <button
+        @click="filterOptions"
+        class="border-[1px] max-w-[343px] w-full border-graylight rounded-[12px] px-[24px] py-[17px] text-sm font-semibold text-black hover:bg-orange hover:text-white transition-all"
+      >
+        {{ $t('apply') }}
+      </button>
+    </div>
+  </FilterComponent>
 </template>
 
 <script lang="ts">
+import Slider from '@vueform/slider'
+import VueMultiselect from 'vue-multiselect'
+
+import '@vueform/slider/themes/default.css'
+
 import FilterComponent from '@/components/modals/filter/FilterComponent.vue'
 import { ReceiptFilters_ENUM } from '@/enums/dashboard/my_receipts/receiptFilters'
+
+interface Places {
+  title: string
+  image: string
+  type: string
+  floor: string
+}
+
 interface Receipt {
-  id: number,
+  id: number
   logo: {
     image: string
     title: string
@@ -212,7 +312,9 @@ interface Receipt {
 export default {
   name: 'EarnedPoints',
   components: {
-    FilterComponent
+    FilterComponent,
+    Slider,
+    VueMultiselect,
   },
   data() {
     return {
@@ -222,9 +324,10 @@ export default {
       receiptFilter: 'all' as string,
       searchable: false as boolean,
       searchVal: '' as string,
+      searchableSelect: true as boolean,
       StaticReceiptArr: [
         {
-          id:0,
+          id: 0,
           logo: {
             image: `${window.location.origin}/src/assets/imgs/hm.svg`,
             title: 'H&M'
@@ -264,7 +367,7 @@ export default {
           }
         },
         {
-          id:2,
+          id: 2,
           logo: {
             image: `${window.location.origin}/src/assets/imgs/nike.svg`,
             title: 'Nike'
@@ -305,10 +408,40 @@ export default {
         }
       ] as Receipt[],
       DynamicReceiptArr2: [] as Receipt[],
-      DynamicReceiptArr: [] as Receipt[]
+      DynamicReceiptArr: [] as Receipt[],
+      range: [0, 1750] as [number, number],
+      places: [
+        {
+          title: 'Zara',
+          image: 'http://localhost:5174/src/assets/imgs/hm.svg',
+          type: 'Clothes',
+          floor: '2nd floor'
+        },
+        {
+          title: 'Adidas',
+          image: 'http://localhost:5174/src/assets/imgs/adidas.svg',
+          type: 'Clothes',
+          floor: '2nd floor'
+        },
+        {
+          title: 'Nike',
+          image: 'http://localhost:5174/src/assets/imgs/nike.svg',
+          type: 'Clothes',
+          floor: '2nd floor'
+        },
+        {
+          title: 'Nike',
+          image: 'http://localhost:5174/src/assets/imgs/ikea.svg',
+          type: 'Clothes',
+          floor: '2nd floor'
+        }
+      ] as Places[],
+      selectedPlace: null
     }
   },
   mounted() {
+    this.selectedPlace = null
+
     this.DynamicReceiptArr = this.StaticReceiptArr
     this.DynamicReceiptArr2 = this.StaticReceiptArr
     document.addEventListener('click', e => {
@@ -322,7 +455,69 @@ export default {
       }
     })
   },
+  updated() {
+    this.updateSelectedPlace(this.selectedPlace)
+  },
+  computed: {
+    label1Value() {
+      return this.range[1]
+    },
+    label2Value() {
+      return this.range[2]
+    }
+  },
+  watch: {
+    selectedPlace(newSelectedPlace) {
+      this.updateSelectedPlace(newSelectedPlace)
+    }
+  },
   methods: {
+    updateSelectedPlace(newSelectedPlace) {
+      this.$nextTick(() => {
+        if (newSelectedPlace) {
+          let selected = `<div class="flex items-center gap-[8px]">
+          <p class="text-sm leading-[20px] tracking-[-0.2px] text-black">${newSelectedPlace.title}</p>
+      </div>`
+          let selectedEl = document.createElement('div')
+          selectedEl.classList.add('country-selected')
+          selectedEl.innerHTML = selected
+
+          if (document.querySelector('.multiselect__tags .country-selected')) {
+            document
+              .querySelector('#placeSelect .multiselect__tags')
+              .removeChild(document.querySelector('.multiselect__tags .country-selected'))
+          }
+          document.querySelector('#placeSelect .multiselect__tags').appendChild(selectedEl)
+        } else {
+          if (document.querySelector('.multiselect__tags .country-selected')) {
+            document
+              .querySelector('#placeSelect .multiselect__tags')
+              .removeChild(document.querySelector('.multiselect__tags .country-selected'))
+          }
+        }
+      })
+    },
+
+    customLabel({ title }) {
+      return `${title}`
+    },
+    handleSliderSlide() {
+      const [min, max] = this.range
+
+      // Check if the second handle is near the label value
+      if (Math.abs(max - this.range[1]) <= 5) {
+        this.range[1] = this.range[1]
+      }
+
+      // Check if the first handle is near the label value
+      if (Math.abs(min - this.range[0]) <= 5) {
+        this.range[0] = this.range[0]
+      }
+    },
+    resetValue() {
+      this.range = [0, 1750]
+      this.selectedPlace = null
+    },
     openDropdown(itemId: number) {
       if (this.dropdown !== null && this.dropdown === itemId) {
         this.dropdown = null
@@ -330,7 +525,13 @@ export default {
         this.dropdown = itemId
       }
     },
-    filterOptions(filterOpt: { rangeMin: number; rangeMax: number; place: string }) {
+    filterOptions() {
+      const filterOpt = {
+        place: this.selectedPlace ? this.selectedPlace.title : false,
+        rangeMin: this.range[0],
+        rangeMax: this.range[1]
+      }
+
       this.DynamicReceiptArr = this.DynamicReceiptArr2.filter((item: { price: string; logo: { title: string } }) => {
         const numericPrice = parseFloat(item.price.replace(/[^0-9.-]+/g, ''))
         const itemsInFilter = numericPrice >= filterOpt.rangeMin && numericPrice <= filterOpt.rangeMax

@@ -4,6 +4,10 @@ enum Routes {
     NEWS_SINGLE='News_single',
     EVENTS = 'Events',
     EVENTS_SINGLE='Events_single',
+    SHOP='Shop',
+    SHOP_SINGLE='Shop_single',
+    DINE='Dine',
+    DINE_SINGLE='Dine_single',
     /* AUTH */
     LOGIN = "Login",
     REGISTER = "Register",

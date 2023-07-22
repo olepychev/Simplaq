@@ -2412,6 +2412,7 @@
 
   <!-- Account Setup Modal -->
   <AccountSetupComponent v-if="accountSetup" @closeCompleteProfileComponent="closeCompleteProfileComponent" />
+
 </template>
 
 <script lang="ts">
@@ -2434,7 +2435,6 @@ import AccountSetupComponent from '@/components/modals/account_setup/AccountSetu
 
 /* vue use head */
 import { useHead } from '@vueuse/head'
-
 export default {
   name: 'Home',
   data() {

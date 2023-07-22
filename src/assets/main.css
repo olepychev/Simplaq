@@ -178,6 +178,41 @@ select {
 }
 
 .nav-item.active .chevron {
-  color: theme('colors.black');
+  color: theme('colors.black') !important;
   transform: rotate(180deg);
+}
+
+
+#placeSelect input,
+#placeSelect .multiselect__placeholder,
+#placeSelect input::placeholder,
+.multiselect__placeholder {
+  color: theme('colors.black') !important;
+  font-size: theme('fontSize.sm') !important;
+}
+
+.slider-target {
+  height: 3px;
+}
+
+.slider-connect {
+  background: theme('colors.black') !important;
+}
+
+.slider-handle {
+  width: 22px !important;
+  height: 22px !important;
+  border: 7px solid theme('colors.black') !important;
+  transform: translateY(-4px) !important;
+  box-shadow: none;
+}
+
+.slider-horizontal .slider-tooltip-top {
+  bottom: -32px !important;
+  left: 50% !important;
+  background: transparent !important;
+  transform: translate(-50%);
+  border: transparent !important;
+  color: theme('colors.black') !important;
+  font-size: 12px !important;
 }

@@ -3,10 +3,16 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/HomeView.vue'
 /* News */
 import News from '@/views/news/News.vue'
-import NewsSingle from '@/views/news/NewsSingle.vue';
+import NewsSingle from '@/views/news/NewsSingle.vue'
 /* Events */
 import Events from '@/views/events/Events.vue'
-import EventsSingle from '@/views/events/EventsSingle.vue';
+import EventsSingle from '@/views/events/EventsSingle.vue'
+/* Shop */
+import Shop from '@/views/shop/Shop.vue'
+import ShopSingle from '@/views/shop/ShopSingle.vue'
+/* Dine */
+import Dine from '@/views/dine/Dine.vue'
+import DineSingle from '@/views/dine/DineSingle.vue'
 /* Auth */
 import Login from '@/views/auth/LoginView.vue'
 import Register from '@/views/auth/RegisterView.vue'
@@ -53,22 +59,42 @@ const routes = [
   {
     path: '/news',
     name: Routes.NEWS,
-    component: News,
+    component: News
   },
   {
     path: '/news/:id',
     name: Routes.NEWS_SINGLE,
-    component:  NewsSingle,
+    component: NewsSingle
   },
   {
     path: '/events',
     name: Routes.EVENTS,
-    component: Events,
+    component: Events
   },
   {
     path: '/events/:id',
     name: Routes.EVENTS_SINGLE,
-    component:  EventsSingle,
+    component: EventsSingle
+  },
+  {
+    path: '/shop',
+    name: Routes.SHOP,
+    component: Shop
+  },
+  {
+    path: '/shop/:id',
+    name: Routes.SHOP_SINGLE,
+    component: ShopSingle
+  },
+  {
+    path: '/dine',
+    name: Routes.DINE,
+    component: Dine,
+  },
+  {
+    path: '/dine/:id',
+    name: Routes.DINE_SINGLE,
+    component: DineSingle
   },
   {
     path: '/login',
@@ -133,7 +159,7 @@ const routes = [
   {
     path: '/rewards/:id',
     name: Routes.REWARDS_SINGLE,
-    component: RewardsSingle,
+    component: RewardsSingle
   },
   {
     path: '/dashboard',
