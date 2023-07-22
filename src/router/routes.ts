@@ -10,6 +10,8 @@ enum Routes {
     DINE_SINGLE='Dine_single',
     SERVICES='Services',
     SERVICES_SINGLE='Services_single',
+    ENTERTAIN='Entertain',
+    ENTERTAIN_SINGLE='Entertain_single',
     /* AUTH */
     LOGIN = "Login",
     REGISTER = "Register",

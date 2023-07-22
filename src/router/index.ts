@@ -16,6 +16,9 @@ import DineSingle from '@/views/dine/DineSingle.vue'
 /* Serviices */
 import Services from '@/views/services/Services.vue'
 import ServicesSingle from '@/views/services/ServicesSingle.vue'
+/* Entertaiin */
+import Entertain from '@/views/entertain/Entertain.vue'
+import EntertainSingle from '@/views/entertain/EntertainSingle.vue'
 /* Auth */
 import Login from '@/views/auth/LoginView.vue'
 import Register from '@/views/auth/RegisterView.vue'
@@ -108,6 +111,16 @@ const routes = [
     path: '/services/:id',
     name: Routes.SERVICES_SINGLE,
     component: ServicesSingle
+  },
+  {
+    path: '/entertain',
+    name: Routes.ENTERTAIN,
+    component: Entertain,
+  },
+  {
+    path: '/entertain/:id',
+    name: Routes.ENTERTAIN_SINGLE,
+    component: EntertainSingle
   },
   {
     path: '/login',
