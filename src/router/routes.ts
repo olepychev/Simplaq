@@ -26,6 +26,8 @@ enum Routes {
     MY_REWARDS_SINGLE = 'My_reward_single',
     // FAQ
     FAQ="faq",
+    // LEGAL
+    PRIVACY='Privacy_policy',
   }
   
   export default Routes;

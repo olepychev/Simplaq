@@ -25,6 +25,8 @@ import Register from '@/views/auth/RegisterView.vue'
 /* Auth - Password */
 import ForgotPassword from '@/views/auth/password/ForgotPassword.vue'
 import SetnewPassword from '@/views/auth/password/SetnewPassword.vue'
+/* Legal */
+import Privacy from '@/views/legal/Privacy.vue'
 /* Lite */
 import Lite from '@/views/lite/LiteView.vue'
 import LiteSingleReward from '@/views/lite/LiteSingleRewardView.vue'
@@ -153,6 +155,14 @@ const routes = [
       isGuest: true
     },
     component: SetnewPassword
+  },
+  {
+    path: '/privacy',
+    name: Routes.PRIVACY,
+    // meta: {
+    //   requiresAuth: true
+    // },
+    component: Privacy,
   },
   {
     path: '/lite',
