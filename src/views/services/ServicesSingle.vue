@@ -105,7 +105,7 @@
         </div>
   
         <div
-          class="w-full p-[24px] rounded-[24px] border border-graylight mb-[141px] mt-[19px] w-[calc(100%-40px)] ml-auto sticky top-[40px]"
+          class="p-[24px] rounded-[24px] border border-graylight mb-[141px] mt-[19px] w-[calc(100%-40px)] ml-auto sticky top-[40px]"
         >
           <div class="w-full flex flex-col gap-[26px]">
             <div class="flex flex-col gap-[16px]">

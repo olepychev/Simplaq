@@ -305,6 +305,9 @@
 
   "male": "Male",
   "female": "Female",
+  "man": "Man",
+  "woman": "Woman",
+  "unisex": "Unisex",
   "prefer_not_to_say": "Prefer not to say",
 
   "enter_your_email":"Enter your email",
@@ -330,6 +333,8 @@
   "tatoo": "Tatoo",
 
   "all": "All",
+  "info": "Info",
+  "sale_time": "Sale Time",
   "reserved": "Reserved",
   "redeemed": "Redeemed",
   "expired": "Expired",
@@ -381,6 +386,8 @@
   "done": "Done",
   "edit": "Edit",
 
+
+
   "scan_your_receipt_and": "Scan your receipt and",
   "get_points": "Get points",
   "get_points_for_rewards": "get points for reward",
@@ -404,6 +411,7 @@
   "profile": "Profile",
   "personal_data": "Personal data",
   "favorites": "Favorites",
+  "add_to_favorites": "Add to Favorites",
   "my_receipts": "My receipts",
   "payment_methods": "Payment methods",
   "active": "Active",

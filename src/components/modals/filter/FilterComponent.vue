@@ -1,8 +1,8 @@
 <template>
   <div class="w-full h-screen fixed top-0 left-0 bg-overlay z-50">
     <div class="w-full h-full flex ">
-      <div class="rellative w-full py-[40px] overflow-auto">
-        <div class="w-full px-[40px] max-w-[664px] mx-auto pt-[56px] pb-[40px] bg-white rounded-[24px]">
+      <div class="rellative w-full py-[40px] overflow-auto flex">
+        <div class="w-full px-[40px] max-w-[664px] m-auto pt-[56px] pb-[40px] bg-white rounded-[24px]">
           <div class="w-full h-full">
             <div class="flex items-center justify-between pb-[16px] border-b border-gray">
               <div class="flex flex-col gap-[4px]">

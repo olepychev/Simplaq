@@ -459,10 +459,10 @@ export default {
     this.updateSelectedPlace(this.selectedPlace)
   },
   computed: {
-    label1Value() {
+    label1Value():number {
       return this.range[1]
     },
-    label2Value() {
+    label2Value():number {
       return this.range[2]
     }
   },

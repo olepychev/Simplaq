@@ -1,16 +1,16 @@
 <template>
   <HeaderComponent />
-  <BreadcrumbComponent :pagesArr="pagesArr" currentPage="Ice Rink" />
+  <BreadcrumbComponent :pagesArr="pagesArr" currentPage="Nike Air Max" />
 
   <div class="grid grid-cols-[640px,auto] gap-[8px] max-w-[1120px] mx-auto px-[25px]">
     <SingleViewComponent>
       <template #head>
-        <h6 class="font-bold text-black text-xl mb-[24px]">Ice Rink</h6>
+        <h6 class="font-bold text-black text-xl mb-[24px]">Nike Air Max</h6>
       </template>
 
       <template #hero>
-        <div class="relative w-full">
-          <img class="w-full rounded-l-[16px] h-[318px] object-cover object-top" src="@/assets/imgs/gir.png" alt="" />
+        <div class="relative w-full h-[318px] bg-gray flex items-center justify-center rounded-l-[16px] overflow-hidden">
+          <img class="w-full max-w-[258px] object-cover object-top" src="@/assets/imgs/airmax.png" alt="" />
         </div>
 
         <div class="w-full py-[16px] border-b-[1px] border-t-[1px] border-gray-light-500 flex items-center justify-between">
@@ -386,95 +386,18 @@
             </div>
           </div>
         </div>
-
-        <div class="w-full flex flex-col gap-[8px] mt-[48px]">
-          <div class="w-full flex items-center mb-[16px]">
-            <ul class="flex items-center gap-[4px]">
-              <li
-                @click="filterEntertain"
-                :entertain-filter="EntertainSingleFilter_ENUM.NEWS"
-                :class="entertainFilter === EntertainSingleFilter_ENUM.NEWS ? 'bg-orange text-white' : 'bg-gray text-black'"
-                class="px-[16px] py-[12px] rounded-[12px] text-xs font-semibold leading-[16px] tracking-[-0.1px] cursor-pointer"
-              >
-                {{ $t('news') }}
-              </li>
-              <li
-                @click="filterEntertain"
-                :entertain-filter="EntertainSingleFilter_ENUM.EVENTS"
-                :class="entertainFilter === EntertainSingleFilter_ENUM.EVENTS ? 'bg-orange text-white' : 'bg-gray text-black'"
-                class="px-[16px] py-[12px] rounded-[12px] text-xs font-semibold leading-[16px] tracking-[-0.1px] cursor-pointer"
-              >
-                {{ $t('events') }}
-              </li>
-            </ul>
-          </div>
-          <div class="relative w-full flex flex-col">
-            <div class="w-full grid grid-cols-2 gap-[16px]">
-              <a href="#" class="relative w-full flex flex-col shadow-sm group">
-                <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-                  <img class="w-full h-full object-cover" src="@/assets/imgs/item2.png" alt="" />
-                  <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-                    <div></div>
-                    <Icon icon="solar:heart-outline" class="text-xl text-white" />
-                  </div>
-                </div>
-                <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-                  <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
-                    <div class="flex items-center gap-[12px]">
-                      <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
-                        <img class="w-full max-w-[36px]" src="@/assets/imgs/zara.svg" alt="" />
-                      </div>
-                      <p class="text-sm font-bold leading-[20px] text-black">ZARA</p>
-                    </div>
-                    <div class="flex items-center gap-[8px]">
-                      <p class="text-sm font-medium text-black leading-[20px] tracking-[-0.2px]">9 June 2022</p>
-                    </div>
-                  </div>
-                  <div class="w-full mt-[4px]">
-                    <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="relative w-full flex flex-col shadow-sm group">
-                <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-                  <img class="w-full h-full object-cover" src="@/assets/imgs/item2.png" alt="" />
-                  <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-                    <div></div>
-                    <Icon icon="solar:heart-outline" class="text-xl text-white" />
-                  </div>
-                </div>
-                <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-                  <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
-                    <div class="flex items-center gap-[12px]">
-                      <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
-                        <img class="w-full max-w-[36px]" src="@/assets/imgs/zara.svg" alt="" />
-                      </div>
-                      <p class="text-sm font-bold leading-[20px] text-black">ZARA</p>
-                    </div>
-                    <div class="flex items-center gap-[8px]">
-                      <p class="text-sm font-medium text-black leading-[20px] tracking-[-0.2px]">9 June 2022</p>
-                    </div>
-                  </div>
-                  <div class="w-full mt-[4px]">
-                    <p class="font-bold text-back text-sm leading-[20px]">Masterclass - Fitness master burn your calories.</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
       </template>
     </SingleViewComponent>
     <div class="relative w-full">
       <div class="mb-[92px]"></div>
       <div class="w-full flex flex-col gap-[8px] max-h-[318px] h-full relative overflow-hidden rounded-r-[20px]">
-        <div class="relative h-[50%] flex items-center gap-[8px]">
-          <img class="w-full h-[100%] object-cover" src="@/assets/imgs/item1.png" alt="Item 1" />
-          <img class="w-full h-[100%] object-cover" src="@/assets/imgs/item1.png" alt="Item 1" />
+        <div class="relative h-[50%] flex items-center justify-around bg-gray gap-[8px]">
+          <img class="w-full max-w-[100px] object-cover" src="@/assets/imgs/shirt.png" alt="Item 1" />
+          <img class="w-full max-w-[100px] object-cover" src="@/assets/imgs/shirt.png" alt="Item 1" />
         </div>
-        <div class="relative h-[50%] flex items-center gap-[8px]">
-          <img class="w-full h-[100%] object-cover" src="@/assets/imgs/item1.png" alt="Item 1" />
-          <img class="w-full h-[100%] object-cover" src="@/assets/imgs/item1.png" alt="Item 1" />
+        <div class="relative h-[50%] flex items-center justify-around bg-gray gap-[8px]">
+          <img class="w-full max-w-[100px] object-cover" src="@/assets/imgs/shirt.png" alt="Item 1" />
+          <img class="w-full max-w-[100px] object-cover" src="@/assets/imgs/shirt.png" alt="Item 1" />
         </div>
       </div>
 
@@ -482,83 +405,29 @@
         class="p-[24px] rounded-[24px] border border-graylight mb-[141px] mt-[19px] w-[calc(100%-40px)] ml-auto sticky top-[40px]"
       >
         <div class="w-full flex flex-col gap-[26px]">
-          <div class="flex flex-col gap-[16px]">
-            <p class="font-bold text-sm leading-[20px] text-black">{{ $t('contact') }}</p>
-            <div class="flex flex-col gap-[18px]">
-              <div class="w-full flex items-center gap-[12px]">
-                <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
-                  <Icon icon="mdi-light:email" class="text-lg text-black" />
+          <div class="flex flex-col gap-[18px]">
+            <p class="font-bold text-sm leading-[20px] text-black">{{ $t('info') }}</p>
+            <div class="flex w-full flex justify-between">
+                <div class="flex items-center gap-[8px]">
+                    <p class="text-xs text-grayDark font-normal leading-[20px] tracking-[0.2px]">{{$t('sale_time')}}:</p>
+                    <div class="bg-gray px-[9px] py-[4px] rounded-[6px]">
+                        <p class="text-xs text-black font-medium leading-[20px] tracking-[-0.2px]">02:10:54</p>
+                    </div>
                 </div>
-                <div class="flex flex-col gap-[4px]">
-                  <p class="font-bold text-sm text-back leading-[20px]">{{ $t('email') }}</p>
-                  <a href="#" class="font-semibold text-xs leading-[20px] tracking-[-0.2px] text-orange">{{ $t('send_email') }}</a>
+                <div class="flex items-center gap-[8px]">
+                    <p class="text-grayDark font-semibold text-xs leading-[16px] previous-price before:bg-black tracking-[-0.1px]">$69.90</p>
+                    <div class="bg-greenLight px-[9px] py-[4px] rounded-[6px]">
+                        <p class="text-xs text-green font-medium leading-[20px] tracking-[-0.2px]">-30%</p>
+                    </div>
                 </div>
-              </div>
-              <div class="w-full flex items-center gap-[12px]">
-                <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
-                  <Icon icon="pepicons-pencil:smartphone-cutout" class="text-lg text-black" />
-                </div>
-                <div class="flex flex-col gap-[4px]">
-                  <p class="font-bold text-sm text-back leading-[20px]">{{ $t('phone_number') }}</p>
-                  <a href="" class="font-semibold text-xs leading-[20px] tracking-[-0.2px] text-orange">{{ $t('call_the_shop') }}</a>
-                </div>
-              </div>
-              <div class="w-full flex items-center gap-[12px]">
-                <div class="w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
-                  <Icon icon="solar:link-bold" class="text-lg text-black" />
-                </div>
-                <div class="flex flex-col gap-[4px]">
-                  <p class="font-bold text-sm text-back leading-[20px]">{{ $t('website') }}</p>
-                  <a href="#" class="font-semibold text-xs leading-[20px] tracking-[-0.2px] text-orange">{{ $t('visit') }}</a>
-                </div>
-              </div>
             </div>
-          </div>
-          <div class="flex flex-col gap-[16px]">
-            <p class="font-bold text-sm leading-[20px] text-black">{{ $t('opening_hours') }}</p>
-            <div class="w-full flex flex-col">
-              <div class="w-full flex flex-col py-[12px] border-b border-gray">
-                <div class="w-full flex items-center justify-between">
-                  <p class="text-grayDark4 font-medium text-sm leadinig-[20px] tracking-[-0.2px]">{{ $t('monday') }}</p>
-                  <p class="text-base text-black font-bold leading-[24px]">09:00 - 16:30</p>
-                </div>
-              </div>
-              <div class="w-full flex flex-col py-[12px] border-b border-gray">
-                <div class="w-full flex items-center justify-between">
-                  <p class="text-grayDark4 font-medium text-sm leadinig-[20px] tracking-[-0.2px]">{{ $t('monday') }}</p>
-                  <p class="text-base text-black font-bold leading-[24px]">09:00 - 16:30</p>
-                </div>
-              </div>
-              <div class="w-full flex flex-col py-[12px] border-b border-gray">
-                <div class="w-full flex items-center justify-between">
-                  <p class="text-grayDark4 font-medium text-sm leadinig-[20px] tracking-[-0.2px]">{{ $t('monday') }}</p>
-                  <p class="text-base text-black font-bold leading-[24px]">09:00 - 16:30</p>
-                </div>
-              </div>
-              <div class="w-full flex flex-col py-[12px] border-b border-gray">
-                <div class="w-full flex items-center justify-between">
-                  <p class="text-grayDark4 font-medium text-sm leadinig-[20px] tracking-[-0.2px]">{{ $t('monday') }}</p>
-                  <p class="text-base text-black font-bold leading-[24px]">09:00 - 16:30</p>
-                </div>
-              </div>
-              <div class="w-full flex flex-col py-[12px] border-b border-gray">
-                <div class="w-full flex items-center justify-between">
-                  <p class="text-grayDark4 font-medium text-sm leadinig-[20px] tracking-[-0.2px]">{{ $t('monday') }}</p>
-                  <p class="text-base text-black font-bold leading-[24px]">09:00 - 16:30</p>
-                </div>
-              </div>
-              <div class="w-full flex flex-col py-[12px] border-b border-gray">
-                <div class="w-full flex items-center justify-between">
-                  <p class="text-grayDark4 font-medium text-sm leadinig-[20px] tracking-[-0.2px]">{{ $t('monday') }}</p>
-                  <p class="text-base text-black font-bold leading-[24px]">09:00 - 16:30</p>
-                </div>
-              </div>
-              <div class="w-full flex flex-col py-[12px] border-b border-gray">
-                <div class="w-full flex items-center justify-between">
-                  <p class="text-grayDark4 font-medium text-sm leadinig-[20px] tracking-[-0.2px]">{{ $t('monday') }}</p>
-                  <p class="text-base text-black font-bold leading-[24px]">09:00 - 16:30</p>
-                </div>
-              </div>
+            <div class="w-full flex flex-col bg-gray rounded-[10px] py-[4px] items-center justify-center">
+                <p class="text-grayDark4 text-xs leading-[20px] tracking-[0.2px]">{{$t('price')}}</p>
+                <p class="text-black font-bold leading-[24px] text-base">$230.00</p>
+            </div>
+            <div class="w-full flex bg-gray rounded-[16px] py-[14px] items-center justify-center gap-[8px] mt-[6px] cursor-pointer hover:bg-orange group transition-all">
+                <Icon icon="solar:heart-outline" class="text-xl text-black group-hover:text-white transition-all" />
+                <p class="text-sm font-semibold text-black leading-[20px] tracking-[-0.2px] group-hover:text-white transition-all">{{ $t('add_to_favorites') }}</p>
             </div>
           </div>
         </div>
@@ -569,103 +438,271 @@
   <div class="mb-[100px] flex flex-col w-full max-w-[1600px] mx-auto px-[25px]">
     <h6 class="font-bold text-black text-xl mb-[24px]">{{ $t('you_may_also_like') }}</h6>
 
-    <div class="w-full grid grid-cols-4 gap-[16px]">
-        <a href="#" class="relative w-full flex flex-col shadow-sm">
-          <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-            <img class="w-full h-full object-cover" src="@/assets/imgs/item4.png" alt="" />
-            <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-              <div></div>
-              <Icon icon="solar:heart-outline" class="text-xl text-white" />
-            </div>
-          </div>
-          <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-            <div class="w-full mt-[4px] flex gap-[4px] flex-col">
-              <div class="flex w-full items-center justify-between">
-                <div class="flex flex-col gap-[4px]">
-                  <p class="font-bold text-back text-sm leading-[20px]">VR Park</p>
-                  <p class="font-medium text-xs text-grayDark">For Family</p>
-                </div>
-                <div class="flex items-center gap-[4px]">
-                  <Icon icon="solar:routing-3-bold" class="text-lg text-black" />
+    <div class="w-full grid grid-cols-6 gap-[16px]">
+      <a href="#" class="relative w-full flex flex-col shadow-sm">
+        <div
+          class="relative w-full h-[160px] sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] 2xl:h-[247px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+        >
+          <img
+            class="max-w-[76px] sm:w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover"
+            src="@/assets/imgs/shirt.png"
+            alt=""
+          />
 
-                  <p class="font-semibold text-sm leading-[20px] tracking-[-0.2px] text-black">2th floor</p>
-                </div>
+          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
+            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
+              <div class="flex flex-col items-center">
+                <p class="text-sm font-bold text-black leading-[20px] tracking-[-0.2px]">02:10:54</p>
+              </div>
+            </div>
+            <Icon icon="solar:heart-outline" class="text-xl text-black" />
+          </div>
+        </div>
+        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
+          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
+            <div class="flex items-center gap-[12px]">
+              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
+                <img class="w-full max-w-[36px]" src="@/assets/imgs/stores.svg" alt="" />
+              </div>
+              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">Pull&Bear</p>
+            </div>
+            <div class="flex items-center gap-[8px]">
+              <div class="py-[6px] px-[8px] bg-greenLight rounded-[8px] text-green font-semibold text-sm leading-[20px] tracking-[-0.2px]">
+                -30%
               </div>
             </div>
           </div>
-        </a>
-        <a href="#" class="relative w-full flex flex-col shadow-sm">
-          <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-            <img class="w-full h-full object-cover" src="@/assets/imgs/item4.png" alt="" />
-            <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-              <div></div>
-              <Icon icon="solar:heart-outline" class="text-xl text-white" />
-            </div>
-          </div>
-          <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-            <div class="w-full mt-[4px] flex gap-[4px] flex-col">
-              <div class="flex w-full items-center justify-between">
-                <div class="flex flex-col gap-[4px]">
-                  <p class="font-bold text-back text-sm leading-[20px]">VR Park</p>
-                  <p class="font-medium text-xs text-grayDark">For Family</p>
-                </div>
-                <div class="flex items-center gap-[4px]">
-                  <Icon icon="solar:routing-3-bold" class="text-lg text-black" />
-
-                  <p class="font-semibold text-sm leading-[20px] tracking-[-0.2px] text-black">2th floor</p>
-                </div>
+          <div class="w-full mt-[4px]">
+            <div class="flex flex-col gap-[8px]">
+              <p class="font-bold text-back text-sm leading-[20px]">Pull&Bear shrimp T-shirt</p>
+              <div class="flex flex-col">
+                <p class="text-grayDark font-semibold text-xs leading-[16px] previous-price before:bg-black tracking-[-0.1px]">$69.90</p>
+                <p class="text-black font-bold teext-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
               </div>
             </div>
           </div>
-        </a>
-        <a href="#" class="relative w-full flex flex-col shadow-sm">
-          <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-            <img class="w-full h-full object-cover" src="@/assets/imgs/item4.png" alt="" />
-            <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-              <div></div>
-              <Icon icon="solar:heart-outline" class="text-xl text-white" />
-            </div>
-          </div>
-          <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-            <div class="w-full mt-[4px] flex gap-[4px] flex-col">
-              <div class="flex w-full items-center justify-between">
-                <div class="flex flex-col gap-[4px]">
-                  <p class="font-bold text-back text-sm leading-[20px]">VR Park</p>
-                  <p class="font-medium text-xs text-grayDark">For Family</p>
-                </div>
-                <div class="flex items-center gap-[4px]">
-                  <Icon icon="solar:routing-3-bold" class="text-lg text-black" />
+        </div>
+      </a>
+      <a href="#" class="relative w-full flex flex-col shadow-sm">
+        <div
+          class="relative w-full h-[160px] sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] 2xl:h-[247px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+        >
+          <img
+            class="max-w-[76px] sm:w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover"
+            src="@/assets/imgs/shirt.png"
+            alt=""
+          />
 
-                  <p class="font-semibold text-sm leading-[20px] tracking-[-0.2px] text-black">2th floor</p>
-                </div>
+          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
+            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
+              <div class="flex flex-col items-center">
+                <p class="text-sm font-bold text-black leading-[20px] tracking-[-0.2px]">02:10:54</p>
+              </div>
+            </div>
+            <Icon icon="solar:heart-outline" class="text-xl text-black" />
+          </div>
+        </div>
+        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
+          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
+            <div class="flex items-center gap-[12px]">
+              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
+                <img class="w-full max-w-[36px]" src="@/assets/imgs/stores.svg" alt="" />
+              </div>
+              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">Pull&Bear</p>
+            </div>
+            <div class="flex items-center gap-[8px]">
+              <div class="py-[6px] px-[8px] bg-greenLight rounded-[8px] text-green font-semibold text-sm leading-[20px] tracking-[-0.2px]">
+                -30%
               </div>
             </div>
           </div>
-        </a>
-        <a href="#" class="relative w-full flex flex-col shadow-sm">
-          <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
-            <img class="w-full h-full object-cover" src="@/assets/imgs/item4.png" alt="" />
-            <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
-              <div></div>
-              <Icon icon="solar:heart-outline" class="text-xl text-white" />
-            </div>
-          </div>
-          <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
-            <div class="w-full mt-[4px] flex gap-[4px] flex-col">
-              <div class="flex w-full items-center justify-between">
-                <div class="flex flex-col gap-[4px]">
-                  <p class="font-bold text-back text-sm leading-[20px]">VR Park</p>
-                  <p class="font-medium text-xs text-grayDark">For Family</p>
-                </div>
-                <div class="flex items-center gap-[4px]">
-                  <Icon icon="solar:routing-3-bold" class="text-lg text-black" />
-
-                  <p class="font-semibold text-sm leading-[20px] tracking-[-0.2px] text-black">2th floor</p>
-                </div>
+          <div class="w-full mt-[4px]">
+            <div class="flex flex-col gap-[8px]">
+              <p class="font-bold text-back text-sm leading-[20px]">Pull&Bear shrimp T-shirt</p>
+              <div class="flex flex-col">
+                <p class="text-grayDark font-semibold text-xs leading-[16px] previous-price before:bg-black tracking-[-0.1px]">$69.90</p>
+                <p class="text-black font-bold teext-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
               </div>
             </div>
           </div>
-        </a>
+        </div>
+      </a>
+      <a href="#" class="relative w-full flex flex-col shadow-sm">
+        <div
+          class="relative w-full h-[160px] sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] 2xl:h-[247px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+        >
+          <img
+            class="max-w-[76px] sm:w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover"
+            src="@/assets/imgs/shirt.png"
+            alt=""
+          />
+
+          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
+            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
+              <div class="flex flex-col items-center">
+                <p class="text-sm font-bold text-black leading-[20px] tracking-[-0.2px]">02:10:54</p>
+              </div>
+            </div>
+            <Icon icon="solar:heart-outline" class="text-xl text-black" />
+          </div>
+        </div>
+        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
+          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
+            <div class="flex items-center gap-[12px]">
+              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
+                <img class="w-full max-w-[36px]" src="@/assets/imgs/stores.svg" alt="" />
+              </div>
+              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">Pull&Bear</p>
+            </div>
+            <div class="flex items-center gap-[8px]">
+              <div class="py-[6px] px-[8px] bg-greenLight rounded-[8px] text-green font-semibold text-sm leading-[20px] tracking-[-0.2px]">
+                -30%
+              </div>
+            </div>
+          </div>
+          <div class="w-full mt-[4px]">
+            <div class="flex flex-col gap-[8px]">
+              <p class="font-bold text-back text-sm leading-[20px]">Pull&Bear shrimp T-shirt</p>
+              <div class="flex flex-col">
+                <p class="text-grayDark font-semibold text-xs leading-[16px] previous-price before:bg-black tracking-[-0.1px]">$69.90</p>
+                <p class="text-black font-bold teext-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="relative w-full flex flex-col shadow-sm">
+        <div
+          class="relative w-full h-[160px] sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] 2xl:h-[247px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+        >
+          <img
+            class="max-w-[76px] sm:w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover"
+            src="@/assets/imgs/shirt.png"
+            alt=""
+          />
+
+          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
+            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
+              <div class="flex flex-col items-center">
+                <p class="text-sm font-bold text-black leading-[20px] tracking-[-0.2px]">02:10:54</p>
+              </div>
+            </div>
+            <Icon icon="solar:heart-outline" class="text-xl text-black" />
+          </div>
+        </div>
+        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
+          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
+            <div class="flex items-center gap-[12px]">
+              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
+                <img class="w-full max-w-[36px]" src="@/assets/imgs/stores.svg" alt="" />
+              </div>
+              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">Pull&Bear</p>
+            </div>
+            <div class="flex items-center gap-[8px]">
+              <div class="py-[6px] px-[8px] bg-greenLight rounded-[8px] text-green font-semibold text-sm leading-[20px] tracking-[-0.2px]">
+                -30%
+              </div>
+            </div>
+          </div>
+          <div class="w-full mt-[4px]">
+            <div class="flex flex-col gap-[8px]">
+              <p class="font-bold text-back text-sm leading-[20px]">Pull&Bear shrimp T-shirt</p>
+              <div class="flex flex-col">
+                <p class="text-grayDark font-semibold text-xs leading-[16px] previous-price before:bg-black tracking-[-0.1px]">$69.90</p>
+                <p class="text-black font-bold teext-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="relative w-full flex flex-col shadow-sm">
+        <div
+          class="relative w-full h-[160px] sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] 2xl:h-[247px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+        >
+          <img
+            class="max-w-[76px] sm:w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover"
+            src="@/assets/imgs/shirt.png"
+            alt=""
+          />
+
+          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
+            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
+              <div class="flex flex-col items-center">
+                <p class="text-sm font-bold text-black leading-[20px] tracking-[-0.2px]">02:10:54</p>
+              </div>
+            </div>
+            <Icon icon="solar:heart-outline" class="text-xl text-black" />
+          </div>
+        </div>
+        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
+          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
+            <div class="flex items-center gap-[12px]">
+              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
+                <img class="w-full max-w-[36px]" src="@/assets/imgs/stores.svg" alt="" />
+              </div>
+              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">Pull&Bear</p>
+            </div>
+            <div class="flex items-center gap-[8px]">
+              <div class="py-[6px] px-[8px] bg-greenLight rounded-[8px] text-green font-semibold text-sm leading-[20px] tracking-[-0.2px]">
+                -30%
+              </div>
+            </div>
+          </div>
+          <div class="w-full mt-[4px]">
+            <div class="flex flex-col gap-[8px]">
+              <p class="font-bold text-back text-sm leading-[20px]">Pull&Bear shrimp T-shirt</p>
+              <div class="flex flex-col">
+                <p class="text-grayDark font-semibold text-xs leading-[16px] previous-price before:bg-black tracking-[-0.1px]">$69.90</p>
+                <p class="text-black font-bold teext-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="relative w-full flex flex-col shadow-sm">
+        <div
+          class="relative w-full h-[160px] sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] 2xl:h-[247px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
+        >
+          <img
+            class="max-w-[76px] sm:w-[131px] md:max-w-[106px] lg:max-w-[110px] xl:max-w-[100px] 2xl:max-w-[117px] w-full object-cover"
+            src="@/assets/imgs/shirt.png"
+            alt=""
+          />
+
+          <div class="absolute w-full top-[12px] px-[12px] flex items-start justify-between">
+            <div class="date w-max px-[8px] py-[4px] bg-gray flex items-center justify-center rounded-[8px]">
+              <div class="flex flex-col items-center">
+                <p class="text-sm font-bold text-black leading-[20px] tracking-[-0.2px]">02:10:54</p>
+              </div>
+            </div>
+            <Icon icon="solar:heart-outline" class="text-xl text-black" />
+          </div>
+        </div>
+        <div class="w-full py-[12px] px-[16px] flex flex-col bg-white rounded-bl-[16px] rounded-br-[16px]">
+          <div class="flex items-center justify-between pb-[4px] border-b-[1px] border-gray">
+            <div class="flex items-center gap-[12px]">
+              <div class="w-[48px] h-[48px] rounded-full flex items-center justify-center bg-gray">
+                <img class="w-full max-w-[36px]" src="@/assets/imgs/stores.svg" alt="" />
+              </div>
+              <p class="text-sm font-bold leading-[20px] sm:block hidden text-black">Pull&Bear</p>
+            </div>
+            <div class="flex items-center gap-[8px]">
+              <div class="py-[6px] px-[8px] bg-greenLight rounded-[8px] text-green font-semibold text-sm leading-[20px] tracking-[-0.2px]">
+                -30%
+              </div>
+            </div>
+          </div>
+          <div class="w-full mt-[4px]">
+            <div class="flex flex-col gap-[8px]">
+              <p class="font-bold text-back text-sm leading-[20px]">Pull&Bear shrimp T-shirt</p>
+              <div class="flex flex-col">
+                <p class="text-grayDark font-semibold text-xs leading-[16px] previous-price before:bg-black tracking-[-0.1px]">$69.90</p>
+                <p class="text-black font-bold teext-[18px] leading-[26px] tracking-[-0.1px]">$49.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 
@@ -674,7 +711,6 @@
 </template>
 
 <script lang="ts">
-import { EntertainSingleFilter } from '@/enums/entertain/EntertainSingleFilter.ts'
 import HeaderComponent from '@/components/layouts/HeaderComponent.vue'
 import FooterComponent from '@/components/layouts/FooterComponent.vue'
 import BreadcrumbComponent from '@/components/layouts/BreadcrumbComponent.vue'
@@ -690,12 +726,10 @@ export default {
   name: 'Events',
   data() {
     return {
-      entertainFilter: EntertainSingleFilter.NEWS,
-      EntertainSingleFilter_ENUM: EntertainSingleFilter,
       pagesArr: [
         {
-          page: this.$t('entertain'),
-          routeName: this.$Routes.ENTERTAIN
+          page: this.$t('sales'),
+          routeName: this.$Routes.SALES
         }
       ] as PagesArr[]
     }
@@ -706,13 +740,6 @@ export default {
     BreadcrumbComponent,
     SubscribeComponent,
     SingleViewComponent
-  },
-  methods: {
-    filterEntertain(e: Event) {
-      const target = e.target as Element
-      const targetFilter = target.closest('li').getAttribute('entertain-filter')
-      this.entertainFilter = targetFilter
-    }
   }
 }
 </script>

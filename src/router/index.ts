@@ -19,6 +19,9 @@ import ServicesSingle from '@/views/services/ServicesSingle.vue'
 /* Entertaiin */
 import Entertain from '@/views/entertain/Entertain.vue'
 import EntertainSingle from '@/views/entertain/EntertainSingle.vue'
+/* Sales */
+import Sales from '@/views/sales/Sales.vue'
+import SalesSingle from '@/views/sales/SalesSingle.vue'
 /* Auth */
 import Login from '@/views/auth/LoginView.vue'
 import Register from '@/views/auth/RegisterView.vue'
@@ -123,6 +126,16 @@ const routes = [
     path: '/entertain/:id',
     name: Routes.ENTERTAIN_SINGLE,
     component: EntertainSingle
+  },
+  {
+    path: '/sales',
+    name: Routes.SALES,
+    component: Sales,
+  },
+  {
+    path: '/sales/:id',
+    name: Routes.SALES_SINGLE,
+    component: SalesSingle,
   },
   {
     path: '/login',
