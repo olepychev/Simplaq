@@ -22,6 +22,8 @@ import EntertainSingle from '@/views/entertain/EntertainSingle.vue'
 /* Sales */
 import Sales from '@/views/sales/Sales.vue'
 import SalesSingle from '@/views/sales/SalesSingle.vue'
+/* Directory */
+import Directory from '@/views/directory/Directory.vue'
 /* Auth */
 import Login from '@/views/auth/LoginView.vue'
 import Register from '@/views/auth/RegisterView.vue'
@@ -136,6 +138,11 @@ const routes = [
     path: '/sales/:id',
     name: Routes.SALES_SINGLE,
     component: SalesSingle,
+  },
+  {
+    path: '/directory',
+    name: Routes.DIRECTORY,
+    component: Directory,
   },
   {
     path: '/login',

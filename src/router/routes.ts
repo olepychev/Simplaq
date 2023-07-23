@@ -14,6 +14,7 @@ enum Routes {
     ENTERTAIN_SINGLE='Entertain_single',
     SALES='Sales',
     SALES_SINGLE='Sales_single',
+    DIRECTORY='Directory',
     /* AUTH */
     LOGIN = "Login",
     REGISTER = "Register",
