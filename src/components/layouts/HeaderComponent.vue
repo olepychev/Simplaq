@@ -165,7 +165,6 @@
       </template>
     </NavLinkDropdown>
   </header>
-
   <TermsAndConditionsComponent @cancelTerms="cancelTerms" v-if="termsAndConditionsModal" />
 </template>
 
@@ -201,6 +200,7 @@ export default {
   },
   data() {
     return {
+      userStore: useUserStore(),
       NavLinkTabs: NavLinkTabs,
       navMenuTab: null as null | string,
       activeNotifications: false as boolean,
@@ -297,10 +297,10 @@ export default {
       }
     })
   },
-  computed: {
-    userStore(): { data: any; token: string } {
-      return useUserStore()
-    }
-  }
+  // computed: {
+  //   userStore(): { data: any; token: string } {
+  //     return useUserStore()
+  //   }
+  // }
 }
 </script>
