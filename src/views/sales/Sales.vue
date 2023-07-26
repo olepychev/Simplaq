@@ -519,26 +519,26 @@ export default {
         {
           title: 'Zara',
           image: `${window.location.origin}/src/assets/imgs/hm.svg`,
-          type: 'Clothes',
-          floor: '2nd floor'
+          type: this.$t('clothes'),
+          floor: this.$t('2nd_floor')
         },
         {
           title: 'Adidas',
           image: `${window.location.origin}/src/assets/imgs/adidas.svg`,
-          type: 'Clothes',
-          floor: '2nd floor'
+          type: this.$t('clothes'),
+          floor: this.$t('2nd_floor')
         },
         {
           title: 'Nike',
           image: `${window.location.origin}/src/assets/imgs/nike.svg`,
-          type: 'Clothes',
-          floor: '2nd floor'
+          type: this.$t('clothes'),
+          floor: this.$t('2nd_floor')
         },
         {
           title: 'Nike',
           image: `${window.location.origin}/src/assets/imgs/ikea.svg`,
-          type: 'Clothes',
-          floor: '2nd floor'
+          type: this.$t('clothes'),
+          floor: this.$t('2nd_floor')
         }
       ] as Places[],
       selectedPlace: null,

@@ -335,7 +335,7 @@ export default {
           date: '12.07.2022',
           points: '230',
           price: '$230.00',
-          type: 'approved',
+          type: ReceiptFilters.APPROVED,
           dropdownOptions: {
             title01: 'H&M BADIS SHIRT',
             price01: '$49.00',
@@ -355,7 +355,7 @@ export default {
           date: '12.07.2022',
           points: null,
           price: '$99.00',
-          type: 'rejected',
+          type: ReceiptFilters.REJECTED,
           dropdownOptions: {
             title01: 'H&M BADIS SHIRT',
             price01: '$149.00',
@@ -375,7 +375,7 @@ export default {
           date: '12.07.2022',
           points: null,
           price: '$23.00',
-          type: 'pending_approval',
+          type: ReceiptFilters.PENDING_APPROVAL,
           dropdownOptions: {
             title01: 'H&M BADIS SHIRT',
             price01: '$49.00',
@@ -395,7 +395,7 @@ export default {
           date: '12.07.2022',
           points: null,
           price: '$230.00',
-          type: 'approved',
+          type: ReceiptFilters.APPROVED,
           dropdownOptions: {
             title01: 'H&M BADIS SHIRT',
             price01: '$49.00',
@@ -414,26 +414,26 @@ export default {
         {
           title: 'Zara',
           image: `${window.location.origin}/src/assets/imgs/hm.svg`,
-          type: 'Clothes',
-          floor: '2nd floor'
+          type: this.$t('clothes'),
+          floor: this.$t('2nd_floor')
         },
         {
           title: 'Adidas',
           image: `${window.location.origin}/src/assets/imgs/adidas.svg`,
-          type: 'Clothes',
-          floor: '2nd floor'
+          type: this.$t('clothes'),
+          floor: this.$t('2nd_floor')
         },
         {
           title: 'Nike',
           image: `${window.location.origin}/src/assets/imgs/nike.svg`,
-          type: 'Clothes',
-          floor: '2nd floor'
+          type: this.$t('clothes'),
+          floor: this.$t('2nd_floor')
         },
         {
           title: 'Nike',
           image: `${window.location.origin}/src/assets/imgs/ikea.svg`,
-          type: 'Clothes',
-          floor: '2nd floor'
+          type: this.$t('clothes'),
+          floor: this.$t('2nd_floor')
         }
       ] as Places[],
       selectedPlace: null
