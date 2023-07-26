@@ -309,33 +309,50 @@ export default {
     this.appendUseMyLocationToCountrySelect()
   },
   methods: {
-    handleFileChange(e: Event) {
-      const target = e.target as HTMLInputElement;
-      const file = target.files[0]
-      if (file) {
-        if (!file.type.startsWith('image/')) {
-          this.$notify({
-            title: this.$t('please_choose_valid_image'),
-            component: {
-              template: `
-    <div class="flex items-center gap-[12px]">
-      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
-      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
-    </div>
-    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
-  `
-            }
-          })
-          return
-        }
+    async handleFileChange(e) {
+      try {
+        const target = e.target as HTMLInputElement;
+        const file = target.files[0];
 
-        const reader = new FileReader()
-        reader.onload = e => {
-          const imageElement = document.getElementById('profile-image-update') as HTMLImageElement;
-          imageElement.src = e.target.result.toString();
-          console.log(e.target.result);
+        if (file) {
+          if (!file.type.startsWith('image/')) {
+            this.$notify({
+              title: this.$t('please_choose_valid_image'),
+              component: {
+                template: `
+                  <div class="flex items-center gap-[12px]">
+                    <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+                    <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px']">{{$t('invalid_password_confirmation')}}</p>
+                  </div>
+                  <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+                `
+              }
+            });
+            return;
+          }
+
+          const reader = new FileReader();
+
+          reader.onload = (event) => {
+            const e = event as ProgressEvent<FileReader>;
+            const imageElement = document.getElementById('profile-image-update') as HTMLImageElement;
+            if (e.target && typeof e.target.result === 'string') {
+              imageElement.src = e.target.result;
+              console.log(e.target.result);
+            }
+          };
+
+          reader.onerror = () => {
+            console.error('Error occurred while reading the file.');
+          };
+
+          await new Promise((resolve) => {
+            reader.onloadend = resolve;
+            reader.readAsDataURL(file);
+          });
         }
-        reader.readAsDataURL(file)
+      } catch (error) {
+        console.error('An error occurred while handling the file:', error);
       }
     },
     openShareLocation() {
@@ -404,12 +421,6 @@ export default {
       return `${country}`
     }
   },
-
-  watch: {
-    selectedCountries(newSelectedCountries) {
-      this.updateSelectedCountries(newSelectedCountries)
-    }
-  }
 }
 </script>
 

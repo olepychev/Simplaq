@@ -18,10 +18,7 @@
       <div class="w-full">
         <router-link :to="{ name: $Routes.HOME }"
           class="flex w-[48px] h-[48px] rounded-full bg-gray items-center justify-center">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.5 16.6L7.0667 11.1667C6.42503 10.525 6.42503 9.475 7.0667 8.83334L12.5 3.4" stroke="#17181B"
-              stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          <Icon icon="radix-icons:chevron-left" class="text-xl text-black" />
         </router-link>
       </div>
 

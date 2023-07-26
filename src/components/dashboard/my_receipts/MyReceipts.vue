@@ -53,24 +53,24 @@
           </li>
           <li
             @click="filterReceiptsPoints"
-            :receipt-filter="ReceiptFilters_ENUM.APPROVED"
-            :class="receiptFilter === ReceiptFilters_ENUM.APPROVED ? 'bg-orange text-white' : 'bg-gray text-black'"
+            :receipt-filter="ReceiptFilters.APPROVED"
+            :class="receiptFilter === ReceiptFilters.APPROVED ? 'bg-orange text-white' : 'bg-gray text-black'"
             class="px-[16px] py-[12px] rounded-[12px] text-xs font-semibold leading-[16px] tracking-[-0.1px] cursor-pointer"
           >
             {{ $t('approved') }}
           </li>
           <li
             @click="filterReceiptsPoints"
-            :receipt-filter="ReceiptFilters_ENUM.REJECTED"
-            :class="receiptFilter === ReceiptFilters_ENUM.REJECTED ? 'bg-orange text-white' : 'bg-gray text-black'"
+            :receipt-filter="ReceiptFilters.REJECTED"
+            :class="receiptFilter === ReceiptFilters.REJECTED ? 'bg-orange text-white' : 'bg-gray text-black'"
             class="px-[16px] py-[12px] rounded-[12px] text-xs font-semibold leading-[16px] tracking-[-0.1px] cursor-pointer"
           >
             {{ $t('rejected') }}
           </li>
           <li
             @click="filterReceiptsPoints"
-            :receipt-filter="ReceiptFilters_ENUM.PENDING_APPROVAL"
-            :class="receiptFilter === ReceiptFilters_ENUM.PENDING_APPROVAL ? 'bg-orange text-white' : 'bg-gray text-black'"
+            :receipt-filter="ReceiptFilters.PENDING_APPROVAL"
+            :class="receiptFilter === ReceiptFilters.PENDING_APPROVAL ? 'bg-orange text-white' : 'bg-gray text-black'"
             class="px-[16px] py-[12px] rounded-[12px] text-xs font-semibold leading-[16px] tracking-[-0.1px] cursor-pointer"
           >
             {{ $t('pending_approval') }}
@@ -111,11 +111,11 @@
             <div class="flex justify-end gap-[10px] items-center">
               <div
                 :class="
-                  item.type === ReceiptFilters_ENUM.APPROVED
+                  item.type === ReceiptFilters.APPROVED
                     ? 'bg-greenLight text-green'
-                    : item.type === ReceiptFilters_ENUM.REJECTED
+                    : item.type === ReceiptFilters.REJECTED
                     ? 'bg-redLight text-red'
-                    : item.type === ReceiptFilters_ENUM.PENDING_APPROVAL
+                    : item.type === ReceiptFilters.PENDING_APPROVAL
                     ? 'bg-yellowLight text-orange'
                     : ''
                 "
@@ -280,7 +280,7 @@ import VueMultiselect from 'vue-multiselect'
 import '@vueform/slider/themes/default.css'
 
 import FilterComponent from '@/components/modals/filter/FilterComponent.vue'
-import { ReceiptFilters_ENUM } from '@/enums/dashboard/my_receipts/receiptFilters'
+import { ReceiptFilters } from '@/enums/dashboard/my_receipts/receiptFilters'
 
 interface Places {
   title: string
@@ -298,7 +298,7 @@ interface Receipt {
   date: string
   points: string | null
   price: string
-  type: ReceiptFilters_ENUM.APPROVED | ReceiptFilters_ENUM.REJECTED | ReceiptFilters_ENUM.PENDING_APPROVAL
+  type: ReceiptFilters.APPROVED | ReceiptFilters.REJECTED | ReceiptFilters.PENDING_APPROVAL
   dropdownOptions: {
     title01: string
     price01: string
@@ -319,7 +319,7 @@ export default {
   data() {
     return {
       dropdown: null as number | null,
-      ReceiptFilters_ENUM: ReceiptFilters_ENUM,
+      ReceiptFilters: ReceiptFilters,
       activefilter: false as boolean,
       receiptFilter: 'all' as string,
       searchable: false as boolean,
@@ -413,25 +413,25 @@ export default {
       places: [
         {
           title: 'Zara',
-          image: 'http://localhost:5174/src/assets/imgs/hm.svg',
+          image: `${window.location.origin}/src/assets/imgs/hm.svg`,
           type: 'Clothes',
           floor: '2nd floor'
         },
         {
           title: 'Adidas',
-          image: 'http://localhost:5174/src/assets/imgs/adidas.svg',
+          image: `${window.location.origin}/src/assets/imgs/adidas.svg`,
           type: 'Clothes',
           floor: '2nd floor'
         },
         {
           title: 'Nike',
-          image: 'http://localhost:5174/src/assets/imgs/nike.svg',
+          image: `${window.location.origin}/src/assets/imgs/nike.svg`,
           type: 'Clothes',
           floor: '2nd floor'
         },
         {
           title: 'Nike',
-          image: 'http://localhost:5174/src/assets/imgs/ikea.svg',
+          image: `${window.location.origin}/src/assets/imgs/ikea.svg`,
           type: 'Clothes',
           floor: '2nd floor'
         }
@@ -497,24 +497,10 @@ export default {
         }
       })
     },
-
-    customLabel({ title }) {
+    customLabel({ title }):string {
       return `${title}`
     },
-    handleSliderSlide() {
-      const [min, max] = this.range
-
-      // Check if the second handle is near the label value
-      if (Math.abs(max - this.range[1]) <= 5) {
-        this.range[1] = this.range[1]
-      }
-
-      // Check if the first handle is near the label value
-      if (Math.abs(min - this.range[0]) <= 5) {
-        this.range[0] = this.range[0]
-      }
-    },
-    resetValue() {
+    resetValue(): void {
       this.range = [0, 1750]
       this.selectedPlace = null
     },
@@ -570,36 +556,36 @@ export default {
       const targetFilter = target.closest('li').getAttribute('receipt-filter')
       this.receiptFilter = targetFilter
 
-      if (this.receiptFilter === ReceiptFilters_ENUM.APPROVED) {
+      if (this.receiptFilter === ReceiptFilters.APPROVED) {
         this.DynamicReceiptArr = this.StaticReceiptArr.filter((item: { type: string }) => {
-          if (item.type === ReceiptFilters_ENUM.APPROVED) {
+          if (item.type === ReceiptFilters.APPROVED) {
             return item
           }
         })
         this.DynamicReceiptArr2 = this.StaticReceiptArr.filter((item: { type: string }) => {
-          if (item.type === ReceiptFilters_ENUM.APPROVED) {
+          if (item.type === ReceiptFilters.APPROVED) {
             return item
           }
         })
-      } else if (this.receiptFilter === ReceiptFilters_ENUM.REJECTED) {
+      } else if (this.receiptFilter === ReceiptFilters.REJECTED) {
         this.DynamicReceiptArr = this.StaticReceiptArr.filter((item: { type: string }) => {
-          if (item.type === ReceiptFilters_ENUM.REJECTED) {
+          if (item.type === ReceiptFilters.REJECTED) {
             return item
           }
         })
         this.DynamicReceiptArr2 = this.StaticReceiptArr.filter((item: { type: string }) => {
-          if (item.type === ReceiptFilters_ENUM.REJECTED) {
+          if (item.type === ReceiptFilters.REJECTED) {
             return item
           }
         })
-      } else if (this.receiptFilter === ReceiptFilters_ENUM.PENDING_APPROVAL) {
+      } else if (this.receiptFilter === ReceiptFilters.PENDING_APPROVAL) {
         this.DynamicReceiptArr = this.StaticReceiptArr.filter((item: { type: string }) => {
-          if (item.type === ReceiptFilters_ENUM.PENDING_APPROVAL) {
+          if (item.type === ReceiptFilters.PENDING_APPROVAL) {
             return item
           }
         })
         this.DynamicReceiptArr2 = this.StaticReceiptArr.filter((item: { type: string }) => {
-          if (item.type === ReceiptFilters_ENUM.PENDING_APPROVAL) {
+          if (item.type === ReceiptFilters.PENDING_APPROVAL) {
             return item
           }
         })

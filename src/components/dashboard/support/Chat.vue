@@ -162,7 +162,8 @@ export default {
   methods: {
     adjustTextareaHeight(e) {
       const textarea = e.target
-      if (textarea.scrollHeight <= 80) {
+      const messageInputMaxHeight = 80
+      if (textarea.scrollHeight <= messageInputMaxHeight) {
         textarea.style.height = ''
         textarea.style.height = textarea.scrollHeight + 'px'
       }

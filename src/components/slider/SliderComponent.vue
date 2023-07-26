@@ -10,18 +10,11 @@
           </RouterLink>
           <div class="slider-btns-responsive flex slider-nav items-center gap-[4px]">
             <div @click="prev" class="prev w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.4995 16.6L7.06621 11.1667C6.42454 10.525 6.42454 9.47503 7.06621 8.83336L12.4995 3.40002"
-                  stroke="#17181B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
+              
+              <Icon icon="radix-icons:chevron-left" class="text-xl text-black" />
             </div>
             <div @click="next" class="next w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.4248 16.6L12.8581 11.1667C13.4998 10.525 13.4998 9.47503 12.8581 8.83336L7.4248 3.40002"
-                  stroke="#17181B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
+              <Icon icon="radix-icons:chevron-right" class="text-xl text-black" />
             </div>
           </div>
         </div>
@@ -34,16 +27,10 @@
       </swiper>
       <div class="slider-btns-responsive-sm hidden justify-center flex slider-nav items-center gap-[4px]">
         <div @click="prev" class="prev w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.4995 16.6L7.06621 11.1667C6.42454 10.525 6.42454 9.47503 7.06621 8.83336L12.4995 3.40002"
-              stroke="#17181B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          <Icon icon="radix-icons:chevron-left" class="text-xl text-black" />
         </div>
         <div @click="next" class="next w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.4248 16.6L12.8581 11.1667C13.4998 10.525 13.4998 9.47503 12.8581 8.83336L7.4248 3.40002"
-              stroke="#17181B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          <Icon icon="radix-icons:chevron-right" class="text-xl text-black" />
         </div>
       </div>
     </div>

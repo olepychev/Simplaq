@@ -13,7 +13,7 @@ export default {
   name: 'Loader'
 }
 </script>
-<style>
+<style scoped>
 .lds-ring {
   display: inline-block;
   position: relative;

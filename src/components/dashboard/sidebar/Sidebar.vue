@@ -140,21 +140,26 @@ export default {
   },
   methods: {
     copyUserId() {
+      if (!navigator.clipboard) {
+        console.error('Clipboard API not supported on this device.');
+        return;
+      }
+
       navigator.clipboard
         .writeText(this.userId.toString())
         .then(() => {
-          this.hide = true
+          this.hide = true;
           setTimeout(() => {
-            this.userIdCopied = true
-            this.hide = false
-          }, 100)
+            this.userIdCopied = true;
+            this.hide = false;
+          }, 100);
           setTimeout(() => {
-            this.userIdCopied = false
-          }, 4500)
+            this.userIdCopied = false;
+          }, 4500);
         })
-        .catch(error => {
-          console.error('Failed to copy user ID:', error)
-        })
+        .catch((error) => {
+          console.error('Failed to copy user ID:', error);
+        });
     },
     logout() {
       this.activeLogout = true

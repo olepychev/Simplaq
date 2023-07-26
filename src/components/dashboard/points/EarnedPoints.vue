@@ -90,16 +90,16 @@
         </li>
         <li
           @click="filterEarnedPoints"
-          :point-filter="PointFilters_ENUM.SPENT"
-          :class="pointFilter === PointFilters_ENUM.SPENT ? 'bg-orange text-white' : 'bg-gray text-black'"
+          :point-filter="PointFilters.SPENT"
+          :class="pointFilter === PointFilters.SPENT ? 'bg-orange text-white' : 'bg-gray text-black'"
           class="px-[16px] py-[12px] rounded-[12px] text-xs font-semibold leading-[16px] tracking-[-0.1px] cursor-pointer"
         >
           {{ $t('spent') }}
         </li>
         <li
           @click="filterEarnedPoints"
-          :point-filter="PointFilters_ENUM.EARNED"
-          :class="pointFilter === PointFilters_ENUM.EARNED ? 'bg-orange text-white' : 'bg-gray text-black'"
+          :point-filter="PointFilters.EARNED"
+          :class="pointFilter === PointFilters.EARNED ? 'bg-orange text-white' : 'bg-gray text-black'"
           class="px-[16px] py-[12px] rounded-[12px] text-xs font-semibold leading-[16px] tracking-[-0.1px] cursor-pointer"
         >
           {{ $t('earned') }}
@@ -175,12 +175,12 @@ interface EarnedPoint {
   }
   action: string
 }
-import { PointFilters_ENUM } from '@/enums/dashboard/points/pointFilters'
+import { PointFilters } from '@/enums/dashboard/points/pointFilters'
 export default {
   name: 'EarnedPoints',
   data() {
     return {
-      PointFilters_ENUM: PointFilters_ENUM,
+      PointFilters: PointFilters,
       pointFilter: 'all' as string,
       searchable: false as boolean,
       searchVal: '' as string,
@@ -196,7 +196,7 @@ export default {
             spent: false,
             point: '230'
           },
-          action: 'Scan Receipt'
+          action: this.$t('scan_receipt')
         },
         {
           date: '14.06.2022',
@@ -206,7 +206,7 @@ export default {
             spent: false,
             point: '10'
           },
-          action: 'Visit 5 Stores'
+          action: this.$t('visit_5_stores')
         },
         {
           date: '10.07.2022',
@@ -216,7 +216,7 @@ export default {
             spent: false,
             point: '10'
           },
-          action: 'Refer friends'
+          action: this.$t('refer_friends')
         },
         {
           date: '10.07.2022',
@@ -230,7 +230,7 @@ export default {
             spent: true,
             point: '120'
           },
-          action: 'Reward'
+          action: this.$t('reward')
         },
         {
           date: '10.07.2022',
@@ -240,7 +240,7 @@ export default {
             spent: false,
             point: '10'
           },
-          action: 'Scan QR code'
+          action: this.$t('scan_qr_code')
         },
         {
           date: '10.07.2022',
@@ -250,7 +250,7 @@ export default {
             spent: false,
             point: '10'
           },
-          action: 'Scan QR code'
+          action: this.$t('scan_qr_code')
         },
         {
           date: '12.07.2022',
@@ -263,7 +263,7 @@ export default {
             spent: false,
             point: '230'
           },
-          action: 'Scan Receipt'
+          action: this.$t('scan_receipt')
         },
         {
           date: '14.06.2022',
@@ -273,7 +273,7 @@ export default {
             spent: false,
             point: '10'
           },
-          action: 'Visit 5 Stores'
+          action: this.$t('visit_5_stores')
         },
         {
           date: '10.07.2022',
@@ -283,7 +283,7 @@ export default {
             spent: false,
             point: '10'
           },
-          action: 'Refer friends'
+          action: this.$t('refer_friends')
         },
         {
           date: '10.07.2022',
@@ -297,7 +297,7 @@ export default {
             spent: true,
             point: '120'
           },
-          action: 'Reward'
+          action: this.$t('reward')
         },
         {
           date: '10.07.2022',
@@ -307,7 +307,7 @@ export default {
             spent: false,
             point: '10'
           },
-          action: 'Scan QR code'
+          action: this.$t('scan_qr_code')
         },
         {
           date: '10.07.2022',
@@ -317,7 +317,7 @@ export default {
             spent: false,
             point: '10'
           },
-          action: 'Scan QR code'
+          action: this.$t('scan_qr_code')
         }
       ] as EarnedPoint[],
       DynamicEarnedPointsArr2: [] as EarnedPoint[],
@@ -351,7 +351,7 @@ export default {
       const targetFilter = target.closest('li').getAttribute('point-filter')
       this.pointFilter = targetFilter
 
-      if (this.pointFilter === 'spent') {
+      if (this.pointFilter === PointFilters.SPENT) {
         this.DynamicEarnedPointsArr = this.StaticEarnedPointsArr.filter((item: { points: { spent: any } }) => {
           if (item.points.spent) {
             return item
@@ -362,7 +362,7 @@ export default {
             return item
           }
         })
-      } else if (this.pointFilter === 'earned') {
+      } else if (this.pointFilter === PointFilters.EARNED) {
         this.DynamicEarnedPointsArr = this.StaticEarnedPointsArr.filter((item: { points: { spent: any } }) => {
           if (!item.points.spent) {
             return item

@@ -116,40 +116,55 @@ export default {
     removeFile(e) {
       this.isUploaded = null
     },
-    handleFileChange(e: Event) {
-      const target = e.target as HTMLInputElement;
-      const file = target.files[0]
-      if (file) {
-        if (!file.type.startsWith('image/')) {
-          this.$notify({
-            title: this.$t('please_choose_valid_image'),
-            component: {
-              template: `
-    <div class="flex items-center gap-[12px]">
-      <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
-      <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px]">{{$t('invalid_password_confirmation')}}</p>
-    </div>
-    <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
-  `
-            }
-          })
-          this.isUploaded = null
-          return
-        }
+    async handleFileChange(e) {
+  try {
+    const target = e.target as HTMLInputElement;
+    const file = target.files[0];
 
-        const reader = new FileReader()
-        reader.onload = (e) => {
-          try {
-            this.isUploaded = e.target.result;
-          } catch (error) {
-            // Handle any errors that occur during file reading
-            console.error('Error reading file:', error);
-            this.isUploaded = null;
+    if (file) {
+      if (!file.type.startsWith('image/')) {
+        this.$notify({
+          title: this.$t('please_choose_valid_image'),
+          component: {
+            template: `
+              <div class="flex items-center gap-[12px]">
+                <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
+                <p class="text-redLight2 font-medium text-sm leading-[20px] tracking-[-0.2px']">{{$t('invalid_password_confirmation')}}</p>
+              </div>
+              <Icon icon="majesticons:close" class="text-xl text-grayDark4 cursor-pointer hover:text-grayDark3" />
+            `
           }
-        };
-        reader.readAsDataURL(file)
+        });
+        return;
       }
-    },
+
+      const reader = new FileReader();
+
+      reader.onload = (event) => {
+        const e = event as ProgressEvent<FileReader>;
+        const imageElement = document.getElementById('profile-image-update') as HTMLImageElement;
+        if (e.target && typeof e.target.result === 'string') {
+          const imageUrl = URL.createObjectURL(file);
+          imageElement.src = imageUrl;
+          // Remember to release the object URL when it's no longer needed.
+          // URL.revokeObjectURL(imageUrl);
+          console.log(e.target.result);
+        }
+      };
+
+      reader.onerror = () => {
+        console.error('Error occurred while reading the file.');
+      };
+
+      await new Promise((resolve) => {
+        reader.onloadend = resolve;
+        reader.readAsDataURL(file);
+      });
+    }
+  } catch (error) {
+    console.error('An error occurred while handling the file:', error);
+  }
+},
     handleSubmit() {
       if (this.isUploaded) {
         this.$emit('nextLocationPickerComponent')

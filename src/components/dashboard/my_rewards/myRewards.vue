@@ -84,7 +84,7 @@
               <p class="text-sm font-bold leading-[20px] text-black uppercase">{{ item.logo.title }}</p>
             </div>
             <div
-            :class="item.type === 'redeemed' ? 'bg-greenLight text-green' : item.type === 'reserved' ? 'bg-purpleLight text-purple' : item.type === 'expired' ? 'bg-redLight text-red' : '' "
+            :class="item.type === rewardsTabs.REDEEMED ? 'bg-greenLight text-green' : item.type === rewardsTabs.RESERVED ? 'bg-purpleLight text-purple' : item.type === rewardsTabs.EXPIRED ? 'bg-redLight text-red' : '' "
              class="px-[16px] py-[5px] rounded-[8px] text-xs font-semibold leading-[20px] tracking-[-0.2px]">{{ item.type }}</div>
           </div>
           <div class="w-full mt-[13px] flex gap-[4px] flex-col">
@@ -126,7 +126,7 @@ export default {
             image: `${window.location.origin}/src/assets/imgs/boss.svg`,
             title: 'Zara'
           },
-          type: 'redeemed',
+          type: RewardsTabs.REDEEMED,
           rewardTitle: 'Gift Card Sturbucks'
         },
         {
@@ -137,7 +137,7 @@ export default {
             image: `${window.location.origin}/src/assets/imgs/boss.svg`,
             title: 'Boss'
           },
-          type: 'reserved',
+          type: RewardsTabs.RESERVED,
           rewardTitle: 'Hugo Boss Discount Card'
         },
         {
@@ -148,7 +148,7 @@ export default {
             image: `${window.location.origin}/src/assets/imgs/boss.svg`,
             title: 'Zara'
           },
-          type: 'expired',
+          type: RewardsTabs.EXPIRED,
           rewardTitle: 'Zara GiftCard'
         }
       ] as Reward[],
@@ -178,27 +178,27 @@ export default {
       const targetFilter = target.closest('li').getAttribute('reward-filter')
       this.rewardFilter = targetFilter
 
-      if(this.rewardFilter === 'expired') {
+      if(this.rewardFilter === RewardsTabs.EXPIRED) {
         this.dynamicRewardsArr = this.staticRewardsArr.filter((item: { type: string; }) => {
-            if(item.type === 'expired') {
+            if(item.type === RewardsTabs.EXPIRED) {
                 return item
             }
         })
         this.dynamicRewardsArr2 = this.dynamicRewardsArr
       }
 
-      else if(this.rewardFilter === 'redeemed') {
+      else if(this.rewardFilter === RewardsTabs.REDEEMED) {
         this.dynamicRewardsArr = this.staticRewardsArr.filter((item: { type: string; }) => {
-            if(item.type === 'redeemed') {
+            if(item.type === RewardsTabs.REDEEMED) {
                 return item
             }
         })
         this.dynamicRewardsArr2 = this.dynamicRewardsArr
       }
 
-      else if(this.rewardFilter === 'reserved') {
+      else if(this.rewardFilter === RewardsTabs.RESERVED) {
         this.dynamicRewardsArr = this.staticRewardsArr.filter((item: { type: string; }) => {
-            if(item.type === 'reserved') {
+            if(item.type === RewardsTabs.RESERVED) {
                 return item
             }
         })

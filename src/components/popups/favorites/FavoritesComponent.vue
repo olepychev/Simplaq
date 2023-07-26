@@ -9,23 +9,23 @@
     <HeaderNoFavorites v-if="!isFavorites" />
     <div v-else class="w-full">
       <ul class="flex items-center gap-[8px] pl-[20px] my-[12px] overflow-auto custom-scrollbar hr pb-[12px]">
-        <li @click="filterFavorites" :data-filter="FavoritesFilters_ENUM.EVENTS" :class="filter === FavoritesFilters_ENUM.EVENTS ? 'bg-orange text-white' : ''"
+        <li @click="filterFavorites" :data-filter="FavoritesFilters.EVENTS" :class="filter === FavoritesFilters.EVENTS ? 'bg-orange text-white' : ''"
           class="bg-gray rounded-[12px] px-[16px] py-[12px] text-xs font-semibold text-black leading-[16px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer">
           {{ $t('events') }}
         </li>
-        <li @click="filterFavorites" :data-filter="FavoritesFilters_ENUM.NEWS" :class="filter === FavoritesFilters_ENUM.NEWS ? 'bg-orange text-white' : ''"
+        <li @click="filterFavorites" :data-filter="FavoritesFilters.NEWS" :class="filter === FavoritesFilters.NEWS ? 'bg-orange text-white' : ''"
           class="bg-gray rounded-[12px] px-[16px] py-[12px] text-xs font-semibold text-black leading-[16px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer">
           {{ $t('news') }}
         </li>
-        <li :class="filter === FavoritesFilters_ENUM.SHOPS ? 'bg-orange text-white' : ''" @click="filterFavorites" :data-filter="FavoritesFilters_ENUM.SHOPS"
+        <li :class="filter === FavoritesFilters.SHOPS ? 'bg-orange text-white' : ''" @click="filterFavorites" :data-filter="FavoritesFilters.SHOPS"
           class="bg-gray rounded-[12px] px-[16px] py-[12px] text-xs font-semibold text-black leading-[16px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer">
           {{ $t('shops') }}
         </li>
-        <li @click="filterFavorites" :data-filter="FavoritesFilters_ENUM.DINES" :class="filter === FavoritesFilters_ENUM.DINES ? 'bg-orange text-white' : ''"
+        <li @click="filterFavorites" :data-filter="FavoritesFilters.DINES" :class="filter === FavoritesFilters.DINES ? 'bg-orange text-white' : ''"
           class="bg-gray rounded-[12px] px-[16px] py-[12px] text-xs font-semibold text-black leading-[16px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer">
           {{ $t('dines') }}
         </li>
-        <li :class="filter ===  FavoritesFilters_ENUM.SALES ? 'bg-orange text-white' : ''" @click="filterFavorites" :data-filter="FavoritesFilters_ENUM.SALES"
+        <li :class="filter ===  FavoritesFilters.SALES ? 'bg-orange text-white' : ''" @click="filterFavorites" :data-filter="FavoritesFilters.SALES"
           class="bg-gray rounded-[12px] px-[16px] py-[12px] text-xs font-semibold text-black leading-[16px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer">
           {{ $t('sales') }}
         </li>
@@ -329,13 +329,13 @@
 
 <script lang="ts">
 import HeaderNoFavorites from '@/components/popups/favorites/NoFavoritesComponent.vue'
-import {FavoritesFilters_ENUM} from '@/enums/dashboard/favorites/favoritesFilters'
+import {FavoritesFilters} from '@/enums/dashboard/favorites/favoritesFilters'
 export default {
   name: 'HeaderNotifications',
   data() {
     return {
-      FavoritesFilters_ENUM: FavoritesFilters_ENUM,
-      filter: 'news' as string,
+      FavoritesFilters: FavoritesFilters,
+      filter: FavoritesFilters.EVENTS as string,
     }
   },
   props: {

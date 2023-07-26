@@ -1,4 +1,4 @@
-export enum PointFilters_ENUM {
+export enum PointFilters {
     SPENT='spent',
     EARNED='earned',
 }

@@ -1,15 +1,15 @@
 <template>
   <div class="w-full rounded-[16px] border-[1px] border-gray pl-[12px] py-[8px] pr-[20px] cursor-pointer">
-    <div @click="accordionClicked" :id="`accordion` + title" class="accordion-item flex w-full items-center justify-between">
+    <div @click="accordionClicked" :id="title" class="accordion-item flex w-full items-center justify-between">
       <div class="flex items-center gap-[12px]">
         <div
-          :class="activeIs === `accordion` + title ? 'bg-yellowLight' : 'bg-gray'"
+          :class="activeIs === title ? 'bg-yellowLight' : 'bg-gray'"
           class="icon flex items-center justify-center gap-[8px] w-[48px] h-[48px] rounded-full transition-all"
         >
-          <Icon :icon="icon" :class="activeIs === `accordion` + title ? 'text-orange' : 'text-black'" />
+          <Icon :icon="icon" :class="activeIs === title ? 'text-orange' : 'text-black'" />
         </div>
         <p
-          :class="activeIs === `accordion` + title ? 'text-orange' : 'text-black'"
+          :class="activeIs === title ? 'text-orange' : 'text-black'"
           class="title font-bold text-sm leading-[20px] capitalize"
         >
           {{ title }}

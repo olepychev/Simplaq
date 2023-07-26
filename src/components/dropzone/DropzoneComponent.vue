@@ -36,15 +36,9 @@ export default {
               <img class="rounded-[12px] max-w-[118px] w-full" data-dz-thumbnail />
             </div>
             <div class="absolute top-0 right-0 rounded-full w-[40px] h-[40px] flex items-center justify-center cursor-pointer opacity-0 group-hover:opacity-100 transition-all dz-remove bg-black dz-remove" data-dz-remove>
-              <button>
-                <svg class="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14 3.98667C11.78 3.76667 9.54667 3.65334 7.32 3.65334C6 3.65334 4.68 3.72 3.36 3.85334L2 3.98667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M5.66669 3.31334L5.81335 2.44C5.92002 1.80667 6.00002 1.33334 7.12669 1.33334H8.87335C10 1.33334 10.0867 1.83334 10.1867 2.44667L10.3334 3.31334" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M12.5667 6.09333L12.1334 12.8067C12.06 13.8533 12 14.6667 10.14 14.6667H5.86002C4.00002 14.6667 3.94002 13.8533 3.86668 12.8067L3.43335 6.09333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M6.88666 11H9.10666" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M6.33331 8.33334H9.66665" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
+              <button class="text-white">
+                X
+                </button>
             </div>
           </div>
         `,

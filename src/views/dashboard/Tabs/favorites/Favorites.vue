@@ -29,40 +29,40 @@
           </li>
           <li
             @click="filterFavorites"
-            :data-filter="FavoritesFilters_ENUM.NEWS"
-            :class="filter === FavoritesFilters_ENUM.NEWS ? 'bg-orange text-white' : 'bg-white text-black'"
+            :data-filter="FavoritesFilters.NEWS"
+            :class="filter === FavoritesFilters.NEWS ? 'bg-orange text-white' : 'bg-white text-black'"
             class="rounded-[12px] px-[24px] py-[10px] text-sm font-semibold text-black leading-[20px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer"
           >
             {{ $t('news') }}
           </li>
           <li
-            :class="filter === FavoritesFilters_ENUM.SHOPS ? 'bg-orange text-white' : 'bg-white text-black'"
+            :class="filter === FavoritesFilters.SHOPS ? 'bg-orange text-white' : 'bg-white text-black'"
             @click="filterFavorites"
-            :data-filter="FavoritesFilters_ENUM.SHOPS"
+            :data-filter="FavoritesFilters.SHOPS"
             class="rounded-[12px] px-[24px] py-[10px] text-sm font-semibold text-black leading-[20px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer"
           >
             {{ $t('shops') }}
           </li>
           <li
             @click="filterFavorites"
-            :data-filter="FavoritesFilters_ENUM.DINES"
-            :class="filter === FavoritesFilters_ENUM.DINES ? 'bg-orange text-white' : 'bg-white text-black'"
+            :data-filter="FavoritesFilters.DINES"
+            :class="filter === FavoritesFilters.DINES ? 'bg-orange text-white' : 'bg-white text-black'"
             class="rounded-[12px] px-[24px] py-[10px] text-sm font-semibold text-black leading-[20px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer"
           >
             {{ $t('dines') }}
           </li>
           <li
-            :class="filter === FavoritesFilters_ENUM.SALES ? 'bg-orange text-white' : 'bg-white text-black'"
+            :class="filter === FavoritesFilters.SALES ? 'bg-orange text-white' : 'bg-white text-black'"
             @click="filterFavorites"
-            :data-filter="FavoritesFilters_ENUM.SALES"
+            :data-filter="FavoritesFilters.SALES"
             class="rounded-[12px] px-[24px] py-[10px] text-sm font-semibold text-black leading-[20px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer"
           >
             {{ $t('sales') }}
           </li>
           <li
-            :class="filter === FavoritesFilters_ENUM.ENTERTAIN ? 'bg-orange text-white' : 'bg-white text-black'"
+            :class="filter === FavoritesFilters.ENTERTAIN ? 'bg-orange text-white' : 'bg-white text-black'"
             @click="filterFavorites"
-            :data-filter="FavoritesFilters_ENUM.ENTERTAIN"
+            :data-filter="FavoritesFilters.ENTERTAIN"
             class="rounded-[12px] px-[24px] py-[10px] text-sm font-semibold text-black leading-[20px] tracking-[-0.1px] hover:bg-orange hover:text-white transition-all cursor-pointer"
           >
             {{ $t('entertain') }}
@@ -77,7 +77,7 @@
       </div>
 
       <div class="w-full gap-[12px] mt-[20px]">
-        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters_ENUM.EVENTS">
+        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters.EVENTS">
           <a href="#" class="relative w-full flex flex-col shadow-sm group">
             <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
               <img class="w-full h-full object-cover group-hover:scale-[1.1] duration-500" src="@/assets/imgs/item1.png" alt="" />
@@ -175,7 +175,7 @@
             </div>
           </a>
         </div>
-        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters_ENUM.NEWS">
+        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters.NEWS">
           <a href="#" class="relative w-full flex flex-col shadow-sm group">
             <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
               <img class="w-full h-full object-cover" src="@/assets/imgs/item2.png" alt="" />
@@ -252,7 +252,7 @@
             </div>
           </a>
         </div>
-        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters_ENUM.SHOPS">
+        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters.SHOPS">
           <a href="#" class="relative w-full flex flex-col shadow-sm">
             <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
               <img class="w-full h-full object-cover" src="@/assets/imgs/zara.png" alt="" />
@@ -287,7 +287,7 @@
             </div>
           </a>
         </div>
-        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters_ENUM.DINES">
+        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters.DINES">
           <a href="#" class="relative w-full flex flex-col shadow-sm">
             <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
               <img class="w-full h-full object-cover" src="@/assets/imgs/mcd.png" alt="" />
@@ -322,7 +322,7 @@
             </div>
           </a>
         </div>
-        <div class="grid grid-cols-4 gap-[16px]" v-if="filter === FavoritesFilters_ENUM.SALES">
+        <div class="grid grid-cols-4 gap-[16px]" v-if="filter === FavoritesFilters.SALES">
           <a href="#" class="relative w-full flex flex-col shadow-sm">
             <div
               class="relative w-full h-[160px] sm:h-[276px] md:h-[224px] lg:h-[232px] xl:h-[210px] 2xl:h-[247px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden bg-gray flex items-center justify-center px-[20px]"
@@ -516,7 +516,7 @@
             </div>
           </a>
         </div>
-        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters_ENUM.ENTERTAIN">
+        <div class="grid grid-cols-3 gap-[16px]" v-if="filter === FavoritesFilters.ENTERTAIN">
           <a href="#" class="relative w-full flex flex-col shadow-sm">
             <div class="relative w-full lg:h-[315px] xl:h-[324px] 2xl:h-[382px] rounded-tl-[16px] rounded-tr-[16px] overflow-hidden">
               <img class="w-full h-full object-cover" src="@/assets/imgs/item4.png" alt="" />
@@ -596,14 +596,14 @@
 </template>
 
 <script lang="ts">
-import {FavoritesFilters_ENUM} from '@/enums/dashboard/favorites/favoritesFilters'
+import {FavoritesFilters} from '@/enums/dashboard/favorites/favoritesFilters'
 /* vue use head */
 import { useHead } from '@vueuse/head'
 export default {
   name: 'FavoritesTab',
   data() {
     return {
-      FavoritesFilters_ENUM: FavoritesFilters_ENUM,
+      FavoritesFilters: FavoritesFilters,
       favorites: true as boolean,
       filter: 'events' as string
     }

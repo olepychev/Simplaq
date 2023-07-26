@@ -43,7 +43,7 @@ export default {
   name: 'PointsTab',
   data() {
     return {
-      receipts: true as boolean,
+      receipts: false as boolean,
       uploadReceipt: false as boolean,
     }
   },

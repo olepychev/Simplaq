@@ -229,16 +229,19 @@ export default {
       target.closest('[nav-menu-item]').classList.add('active')
     },
     handleNavDropdown(e: Event) {
-      const target = e.target
+      const target = e.target as Element
       const currentDropdown = target.closest('[nav-menu-item]').getAttribute('nav-menu-item')
       if (this.navMenuTab !== currentDropdown) {
         this.navMenuTab = currentDropdown
         this.toggleActiveOnNavLinks(target)
       } else {
         document.getElementById('dropdown').style.height = '0px'
-        setTimeout(() => {
+        // setTimeout(() => {
+        //   this.navMenuTab = null
+        // }, 300)
+        this.$nextTick(()=> {
           this.navMenuTab = null
-        }, 300)
+        })
         document.querySelectorAll('[nav-menu-item]').forEach((item) => {
         item.classList.remove('active')
       })

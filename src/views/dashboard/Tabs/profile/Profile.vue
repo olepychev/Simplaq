@@ -4,7 +4,7 @@
 
     <div class="w-full flex flex-col gap-[8px] bg-white p-[24px] border-[1px] border-graylight rounded-[24px]">
       <Accordion :activeIs="activeAccordionIs" @accordionClicked="accordionClicked" icon="solar:user-linear" :title="$t('personal_data')">
-        <ProfilePersonalData v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('personal_data')}`" />
+        <ProfilePersonalData v-if="activeAccordionIs && activeAccordionIs === `${$t('personal_data')}`" />
       </Accordion>
 
       <Accordion
@@ -15,7 +15,7 @@
       >
         <ProfilePasswordChange
           @cancelBtn="cancelBtn"
-          v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('change_password')}`"
+          v-if="activeAccordionIs && activeAccordionIs === `${$t('change_password')}`"
         />
       </Accordion>
 
@@ -25,11 +25,11 @@
         icon="clarity:notification-line"
         :title="$t('notifications')"
       >
-        <ProfileNotificationsToggle v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('notifications')}`" />
+        <ProfileNotificationsToggle v-if="activeAccordionIs && activeAccordionIs === `${$t('notifications')}`" />
       </Accordion>
 
       <Accordion :activeIs="activeAccordionIs" @accordionClicked="accordionClicked" icon="carbon:user-avatar" :title="$t('interests')">
-        <ProfileInterests v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('interests')}`" />
+        <ProfileInterests v-if="activeAccordionIs && activeAccordionIs === `${$t('interests')}`" />
       </Accordion>
 
       <Accordion
@@ -38,7 +38,7 @@
         icon="icons8:add-user"
         :title="$t('connected_accounts')"
       >
-        <ProfileConnectedAccounts v-if="activeAccordionIs && activeAccordionIs === `accordion${$t('connected_accounts')}`" />
+        <ProfileConnectedAccounts v-if="activeAccordionIs && activeAccordionIs === `${$t('connected_accounts')}`" />
       </Accordion>
 
       <div
@@ -89,7 +89,7 @@ export default {
       activeDeleteAccount: false as boolean,
       activeLogout: false as boolean,
 
-      activeAccordionIs: '' as string
+      activeAccordionIs: this.$t('connected_accounts') as string
     }
   },
   components: {

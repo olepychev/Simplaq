@@ -14,7 +14,7 @@
         </div>
         <div class="relative flex items-center gap-[12px]" id="phoneSelect">
           <vue-multiselect
-            v-model="selectedCountries"
+            v-model="selectedCountry"
             :options="countries"
             :searchable="true"
             placeholder="Type to search"
@@ -108,13 +108,13 @@ export default {
           image: '../src/assets/imgs/in.svg'
         }
       ] as Countries[],
-      selectedCountries: null as Countries | null,
+      selectedCountry: null as Countries | null,
       phone: '',
     }
   },
   mounted() {
     this.changeSearchInputPlace()
-    this.selectedCountries = this.countries[0]
+    this.selectedCountry = this.countries[0]
   },
   methods: {
     changeSearchInputPlace() {
@@ -128,12 +128,12 @@ export default {
     }
   },
   watch: {
-    selectedCountries(newSelectedCountries) {
-      if (this.selectedCountries) {
-        // Do something when the value of selectedCountries changes
+    selectedCountry(newSelectedCountry) {
+      if (this.selectedCountry) {
+        // Do something when the value of selectedCountry changes
         let selected = `<div class="flex items-center gap-[8px]">
-          <img class="w-[20px] h-[20px] rounded-full" src="${newSelectedCountries.image}"/>
-          <p class="text-base leading-[20px] tracking-[-0.2px] text-black">${newSelectedCountries.code}</p>
+          <img class="w-[20px] h-[20px] rounded-full" src="${newSelectedCountry.image}"/>
+          <p class="text-base leading-[20px] tracking-[-0.2px] text-black">${newSelectedCountry.code}</p>
       </div>`
         let selectedEl = document.createElement('div')
         selectedEl.classList.add('phone-selected')

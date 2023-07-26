@@ -1,4 +1,4 @@
-export enum FavoritesFilters_ENUM {
+export enum FavoritesFilters {
     EVENTS='events',
     NEWS='news',
     SHOPS='shops',
