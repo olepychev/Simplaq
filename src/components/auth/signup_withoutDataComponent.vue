@@ -283,7 +283,7 @@ export default {
           })
         }
 
-        if (this.passLength) {
+        if (!this.passLength) {
           this.$notify({
             title: this.$t('password_must_contain_at_least_8_characters'),
             component: {
