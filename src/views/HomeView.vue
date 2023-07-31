@@ -2412,7 +2412,6 @@
 
   <!-- Account Setup Modal -->
   <AccountSetupComponent v-if="accountSetup" @closeCompleteProfileComponent="closeCompleteProfileComponent" />
-
 </template>
 
 <script lang="ts">

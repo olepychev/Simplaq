@@ -104,14 +104,17 @@
 
           <p class="text-center text-grayDark text-xs font-normal leading-[20px] tracking-[0.2px]">
             {{ $t('dont_have_registration_yet?') }}
-            <routerLink :to="{ name: $Routes.REGISTER }"
+            <a href="#" @click.prevent="termsAndConditions"
               class="text-pink max-w-[360px] font-semibold text-xs leading-[20px] tracking-[-0.2px] w-full text-end">{{
-                $t('register_now') }}</routerLink>
+                $t('register_now') }}</a>
           </p>
         </form>
       </div>
     </div>
   </AuthSliderComponent>
+
+  <TermsAndConditionsComponent @cancelTerms="cancelTerms" v-if="termsAndConditionsModal" />
+
 </template>
 
 <script lang="ts">
@@ -122,6 +125,8 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 import AuthSliderComponent from '@/components/slider/AuthSliderComponent.vue'
+import TermsAndConditionsComponent from '@/components/modals/terms&conditions/termsAndConditionsComponent.vue'
+
 
 /* vue use head */
 import { useHead } from '@vueuse/head'
@@ -133,6 +138,7 @@ export default {
   name: 'Login',
   components: {
     AuthSliderComponent,
+    TermsAndConditionsComponent,
 
     Swiper,
     SwiperSlide
@@ -147,7 +153,10 @@ export default {
       isEmailTouched: false as boolean,
       isPasswordTouched: false as boolean,
 
-      passwordShow: false as boolean
+      passwordShow: false as boolean,
+
+      termsAndConditionsModal: false as boolean
+
     }
   },
   computed: {
@@ -162,6 +171,12 @@ export default {
     }
   },
   methods: {
+    termsAndConditions() {
+      this.termsAndConditionsModal = true
+    },
+    cancelTerms() {
+      this.termsAndConditionsModal = false
+    },
     emailTouched() {
       this.isEmailTouched = true
     },

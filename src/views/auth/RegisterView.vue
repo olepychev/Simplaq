@@ -70,7 +70,7 @@ export default {
   name: 'Register',
   data() {
     return {
-      step: 4 as number
+      step: 1 as number
     }
   },
   components: {

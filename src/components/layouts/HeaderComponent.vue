@@ -258,7 +258,7 @@ export default {
     },
     openFavorites() {
       this.activeFavorites = !this.activeFavorites
-      // close other Notifications
+      // close other NotificationsAnd
       this.activeNotifications = false
       this.activeProfileMenu = false
     },
