@@ -1,5 +1,5 @@
 <template>
-  <notifications #body="props" position="bottom left" :duration="5000" :max="1">
+  <notifications v-if="notificationsElement" #body="props" position="bottom left" :duration="5000" :max="1">
     <div class="flex items-center justify-between max-w-[360px] w-full bg-white rounded-[20px] p-[16px] shadow-md">
       <div class="flex items-center gap-[12px]">
         <Icon icon="jam:triangle-danger-f" class="text-xl text-redLight2" />
@@ -233,6 +233,12 @@ export default {
       policyAccepted: false,
       termsAccepted: false,
       offersAccepted: false
+    }
+  },
+  props: {
+    notificationsElement: {
+      required: false,
+      type: Boolean,
     }
   },
   emits: ['cancelTerms'],

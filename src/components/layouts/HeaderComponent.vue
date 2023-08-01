@@ -165,7 +165,7 @@
       </template>
     </NavLinkDropdown>
   </header>
-  <TermsAndConditionsComponent @cancelTerms="cancelTerms" v-if="termsAndConditionsModal" />
+  <TermsAndConditionsComponent :notificationsElement="true" @cancelTerms="cancelTerms" v-if="termsAndConditionsModal" />
 </template>
 
 <script lang="ts">

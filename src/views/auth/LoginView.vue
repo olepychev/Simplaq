@@ -113,7 +113,7 @@
     </div>
   </AuthSliderComponent>
 
-  <TermsAndConditionsComponent @cancelTerms="cancelTerms" v-if="termsAndConditionsModal" />
+  <TermsAndConditionsComponent :notificationsElement="false" @cancelTerms="cancelTerms" v-if="termsAndConditionsModal" />
 
 </template>
 
