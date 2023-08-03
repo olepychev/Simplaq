@@ -57,9 +57,9 @@
         <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
           <div class="flex w-full items-center justify-between cursor-pointer">
             <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('description') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="text-xl text-black" />
+            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
           </div>
-          <p class="text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
+          <p class="accordion-menu text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
             Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat tincidunt
             non nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
           </p>
@@ -67,9 +67,9 @@
         <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
           <div class="flex w-full items-center justify-between cursor-pointer">
             <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('location') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="text-xl text-black" />
+            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
           </div>
-          <div class="w-full relative">
+          <div class="accordion-menu w-full relative">
             <img src="@/assets/imgs/map.svg" class="w-full" alt="" />
           </div>
         </div>
@@ -77,9 +77,9 @@
         <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
           <div class="flex w-full items-center justify-between cursor-pointer">
             <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('menu') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="text-xl text-black" />
+            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
           </div>
-          <div class="w-full relative">
+          <div class="accordion-menu w-full relative">
             <div class="w-full flex items-center mb-[16px]">
               <ul class="flex items-center gap-[4px]">
                 <li
@@ -250,9 +250,9 @@
         <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px]">
           <div class="flex w-full items-center justify-between cursor-pointer">
             <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('reviews') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="text-xl text-black" />
+            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
           </div>
-          <div class="w-full relative">
+          <div class="accordion-menu w-full relative">
             <div class="w-full flex items-center justify-between">
               <div class="flex flex-col">
                 <p class="font-bold text-sm leading-[20px] text-black">{{ $t('add_a_review') }}</p>
@@ -566,9 +566,7 @@
         </div>
       </div>
 
-      <div
-        class="p-[24px] rounded-[24px] border border-graylight mb-[141px] mt-[19px] w-[calc(100%-40px)] ml-auto sticky top-[40px]"
-      >
+      <div class="p-[24px] rounded-[24px] border border-graylight mb-[141px] mt-[19px] w-[calc(100%-40px)] ml-auto sticky top-[40px]">
         <div class="w-full flex flex-col gap-[26px]">
           <div class="flex flex-col gap-[16px]">
             <p class="font-bold text-sm leading-[20px] text-black">{{ $t('contact') }}</p>
@@ -833,7 +831,7 @@ export default {
       const target = e.target as Element
       const targetFilter = target.closest('li').getAttribute('dine-filter')
       this.dineFilter = targetFilter
-    }
+    },
   }
 }
 </script>

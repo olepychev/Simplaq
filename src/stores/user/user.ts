@@ -8,6 +8,6 @@ interface Data {
 export const useUserStore = defineStore('user', {
   state: () => ({
     data: {} as Data,
-    token: null as string | null,
+    token: '123' as string | null,
   }),
 })

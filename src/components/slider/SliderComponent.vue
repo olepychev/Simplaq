@@ -9,27 +9,27 @@
             class="text-pink font-semibold xl:text-sm 2xl:text-base leading-[22px] tracking-[-0.4px]">{{ $t('see_all') }}
           </RouterLink>
           <div class="slider-btns-responsive flex slider-nav items-center gap-[4px]">
-            <div @click="prev" class="prev w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
+            <div @click="prev" class="cursor-pointer prev w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
               
               <Icon icon="radix-icons:chevron-left" class="text-xl text-black" />
             </div>
-            <div @click="next" class="next w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
+            <div @click="next" class="cursor-pointer next w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
               <Icon icon="radix-icons:chevron-right" class="text-xl text-black" />
             </div>
           </div>
         </div>
       </div>
       <!-- Swiper -->
-      <swiper class="mySwiper h-full w-full" :modules="modules" :autoplay="autoplay ? autoplay : false" @swiper="onSwiper"
+      <swiper ref="slider" class="mySwiper h-full w-full" :modules="modules" :autoplay="autoplay ? autoplay : false" @swiper="onSwiper"
         :slides-per-view="slidesPerViewIs" :space-between="spaceBetween" @slideChange="onSlideChange"
         :pagination="{ clickable: true }" navigation :scrollbar="{ draggable: true }">
         <slot></slot>
       </swiper>
       <div class="slider-btns-responsive-sm hidden justify-center flex slider-nav items-center gap-[4px]">
-        <div @click="prev" class="prev w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
+        <div @click="prev" class="cursor-pointer prev w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
           <Icon icon="radix-icons:chevron-left" class="text-xl text-black" />
         </div>
-        <div @click="next" class="next w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
+        <div @click="next" class="cursor-pointer next w-[48px] h-[48px] rounded-full bg-gray flex items-center justify-center">
           <Icon icon="radix-icons:chevron-right" class="text-xl text-black" />
         </div>
       </div>
@@ -40,6 +40,7 @@
 <script>
 import { Pagination, Navigation, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+
 import 'swiper/css'
 import 'swiper/css/pagination'
 export default {
@@ -80,8 +81,9 @@ export default {
       prevBtn.click()
     },
     next(e) {
-      const nextBtn = e.target.closest('.main-slider-parent').querySelector('.swiper-button-next')
-      nextBtn.click()
+      // const nextBtn = e.target.closest('.main-slider-parent').querySelector('.swiper-button-next')
+      // nextBtn.click()
+      console.log(this.$refs.slider)
     }
   },
   mounted() {

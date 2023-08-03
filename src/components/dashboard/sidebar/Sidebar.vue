@@ -155,7 +155,7 @@ export default {
           }, 100);
           setTimeout(() => {
             this.userIdCopied = false;
-          }, 4500);
+          }, 3000);
         })
         .catch((error) => {
           console.error('Failed to copy user ID:', error);

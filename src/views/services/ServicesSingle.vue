@@ -35,9 +35,9 @@
           <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
             <div class="flex w-full items-center justify-between cursor-pointer">
               <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('description') }}</h6>
-              <Icon icon="octicon:chevron-up-24" class="text-xl text-black" />
+              <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
             </div>
-            <p class="text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
+            <p class="accordion-menu text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
               Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat tincidunt
               non nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
             </p>
@@ -45,9 +45,9 @@
           <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
             <div class="flex w-full items-center justify-between cursor-pointer">
               <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('location') }}</h6>
-              <Icon icon="octicon:chevron-up-24" class="text-xl text-black" />
+              <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
             </div>
-            <div class="w-full relative">
+            <div class="accordion-menu w-full relative">
               <img src="@/assets/imgs/map.svg" class="w-full" alt="" />
             </div>
           </div>
@@ -55,9 +55,9 @@
           <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
             <div class="flex w-full items-center justify-between cursor-pointer">
               <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('price') }}</h6>
-              <Icon icon="octicon:chevron-up-24" class="text-xl text-black" />
+              <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
             </div>
-            <div class="w-full flex items-center gap-[8px] flew-wrap">
+            <div class="accordion-menu w-full flex items-center gap-[8px] flew-wrap">
                 <div class="bg-gray px-[16px] py-[8px] rounded-[12px] flex flex-col">
                     <p class="text-black font-semibold text-xs leading-[16px] tracking-[-0.1px]">1 hour</p>
                     <p class="text-black font-bold text-base leading-[24px]">$5.00</p>
