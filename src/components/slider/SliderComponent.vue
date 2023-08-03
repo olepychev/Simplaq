@@ -39,7 +39,7 @@
 
 <script>
 import { Pagination, Navigation, Autoplay } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
+import {useSwiper, Swiper, SwiperSlide } from 'swiper/vue'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -81,9 +81,8 @@ export default {
       prevBtn.click()
     },
     next(e) {
-      // const nextBtn = e.target.closest('.main-slider-parent').querySelector('.swiper-button-next')
-      // nextBtn.click()
-      console.log(this.$refs.slider)
+      const nextBtn = e.target.closest('.main-slider-parent').querySelector('.swiper-button-next')
+      nextBtn.click()
     }
   },
   mounted() {
