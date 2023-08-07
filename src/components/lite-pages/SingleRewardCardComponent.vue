@@ -84,16 +84,13 @@
               </div>
             </div>
 
-            <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-              <div class="flex w-full items-center justify-between cursor-pointer">
-                <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('terms_conditions') }}</h6>
-                <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-              </div>
-              <p class="accordion-menu text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
+            <Accordion2Component :title="$t('terms_conditions')">
+              <p class="text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
                 Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat
                 tincidunt non nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
               </p>
-            </div>
+            </Accordion2Component>
+            
 
             <div class="flex flex-col gap-[12px] mt-[16px]">
               <div class="flex w-full items-center justify-between pb-[12px] border-b-[1px] border-gray-light-500">
@@ -126,11 +123,13 @@
 <script lang="ts">
 import CongratulationPopupComponent from '@/components/popups/congratulationPopupComponent.vue'
 import SubscribeComponent from '@/components/layouts/SubscribeComponent.vue'
+import Accordion2Component from '@/components/accordion/Accordion2Component.vue'
 
 export default {
   components: {
     CongratulationPopupComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    Accordion2Component
   },
   data() {
     return {
@@ -144,7 +143,7 @@ export default {
     },
     pickUpReward() {
       this.pickReward = true
-    },
+    }
   }
 }
 </script>

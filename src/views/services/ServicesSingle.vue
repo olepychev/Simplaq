@@ -32,32 +32,20 @@
         </template>
   
         <template #body>
-          <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-            <div class="flex w-full items-center justify-between cursor-pointer">
-              <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('description') }}</h6>
-              <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-            </div>
-            <p class="accordion-menu text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
-              Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat tincidunt
-              non nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
-            </p>
+          <Accordion2Component :title="$t('description')">
+          <p class="text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
+            Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat tincidunt
+            non nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
+          </p>
+        </Accordion2Component>
+        <Accordion2Component :title="$t('location')">
+          <div class="w-full relative">
+            <img src="@/assets/imgs/map.svg" class="w-full" alt="" />
           </div>
-          <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-            <div class="flex w-full items-center justify-between cursor-pointer">
-              <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('location') }}</h6>
-              <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-            </div>
-            <div class="accordion-menu w-full relative">
-              <img src="@/assets/imgs/map.svg" class="w-full" alt="" />
-            </div>
-          </div>
+        </Accordion2Component>
   
-          <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-            <div class="flex w-full items-center justify-between cursor-pointer">
-              <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('price') }}</h6>
-              <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-            </div>
-            <div class="accordion-menu w-full flex items-center gap-[8px] flew-wrap">
+        <Accordion2Component :title="$t('price')">
+          <div class=" w-full flex items-center gap-[8px] flew-wrap">
                 <div class="bg-gray px-[16px] py-[8px] rounded-[12px] flex flex-col">
                     <p class="text-black font-semibold text-xs leading-[16px] tracking-[-0.1px]">1 hour</p>
                     <p class="text-black font-bold text-base leading-[24px]">$5.00</p>
@@ -75,8 +63,8 @@
                     <p class="text-black font-bold text-base leading-[24px]">$5.00</p>
                 </div>
             </div>
-          </div>
-  
+        </Accordion2Component>
+
           <div class="flex flex-col gap-[12px] mt-[16px]">
             <div class="w-full grid grid-cols-2 gap-[12px]">
               <div class="bg-gray p-[12px] bg-gray rounded-[16px] flex items-center justify-center gap-[8px] cursor-pointer">
@@ -338,7 +326,8 @@
   import BreadcrumbComponent from '@/components/layouts/BreadcrumbComponent.vue'
   import SubscribeComponent from '@/components/layouts/SubscribeComponent.vue'
   import SingleViewComponent from '@/components/SingleViewComponent.vue'
-  
+  import Accordion2Component from '@/components/accordion/Accordion2Component.vue'
+
   interface PagesArr {
     page: string
     routeName: string
@@ -361,7 +350,8 @@
       FooterComponent,
       BreadcrumbComponent,
       SubscribeComponent,
-      SingleViewComponent
+      SingleViewComponent,
+      Accordion2Component
     },
   }
   </script>

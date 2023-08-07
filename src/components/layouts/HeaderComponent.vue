@@ -94,7 +94,7 @@
             />
           </button>
 
-          <HeaderNotifications v-if="activeNotifications" :isNotification="notification" />
+          <HeaderNotifications v-if="activeNotifications" :showNotifications="notification" />
           <HeaderFavorites v-if="activeFavorites" :isFavorites="favorites" />
           <ProfileMenu v-if="activeProfileMenu" @closeProfileMenu="closeProfileMenu" />
         </div>

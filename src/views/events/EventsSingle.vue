@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent />
-  <BreadcrumbComponent :pagesArr="pagesArr" currentPage="Mass shop sale"/>
+  <BreadcrumbComponent :pagesArr="pagesArr" currentPage="Mass shop sale" />
   <SingleViewComponent>
     <template #head>
       <h6 class="font-bold text-black text-xl">Mass shop sale</h6>
@@ -50,36 +50,19 @@
     </template>
 
     <template #body>
-      <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-        <div class="flex w-full items-center justify-between cursor-pointer">
-          <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('terms_conditions') }}</h6>
-          <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-        </div>
-        <p class="accordion-menu text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
+      <Accordion2Component :title="$t('terms_conditions')">
+        <p class="text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
           Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat tincidunt non
           nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
         </p>
-      </div>
-      <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-        <div class="flex w-full items-center justify-between cursor-pointer">
-          <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('terms_conditions') }}</h6>
-          <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-        </div>
-        <p class="accordion-menu text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
+      </Accordion2Component>
+
+      <Accordion2Component :title="$t('terms_conditions')">
+        <p class="text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
           Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat tincidunt non
           nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
         </p>
-      </div>
-      <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-        <div class="flex w-full items-center justify-between cursor-pointer">
-          <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('terms_conditions') }}</h6>
-          <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-        </div>
-        <p class="accordion-menu text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
-          Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat tincidunt non
-          nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
-        </p>
-      </div>
+      </Accordion2Component>
 
       <div class="flex flex-col gap-[12px] mt-[16px]">
         <div class="flex w-full items-center justify-between pb-[12px] border-b-[1px] border-gray-light-500">
@@ -172,10 +155,11 @@ import FooterComponent from '@/components/layouts/FooterComponent.vue'
 import BreadcrumbComponent from '@/components/layouts/BreadcrumbComponent.vue'
 import SubscribeComponent from '@/components/layouts/SubscribeComponent.vue'
 import SingleViewComponent from '@/components/SingleViewComponent.vue'
+import Accordion2Component from '@/components/accordion/Accordion2Component.vue'
 
 interface PagesArr {
-  page: string,
-  routeName: string,
+  page: string
+  routeName: string
 }
 
 export default {
@@ -187,7 +171,7 @@ export default {
           page: this.$t('events'),
           routeName: this.$Routes.EVENTS
         }
-      ] as PagesArr[],
+      ] as PagesArr[]
     }
   },
   components: {
@@ -196,6 +180,7 @@ export default {
     BreadcrumbComponent,
     SubscribeComponent,
     SingleViewComponent,
-  },
+    Accordion2Component
+  }
 }
 </script>

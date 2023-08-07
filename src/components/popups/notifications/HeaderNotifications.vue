@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <HeaderNoNotifications v-if="!isNotification"  />
+    <HeaderNoNotifications v-if="!showNotifications"  />
     <div v-else class="w-full">
       <div class="w-full flex items-center justify-between mb-[16px] px-[20px]">
         <p class="text-xs text-grayDark font-normal leading-[20px]">{{ $t('recent') }}</p>
@@ -162,7 +162,7 @@ import HeaderNoNotifications from '@/components/popups/notifications/HeaderNoNot
 export default {
   name: 'HeaderNotifications',
   props: {
-    isNotification: {
+    showNotifications: {
       type: Boolean,
       required: true,
     },

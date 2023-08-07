@@ -54,32 +54,20 @@
       </template>
 
       <template #body>
-        <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-          <div class="flex w-full items-center justify-between cursor-pointer">
-            <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('description') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-          </div>
-          <p class="accordion-menu text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
+        <Accordion2Component :title="$t('description')">
+          <p class="text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
             Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat tincidunt
             non nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
           </p>
-        </div>
-        <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-          <div class="flex w-full items-center justify-between cursor-pointer">
-            <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('location') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-          </div>
-          <div class="accordion-menu w-full relative">
+        </Accordion2Component>
+        <Accordion2Component :title="$t('location')">
+          <div class="w-full relative">
             <img src="@/assets/imgs/map.svg" class="w-full" alt="" />
           </div>
-        </div>
+        </Accordion2Component>
 
-        <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-          <div class="flex w-full items-center justify-between cursor-pointer">
-            <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('menu') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-          </div>
-          <div class="accordion-menu w-full relative">
+        <Accordion2Component :title="$t('menu')">
+          <div class="w-full relative">
             <div class="w-full flex items-center mb-[16px]">
               <ul class="flex items-center gap-[4px]">
                 <li
@@ -245,14 +233,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </Accordion2Component>
 
-        <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px]">
-          <div class="flex w-full items-center justify-between cursor-pointer">
-            <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('reviews') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-          </div>
-          <div class="accordion-menu w-full relative">
+        <Accordion2Component :title="$t('reviews')">
+          <div class="w-full relative">
             <div class="w-full flex items-center justify-between">
               <div class="flex flex-col">
                 <p class="font-bold text-sm leading-[20px] text-black">{{ $t('add_a_review') }}</p>
@@ -537,7 +521,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </Accordion2Component>
 
         <div class="flex flex-col gap-[12px] mt-[16px]">
           <div class="w-full grid grid-cols-2 gap-[12px]">
@@ -799,7 +783,7 @@ import FooterComponent from '@/components/layouts/FooterComponent.vue'
 import BreadcrumbComponent from '@/components/layouts/BreadcrumbComponent.vue'
 import SubscribeComponent from '@/components/layouts/SubscribeComponent.vue'
 import SingleViewComponent from '@/components/SingleViewComponent.vue'
-
+import Accordion2Component from '@/components/accordion/Accordion2Component.vue'
 interface PagesArr {
   page: string
   routeName: string
@@ -824,14 +808,15 @@ export default {
     FooterComponent,
     BreadcrumbComponent,
     SubscribeComponent,
-    SingleViewComponent
+    SingleViewComponent,
+    Accordion2Component
   },
   methods: {
     filterDine(e: Event) {
       const target = e.target as Element
       const targetFilter = target.closest('li').getAttribute('dine-filter')
       this.dineFilter = targetFilter
-    },
+    }
   }
 }
 </script>

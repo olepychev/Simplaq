@@ -64,31 +64,21 @@
       </template>
 
       <template #body>
-        <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-          <div class="flex w-full items-center justify-between cursor-pointer">
-            <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('description') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-          </div>
-          <p class="accordion-menu text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
+        <Accordion2Component :title="$t('description')">
+          <p class="text-xs font-normal text-grayDark leading-[20px] tracking-[0.2px]">
             Lorem ipsum dolor sit amet, aliquam ridiculus id vehicula, amet at neque tellus vestibulum, ut imperdiet congue erat tincidunt
             non nulla, repudiandae pellentesque, dictum non volutpat magnis pellentesque nulla.
           </p>
-        </div>
-        <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px] border-b-[1px] border-gray-light-500">
-          <div class="flex w-full items-center justify-between cursor-pointer">
-            <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('location') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-          </div>
-          <div class="accordion-menu w-full relative">
+        </Accordion2Component>
+
+        <Accordion2Component :title="$t('location')">
+          <div class="w-full relative">
             <img src="@/assets/imgs/map.svg" class="w-full" alt="" />
           </div>
-        </div>
-        <div class="accordion flex flex-col gap-[12px] mt-[16px] pb-[12px]">
-          <div class="flex w-full items-center justify-between cursor-pointer">
-            <h6 class="text-base text-dark font-bold leading-[24px]">{{ $t('reviews') }}</h6>
-            <Icon icon="octicon:chevron-up-24" class="chevron text-xl text-black" />
-          </div>
-          <div class="accordion-menu w-full relative">
+        </Accordion2Component>
+
+        <Accordion2Component :title="$t('reviews')">
+          <div class="w-full relative">
             <div class="w-full flex items-center justify-between">
               <div class="flex flex-col">
                 <p class="font-bold text-sm leading-[20px] text-black">{{ $t('add_a_review') }}</p>
@@ -373,7 +363,8 @@
               </div>
             </div>
           </div>
-        </div>
+        </Accordion2Component>
+
         <div class="flex flex-col gap-[12px] mt-[16px]">
           <div class="w-full grid grid-cols-2 gap-[12px]">
             <div class="bg-gray p-[12px] bg-gray rounded-[16px] flex items-center justify-center gap-[8px] cursor-pointer">
@@ -401,33 +392,35 @@
         </div>
       </div>
 
-      <div
-        class="p-[24px] rounded-[24px] border border-graylight mb-[141px] mt-[19px] w-[calc(100%-40px)] ml-auto sticky top-[40px]"
-      >
+      <div class="p-[24px] rounded-[24px] border border-graylight mb-[141px] mt-[19px] w-[calc(100%-40px)] ml-auto sticky top-[40px]">
         <div class="w-full flex flex-col gap-[26px]">
           <div class="flex flex-col gap-[18px]">
             <p class="font-bold text-sm leading-[20px] text-black">{{ $t('info') }}</p>
             <div class="flex w-full flex justify-between">
-                <div class="flex items-center gap-[8px]">
-                    <p class="text-xs text-grayDark font-normal leading-[20px] tracking-[0.2px]">{{$t('sale_time')}}:</p>
-                    <div class="bg-gray px-[9px] py-[4px] rounded-[6px]">
-                        <p class="text-xs text-black font-medium leading-[20px] tracking-[-0.2px]">02:10:54</p>
-                    </div>
+              <div class="flex items-center gap-[8px]">
+                <p class="text-xs text-grayDark font-normal leading-[20px] tracking-[0.2px]">{{ $t('sale_time') }}:</p>
+                <div class="bg-gray px-[9px] py-[4px] rounded-[6px]">
+                  <p class="text-xs text-black font-medium leading-[20px] tracking-[-0.2px]">02:10:54</p>
                 </div>
-                <div class="flex items-center gap-[8px]">
-                    <p class="text-grayDark font-semibold text-xs leading-[16px] previous-price before:bg-black tracking-[-0.1px]">$69.90</p>
-                    <div class="bg-greenLight px-[9px] py-[4px] rounded-[6px]">
-                        <p class="text-xs text-green font-medium leading-[20px] tracking-[-0.2px]">-30%</p>
-                    </div>
+              </div>
+              <div class="flex items-center gap-[8px]">
+                <p class="text-grayDark font-semibold text-xs leading-[16px] previous-price before:bg-black tracking-[-0.1px]">$69.90</p>
+                <div class="bg-greenLight px-[9px] py-[4px] rounded-[6px]">
+                  <p class="text-xs text-green font-medium leading-[20px] tracking-[-0.2px]">-30%</p>
                 </div>
+              </div>
             </div>
             <div class="w-full flex flex-col bg-gray rounded-[10px] py-[4px] items-center justify-center">
-                <p class="text-grayDark4 text-xs leading-[20px] tracking-[0.2px]">{{$t('price')}}</p>
-                <p class="text-black font-bold leading-[24px] text-base">$230.00</p>
+              <p class="text-grayDark4 text-xs leading-[20px] tracking-[0.2px]">{{ $t('price') }}</p>
+              <p class="text-black font-bold leading-[24px] text-base">$230.00</p>
             </div>
-            <div class="w-full flex bg-gray rounded-[16px] py-[14px] items-center justify-center gap-[8px] mt-[6px] cursor-pointer hover:bg-orange group transition-all">
-                <Icon icon="solar:heart-outline" class="text-xl text-black group-hover:text-white transition-all" />
-                <p class="text-sm font-semibold text-black leading-[20px] tracking-[-0.2px] group-hover:text-white transition-all">{{ $t('add_to_favorites') }}</p>
+            <div
+              class="w-full flex bg-gray rounded-[16px] py-[14px] items-center justify-center gap-[8px] mt-[6px] cursor-pointer hover:bg-orange group transition-all"
+            >
+              <Icon icon="solar:heart-outline" class="text-xl text-black group-hover:text-white transition-all" />
+              <p class="text-sm font-semibold text-black leading-[20px] tracking-[-0.2px] group-hover:text-white transition-all">
+                {{ $t('add_to_favorites') }}
+              </p>
             </div>
           </div>
         </div>
@@ -716,6 +709,7 @@ import FooterComponent from '@/components/layouts/FooterComponent.vue'
 import BreadcrumbComponent from '@/components/layouts/BreadcrumbComponent.vue'
 import SubscribeComponent from '@/components/layouts/SubscribeComponent.vue'
 import SingleViewComponent from '@/components/SingleViewComponent.vue'
+import Accordion2Component from '@/components/accordion/Accordion2Component.vue'
 
 interface PagesArr {
   page: string
@@ -739,7 +733,8 @@ export default {
     FooterComponent,
     BreadcrumbComponent,
     SubscribeComponent,
-    SingleViewComponent
-  },
+    SingleViewComponent,
+    Accordion2Component
+  }
 }
 </script>

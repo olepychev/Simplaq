@@ -19,14 +19,14 @@
           <div class="flex flex-col gap-[11px]">
             <div class="flex items-center gap-[8px]">
               <div
-                @click="tab = 'privacyPolicy'"
+                @click="() => tabFilter('privacyPolicy')"
                 :class="tab === 'privacyPolicy' ? 'bg-orange text-white' : 'bg-gray text-black'"
                 class="cursor-pointer hover:bg-orange transition-all hover:text-white rounded-[12px] flex items-center justify-center px-[16px] py-[12px]"
               >
                 <p class="font-semibold text-xs leading-[16px] tracking-[-0.1px] capitalize">{{ $t('privacy_policy') }}</p>
               </div>
               <div
-                @click="tab = 'termsConditions'"
+                @click="() => tabFilter('termsConditions')"
                 :class="tab === 'termsConditions' ? 'bg-orange text-white' : 'bg-gray text-black'"
                 class="cursor-pointer hover:bg-orange transition-all hover:text-white rounded-[12px] flex items-center justify-center px-[16px] py-[12px]"
               >
@@ -238,13 +238,16 @@ export default {
   props: {
     notificationsElement: {
       required: false,
-      type: Boolean,
+      type: Boolean
     }
   },
   emits: ['cancelTerms'],
   methods: {
     cancelTerms() {
       this.$emit('cancelTerms')
+    },
+    tabFilter(tab: string) {
+      this.tab = tab
     },
     handleSubmit() {
       if (!this.policyAccepted || !this.termsAccepted) {
@@ -283,7 +286,8 @@ export default {
 
 input:checked ~ .checkmark::before {
   opacity: 1;
-  transform: translate(84%, 25%) rotate(45deg) scale(1);
   transition: all 0.2s ease;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 </style>
